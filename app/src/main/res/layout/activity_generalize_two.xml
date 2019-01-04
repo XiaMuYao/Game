@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
+
+    <include layout="@layout/view_title_bar" />
+
+    <ImageView
+        android:id="@+id/iv_gen_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/gen_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/agent_senior_two_top"
+        app:layout_constraintBottom_toTopOf="@+id/iv_generalize_huakuang"
+        app:layout_constraintEnd_toEndOf="@+id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@+id/iv_generalize_huakuang" />
+
+    <ImageView
+        android:id="@+id/iv_generalize_huakuang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/tuiguang_detail"
+        app:layout_constraintBottom_toBottomOf="@id/iv_gen_bg"
+        app:layout_constraintEnd_toEndOf="@id/iv_gen_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_gen_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_gen_bg" />
+
+    <TextView
+        android:id="@+id/tv_zhitui_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@mipmap/xuankuang"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:text="直推玩家數:xxxxxx"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang"
+        app:layout_constraintTop_toTopOf="@id/iv_generalize_huakuang" />
+
+    <TextView
+        android:id="@+id/tv_qudao_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:background="@mipmap/xuankuang"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:text="渠道玩家數:xxxxxx"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang"
+        app:layout_constraintTop_toBottomOf="@id/tv_zhitui_count" />
+
+    <TextView
+        android:id="@+id/tv_zhitui_yeji"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:background="@mipmap/xuankuang"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:text="直推玩家業績:99999"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang"
+        app:layout_constraintTop_toBottomOf="@id/tv_qudao_count" />
+
+    <TextView
+        android:id="@+id/tv_qudao_yeji"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:background="@mipmap/xuankuang"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:text="渠道玩家業績:99999"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang"
+        app:layout_constraintTop_toBottomOf="@id/tv_zhitui_yeji" />
+
+    <TextView
+        android:id="@+id/tv_gold_yeji"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:background="@mipmap/xuankuang"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:text="本週金幣獎勵:99999"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang"
+        app:layout_constraintTop_toBottomOf="@id/tv_qudao_yeji" />
+
+    <TextView
+        android:id="@+id/tv_gold_leiji"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:background="@mipmap/xuankuang"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:text="累計結算金幣獎勵:99999"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang"
+        app:layout_constraintTop_toBottomOf="@id/tv_gold_yeji" />
+
+    <TextView
+        android:id="@+id/tv_gold_unable"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="5dp"
+        android:background="@mipmap/xuankuang"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:text="未領取金幣獎勵:99999"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang"
+        app:layout_constraintTop_toBottomOf="@id/tv_gold_leiji" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@mipmap/lingqu"
+        app:layout_constraintBottom_toBottomOf="@id/tv_gold_unable"
+        app:layout_constraintEnd_toEndOf="@id/tv_gold_unable"
+        app:layout_constraintTop_toTopOf="@id/tv_gold_unable" />
+
+    <ImageView
+        android:id="@+id/iv_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/check_detail"
+        app:layout_constraintBottom_toBottomOf="@id/iv_generalize_huakuang"
+        app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
+        app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang" />
+</android.support.constraint.ConstraintLayout>

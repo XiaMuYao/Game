@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
+
+    <include
+        android:id="@+id/view_title"
+        layout="@layout/view_title_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_shop_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@mipmap/ban_pipei_gold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_title" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:src="@mipmap/id"
+        app:layout_constraintBottom_toTopOf="@id/iv_shop_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_shop_bg" />
+
+    <ImageView
+        android:id="@+id/iv_shop_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/gold_count"
+        app:layout_constraintBottom_toTopOf="@id/iv_shop_bottom"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom" />
+
+    <ImageView
+        android:id="@+id/iv_shop_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/pipei_bottom"
+        app:layout_constraintBottom_toBottomOf="@id/iv_shop_bg"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_shop_bg" />
+
+    <LinearLayout
+        android:id="@+id/ll_gold_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toTopOf="@+id/iv_shop_bottom">
+
+        <TextView
+            android:id="@+id/tv_gold_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="持有金币数量"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_daoju_count_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:drawableEnd="@mipmap/gold_single"
+            android:text="99999999"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+            app:layout_constraintStart_toEndOf="@id/tv_daoju_count"
+            app:layout_constraintTop_toTopOf="@id/iv_shop_bottom" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_gold_count_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="购买金币数量"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_gold_count_show"
+        app:layout_constraintEnd_toStartOf="@id/tv_gold_count_show"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toTopOf="@id/tv_gold_count_show" />
+
+    <TextView
+        android:id="@+id/tv_gold_count_show"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/shape_shop"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toEndOf="@id/tv_gold_count_buy"
+        app:layout_constraintTop_toBottomOf="@id/ll_gold_count" />
+
+    <TextView
+        android:id="@+id/tv_jiaoyi_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="输入交易密码"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_jiaoyi_pwd_show"
+        app:layout_constraintEnd_toStartOf="@id/tv_jiaoyi_pwd_show"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toTopOf="@id/tv_jiaoyi_pwd_show" />
+
+    <TextView
+        android:id="@+id/tv_jiaoyi_pwd_show"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/shape_shop"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toEndOf="@id/tv_jiaoyi_pwd"
+        app:layout_constraintTop_toBottomOf="@id/tv_gold_count_show" />
+
+    <ImageView
+        android:id="@+id/iv_pipei_daili"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/fuwu_daili"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+        app:layout_constraintTop_toBottomOf="@id/iv_shop_bottom" />
+
+    <TextView
+        android:id="@+id/tv_tishi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="提示: 用户按好评率匹配服务商,充值结果可至交易记录查询"
+        android:textColor="@color/colorWhite"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+        app:layout_constraintTop_toBottomOf="@id/iv_pipei_daili" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="首次填写信息默认保留,下次操作可修改"
+        android:textColor="@color/colorWhite"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+        app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
+
+</android.support.constraint.ConstraintLayout>

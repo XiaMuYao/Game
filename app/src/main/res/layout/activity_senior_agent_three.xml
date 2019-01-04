@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_title_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_gold_apply_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/gen_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <ImageView
+        android:id="@+id/iv_shop_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/weight_task_top"
+        app:layout_constraintBottom_toTopOf="@id/iv_shop_bottom"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom" />
+
+    <ImageView
+        android:id="@+id/iv_shop_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/weight_task_bottom"
+        app:layout_constraintBottom_toBottomOf="@id/iv_gold_apply_bg"
+        app:layout_constraintEnd_toEndOf="@id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
+
+    <LinearLayout
+        android:id="@+id/ll_country"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toTopOf="@id/iv_shop_bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="任务剩余时间:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_daili"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_country">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="加权等级:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_daili">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="当前加权任务状态:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bank"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_tel">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="当前任务等级"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_zhanghao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_bank">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="赏罚等级:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_beizhu_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="备注: 如推广的高级代理未在规定时间内完成加权任务,则"
+        android:textColor="#20c7ff"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@id/ll_zhanghao"
+        app:layout_constraintStart_toStartOf="@id/ll_zhanghao"
+        app:layout_constraintTop_toBottomOf="@id/ll_zhanghao" />
+
+    <TextView
+        android:id="@+id/tv_beizhu_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="自身不再享受平台加权奖励.(需时刻保证直推高级"
+        android:textColor="#20c7ff"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_beizhu_one"
+        app:layout_constraintStart_toStartOf="@id/tv_beizhu_one"
+        app:layout_constraintTop_toBottomOf="@id/tv_beizhu_one" />
+
+    <TextView
+        android:id="@+id/tv_beizhu_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="代理最少不低于2人完成加权任务)"
+        android:textColor="#20c7ff"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_beizhu_two"
+        app:layout_constraintStart_toStartOf="@id/tv_beizhu_two"
+        app:layout_constraintTop_toBottomOf="@id/tv_beizhu_two" />
+
+    <ImageView
+        android:id="@+id/add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/weight_task"
+        app:layout_constraintEnd_toEndOf="@id/tv_beizhu_three"
+        app:layout_constraintStart_toStartOf="@id/tv_beizhu_three"
+        app:layout_constraintTop_toBottomOf="@id/tv_beizhu_three" />
+
+</android.support.constraint.ConstraintLayout>

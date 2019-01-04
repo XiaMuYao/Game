@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/daili_bottom">
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@mipmap/xuankuang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="平台钱包地址:"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@id/address"
+        app:layout_constraintEnd_toStartOf="@id/address"
+        app:layout_constraintTop_toTopOf="@id/address" />
+
+    <EditText
+        android:id="@+id/count"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@mipmap/xuankuang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="购买金币数量:"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@id/count"
+        app:layout_constraintEnd_toStartOf="@id/count"
+        app:layout_constraintTop_toTopOf="@id/count" />
+
+    <EditText
+        android:id="@+id/trade_number"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@mipmap/xuankuang"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/count" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="交易号:"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="@id/trade_number"
+        app:layout_constraintEnd_toStartOf="@id/trade_number"
+        app:layout_constraintTop_toTopOf="@id/trade_number" />
+
+    <ImageView
+        android:id="@+id/right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@mipmap/right_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/trade_number"
+        app:layout_constraintTop_toBottomOf="@id/trade_number" />
+
+</android.support.constraint.ConstraintLayout>

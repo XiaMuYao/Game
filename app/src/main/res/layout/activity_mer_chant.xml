@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_title_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_personal_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/personal_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_personal_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/bord_info"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_personal_bg" />
+
+        <ImageView
+            android:id="@+id/iv_user_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/user_icon"
+            app:layout_constraintBottom_toBottomOf="@id/iv_personal_message"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_message"
+            app:layout_constraintTop_toTopOf="@id/iv_personal_message" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+
+            android:text="收款人姓名:"
+            android:textColor="#e44216"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/sex"
+            app:layout_constraintStart_toEndOf="@id/iv_user_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_user_icon"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <EditText
+            android:id="@+id/show_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:text="赫都莫"
+            android:textColor="#20c7ff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/name"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
+            app:layout_constraintStart_toEndOf="@id/name"
+            app:layout_constraintTop_toTopOf="@id/name" />
+
+        <TextView
+            android:id="@+id/sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="手机号:"
+            android:textColor="#e44216"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/age"
+            app:layout_constraintStart_toEndOf="@id/iv_user_icon"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <EditText
+            android:id="@+id/show_sex"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:text="男"
+            android:textColor="#20c7ff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/sex"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
+            app:layout_constraintStart_toEndOf="@id/sex"
+            app:layout_constraintTop_toTopOf="@id/sex"
+            app:layout_goneMarginStart="5dp" />
+
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:drawableStart="@mipmap/bank_small"
+            android:drawablePadding="5dp"
+            android:text="开户行:"
+            android:textColor="#e44216"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/tel"
+            app:layout_constraintStart_toEndOf="@id/iv_user_icon"
+            app:layout_constraintTop_toBottomOf="@id/sex" />
+
+        <EditText
+            android:id="@+id/show_age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:text="108"
+            android:textColor="#20c7ff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/age"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
+            app:layout_constraintStart_toEndOf="@id/age"
+            app:layout_constraintTop_toTopOf="@id/age" />
+
+        <TextView
+            android:id="@+id/tel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:drawableStart="@mipmap/card_small"
+            android:drawablePadding="5dp"
+            android:text="借记卡:"
+            android:textColor="#e44216"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/nicheng"
+            app:layout_constraintStart_toEndOf="@id/iv_user_icon"
+            app:layout_constraintTop_toBottomOf="@id/age" />
+
+        <EditText
+            android:id="@+id/show_tel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:text="18698711169"
+            android:textColor="#20c7ff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tel"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
+            app:layout_constraintStart_toEndOf="@id/tel"
+            app:layout_constraintTop_toTopOf="@id/tel" />
+
+        <TextView
+            android:id="@+id/nicheng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:drawableStart="@mipmap/zhifubao_small"
+            android:drawablePadding="5dp"
+            android:text="支付宝号:"
+            android:textColor="#e44216"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tel"
+            app:layout_constraintStart_toEndOf="@id/iv_user_icon"
+            app:layout_constraintTop_toBottomOf="@id/tel" />
+
+        <EditText
+            android:id="@+id/show_nicheng"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:text="麦兜点点"
+            android:textColor="#20c7ff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/nicheng"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
+            app:layout_constraintStart_toEndOf="@id/nicheng"
+            app:layout_constraintTop_toTopOf="@id/nicheng" />
+
+        <TextView
+            android:id="@+id/tv_wechat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+
+            android:drawableStart="@mipmap/wechat_small"
+            android:drawablePadding="5dp"
+            android:text="微信号:"
+            android:textColor="#e44216"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/et_wechat"
+            app:layout_constraintStart_toEndOf="@id/iv_user_icon"
+            app:layout_constraintTop_toBottomOf="@id/nicheng" />
+
+        <EditText
+            android:id="@+id/et_wechat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="@null"
+            android:text="zouguohua707696"
+            android:textColor="#20c7ff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_wechat"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
+            app:layout_constraintStart_toEndOf="@id/tv_wechat"
+            app:layout_constraintTop_toTopOf="@id/tv_wechat" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@mipmap/revise"
+            app:layout_constraintBottom_toBottomOf="@id/iv_personal_message"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_message" />
+
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/title_one"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_message"
+            app:layout_constraintTop_toBottomOf="@id/iv_personal_message">
+
+            <RadioButton
+                android:id="@+id/rb_gold_zanzhu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rb_record"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rb_shut"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null" />
+        </RadioGroup>
+
+        <FrameLayout
+            android:id="@+id/frame_mer_chant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/radio"
+            app:layout_constraintStart_toStartOf="@id/radio"
+            app:layout_constraintTop_toBottomOf="@id/radio" />
+
+        <ImageView
+            android:id="@+id/iv_agent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:src="@mipmap/daili_caozuo"
+            app:layout_constraintBottom_toBottomOf="@id/iv_personal_bg"
+            app:layout_constraintEnd_toEndOf="@id/iv_personal_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_bg" />
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

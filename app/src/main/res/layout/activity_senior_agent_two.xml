@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_title_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_gold_apply_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/gen_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+    <ImageView
+        android:id="@+id/iv_shop_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/agent_senior_two_top"
+        app:layout_constraintBottom_toTopOf="@id/iv_shop_bottom"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom" />
+
+    <ImageView
+        android:id="@+id/iv_shop_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/agent_senior_two_bottom"
+        app:layout_constraintBottom_toBottomOf="@id/iv_gold_apply_bg"
+        app:layout_constraintEnd_toEndOf="@id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
+
+    <LinearLayout
+        android:id="@+id/ll_country"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toTopOf="@id/iv_shop_bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="加权等级:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_daili"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_country">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="已损失加权奖励:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_tel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_daili">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="加权奖励领取上限:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_bank"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_tel">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="本周加权奖励"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_zhanghao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_bank">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="累计已领取加权奖励:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/add_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/add_task"
+        app:layout_constraintEnd_toEndOf="@id/ll_zhanghao"
+        app:layout_constraintStart_toStartOf="@id/ll_zhanghao"
+        app:layout_constraintTop_toBottomOf="@id/ll_zhanghao" />
+
+    <ImageView
+        android:id="@+id/immediately_extension"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/immediately_extension"
+        app:layout_constraintEnd_toEndOf="@id/add_task"
+        app:layout_constraintStart_toStartOf="@id/add_task"
+        app:layout_constraintTop_toBottomOf="@id/add_task" />
+</android.support.constraint.ConstraintLayout>

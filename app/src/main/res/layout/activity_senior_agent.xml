@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_title_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_agent_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/bg_senior_agent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <ImageView
+        android:id="@+id/iv_agent_introduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/agent_introduce"
+        app:layout_constraintEnd_toEndOf="@id/iv_agent_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_agent_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_agent_bg" />
+
+    <ImageView
+        android:id="@+id/iv_agent_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/agent_permission"
+        app:layout_constraintEnd_toEndOf="@id/iv_agent_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_agent_bg"
+        app:layout_constraintTop_toBottomOf="@id/iv_agent_introduce" />
+
+    <ImageView
+        android:id="@+id/iv_agent_senior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/apply"
+        app:layout_constraintBottom_toBottomOf="@id/iv_agent_permission"
+        app:layout_constraintEnd_toEndOf="@id/iv_agent_permission"
+        app:layout_constraintStart_toStartOf="@id/iv_agent_permission" />
+</android.support.constraint.ConstraintLayout>

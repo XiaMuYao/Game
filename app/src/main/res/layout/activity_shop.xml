@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_title_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_shop_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@mipmap/shop_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <ImageView
+        android:id="@+id/iv_shop_kuang"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@mipmap/blackbord"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_shop_bg" />
+
+    <TextView
+        android:id="@+id/tv_introduce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="介绍道具详情:"
+        android:textColor="#ff060e"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_kuang"
+        app:layout_constraintTop_toTopOf="@id/iv_shop_kuang" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="道具使用等方法内容"
+        android:textColor="#207e9b"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@id/tv_introduce"
+        app:layout_constraintTop_toBottomOf="@id/tv_introduce" />
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:src="@mipmap/xiangzi"
+        app:layout_constraintBottom_toBottomOf="@id/iv_shop_kuang"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_kuang"
+        app:layout_constraintTop_toTopOf="@id/iv_shop_kuang" />
+
+    <ImageView
+        android:id="@+id/iv_shop_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/shop_head"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_kuang"
+        app:layout_constraintTop_toBottomOf="@id/iv_shop_kuang" />
+
+    <ImageView
+        android:id="@+id/iv_shop_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_head"
+        app:layout_constraintTop_toBottomOf="@id/iv_shop_head" />
+
+    <TextView
+        android:id="@+id/tv_daoju_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="购买道具数量"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_daoju_count_show"
+        app:layout_constraintEnd_toStartOf="@+id/tv_daoju_count_show"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toTopOf="@+id/tv_daoju_count_show" />
+
+    <TextView
+        android:id="@+id/tv_daoju_count_show"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/shape_shop"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toEndOf="@id/tv_daoju_count"
+        app:layout_constraintTop_toTopOf="@id/iv_shop_bottom" />
+
+    <TextView
+        android:id="@+id/tv_gold_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="购买金币数量"
+        android:textColor="@color/colorWhite"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_gold_count_show"
+        app:layout_constraintEnd_toStartOf="@id/tv_gold_count_show"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toTopOf="@id/tv_gold_count_show" />
+
+    <TextView
+        android:id="@+id/tv_gold_count_show"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/shape_shop"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toEndOf="@id/tv_gold_count"
+        app:layout_constraintTop_toBottomOf="@id/tv_daoju_count_show" />
+
+    <ImageView
+        android:id="@+id/match"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:src="@mipmap/pipei"
+        app:layout_constraintBottom_toBottomOf="@id/iv_shop_bottom"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+        app:layout_constraintStart_toEndOf="@id/iv_shop_bottom" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@mipmap/gold_single"
+        android:drawablePadding="5dp"
+        android:gravity="center_vertical"
+        android:text="持有金币数量"
+        android:textColor="@color/colorWhite"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_gold_count_get"
+        app:layout_constraintEnd_toEndOf="@id/match"
+        app:layout_constraintStart_toStartOf="@+id/match" />
+
+    <TextView
+        android:id="@+id/tv_gold_count_get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="9999"
+        android:textColor="@color/colorWhite"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/match"
+        app:layout_constraintEnd_toEndOf="@id/match"
+        app:layout_constraintStart_toStartOf="@+id/match" />
+
+
+</android.support.constraint.ConstraintLayout>

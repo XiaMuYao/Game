@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/view_title_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/vote_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/vote_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/vote_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="请为你喜欢的游戏投票"
+        android:textColor="#f2edd8"
+        app:layout_constraintEnd_toEndOf="@id/vote_bg"
+        app:layout_constraintStart_toStartOf="@id/vote_bg"
+        app:layout_constraintTop_toTopOf="@id/vote_bg" />
+
+    <TextView
+        android:id="@+id/vote_title_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="有效投票截止时间: 2019.01.18"
+        android:textColor="#f2edd8"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="@id/vote_bg"
+        app:layout_constraintStart_toStartOf="@id/vote_bg"
+        app:layout_constraintTop_toBottomOf="@id/vote_title" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_vote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@id/vote_bg"
+        app:layout_constraintStart_toStartOf="@id/vote_bg"
+        app:layout_constraintTop_toBottomOf="@id/vote_title_second" />
+
+</android.support.constraint.ConstraintLayout>

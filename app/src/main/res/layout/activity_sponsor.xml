@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
+
+    <include layout="@layout/view_title_bar" />
+
+    <ImageView
+        android:id="@+id/iv_sponsor_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/sponsor_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/mark"
+        app:layout_constraintEnd_toEndOf="@id/iv_sponsor_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_sponsor_bg" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/title_head"
+        app:layout_constraintEnd_toEndOf="@id/iv_sponsor_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_sponsor_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_sponsor_bg" />
+
+    <ImageView
+        android:id="@+id/iv_sponsor_kuang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/sponor_bg"
+        app:layout_constraintBottom_toBottomOf="@id/iv_sponsor_bg"
+        app:layout_constraintEnd_toEndOf="@id/iv_sponsor_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_sponsor_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_sponsor_bg" />
+
+    <ImageView
+        android:id="@+id/iv_gold_zanzhu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/gold_zanzhu"
+        app:layout_constraintBottom_toTopOf="@id/iv_dali_shenqing"
+        app:layout_constraintEnd_toStartOf="@id/iv_daoju_huishou"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@id/iv_sponsor_kuang"
+        app:layout_constraintTop_toTopOf="@id/iv_sponsor_kuang"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <ImageView
+        android:id="@+id/iv_daoju_huishou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/daoju_huishou"
+        app:layout_constraintBottom_toTopOf="@id/record"
+        app:layout_constraintEnd_toEndOf="@id/iv_sponsor_kuang"
+        app:layout_constraintStart_toEndOf="@id/iv_gold_zanzhu"
+        app:layout_constraintTop_toTopOf="@id/iv_sponsor_kuang"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <ImageView
+        android:id="@+id/iv_dali_shenqing"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/daili_shenqing"
+        app:layout_constraintBottom_toBottomOf="@id/iv_sponsor_kuang"
+        app:layout_constraintEnd_toStartOf="@id/record"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@id/iv_sponsor_kuang"
+        app:layout_constraintTop_toBottomOf="@id/iv_gold_zanzhu" />
+
+    <ImageView
+        android:id="@+id/record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:src="@mipmap/record"
+        app:layout_constraintBottom_toBottomOf="@id/iv_sponsor_kuang"
+        app:layout_constraintEnd_toEndOf="@id/iv_sponsor_kuang"
+        app:layout_constraintStart_toEndOf="@id/iv_dali_shenqing"
+        app:layout_constraintTop_toBottomOf="@id/iv_daoju_huishou" />
+
+    <TextView
+        android:id="@+id/tv_tishi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="提示:用户按好评率匹配服务商,充值结果可至交易记录查询。"
+        android:textColor="@color/colorWhite"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/iv_sponsor_kuang"
+        app:layout_constraintStart_toStartOf="@id/iv_sponsor_kuang"
+        app:layout_constraintTop_toBottomOf="@id/iv_dali_shenqing" />
+
+    <TextView
+        android:id="@+id/tv_tishi_secode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="首次填写信息默认保留,下次操作可修改。"
+        android:textColor="@color/colorWhite"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/iv_sponsor_kuang"
+        app:layout_constraintStart_toStartOf="@id/iv_sponsor_kuang"
+        app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
+</android.support.constraint.ConstraintLayout>
