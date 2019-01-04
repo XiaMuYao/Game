@@ -20,6 +20,8 @@ import com.ydws.game.MainActivity;
 import com.ydws.game.R;
 import com.ydws.game.base.BaseAbstractActivity;
 import com.ydws.game.bean.LoginBean;
+import com.ydws.game.net.RetrofitManager;
+import com.ydws.game.net.base.BaseResponse;
 import com.ydws.game.utils.SharedPreferencesUtils;
 import com.ydws.game.utils.constants.Common;
 import com.ydws.game.utils.constants.CommonURL;
@@ -27,6 +29,8 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
+
+import io.reactivex.functions.Consumer;
 
 /**
  * Created by 任飞宇
@@ -100,17 +104,22 @@ public class LoginEnActivity extends BaseAbstractActivity implements View.OnClic
 
                 break;
             case R.id.sign_in_button:
-                final String login_account = login_account_edit_text.getText().toString();
-                final String login_password = login_password_edit_text.getText().toString();
-                if (login_password.trim().equals("")) {
-                    Toast.makeText(this, "请您输入用户名！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (login_password.trim().equals("")) {
-                    Toast.makeText(this, "请您输入密码！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                requestData(login_account, login_password);
+
+
+
+
+
+//                final String login_account = login_account_edit_text.getText().toString();
+//                final String login_password = login_password_edit_text.getText().toString();
+//                if (login_password.trim().equals("")) {
+//                    Toast.makeText(this, "请您输入用户名！", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (login_password.trim().equals("")) {
+//                    Toast.makeText(this, "请您输入密码！", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                requestData(login_account, login_password);
 
 
                 break;

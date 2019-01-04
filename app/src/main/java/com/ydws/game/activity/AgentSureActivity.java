@@ -1,6 +1,8 @@
 package com.ydws.game.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.telephony.TelephonyManager;
 import android.view.View;
 
 import com.ydws.game.R;

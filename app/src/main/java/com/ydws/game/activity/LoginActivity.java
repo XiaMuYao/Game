@@ -20,6 +20,10 @@ import com.ydws.game.MainActivity;
 import com.ydws.game.R;
 import com.ydws.game.base.BaseAbstractActivity;
 import com.ydws.game.bean.LoginBean;
+import com.ydws.game.net.LL;
+import com.ydws.game.net.RetrofitManager;
+import com.ydws.game.net.base.BaseResponse;
+import com.ydws.game.net.scheduler.SchedulerUtils;
 import com.ydws.game.utils.SharedPreferencesUtils;
 import com.ydws.game.utils.constants.Common;
 import com.ydws.game.utils.constants.CommonURL;
@@ -27,6 +31,10 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by 任飞宇
@@ -106,18 +114,32 @@ public class LoginActivity extends BaseAbstractActivity implements View.OnClickL
                 break;
             case R.id.sign_in_button:
 
-                LogUtils.d("点击了...");
-                final String login_account = login_account_edit_text.getText().toString();
-                final String login_password = login_password_edit_text.getText().toString();
-                if (login_password.trim().equals("")) {
-                    Toast.makeText(this, "Please input your username！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (login_password.trim().equals("")) {
-                    Toast.makeText(this, "Please input your password！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                    requestData(login_account, login_password);
+                RetrofitManager.INSTANCE.getService()
+                        .login("a1001", "123456")
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                dataBeanBaseResponse -> {
+                                    Intent intent = new Intent(this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                        );
+
+//                LogUtils.d("点击了...");
+//                final String login_account = login_account_edit_text.getText().toString();
+//                final String login_password = login_password_edit_text.getText().toString();
+//                if (login_password.trim().equals("")) {
+//                    Toast.makeText(this, "Please input your username！", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (login_password.trim().equals("")) {
+//                    Toast.makeText(this, "Please input your password！", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                    requestData(login_account, login_password);
+
+
 //                Intent intent = new Intent(this, MainActivity.class);
 //                startActivity(intent);
 //                finish();
@@ -137,7 +159,7 @@ public class LoginActivity extends BaseAbstractActivity implements View.OnClickL
     }
 
     private void requestData(final String login_account, final String login_password) {
-        String url = CommonURL.URL + "/game/login?userName=" + login_account + "&password=" + login_password + "&language=" + 0+"&sessionId="+Common.sessionId;
+        String url = CommonURL.URL + "/game/login?userName=" + login_account + "&password=" + login_password + "&language=" + 0 + "&sessionId=" + Common.sessionId;
         OkHttpUtils
                 .get()
                 .url(url)
