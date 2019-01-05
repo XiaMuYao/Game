@@ -2,6 +2,7 @@ package com.ydws.game.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.databinding.BaseObservable
 import android.view.View
 import android.widget.TextView
 import com.ydws.game.MainActivity
@@ -9,6 +10,7 @@ import com.ydws.game.MainActivity
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
 import com.ydws.game.net.SecondRetrofitManager
+import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.utils.SharedPreferencesUtils
 import com.ydws.game.utils.constants.Common
@@ -40,9 +42,16 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
                 .findBalance(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { it->
-                    tv_daoju_count_show.text = it.data
-                }
+                .subscribe (object : BaseObserver<String>(){
+
+                    override fun onSuccees(t: BaseResponse<String>, data: String) {
+                        tv_daoju_count_show.text = data
+                    }
+
+                    override fun onCodeError(code: Int, msg: String) {
+
+                    }
+                })
 
 
     }

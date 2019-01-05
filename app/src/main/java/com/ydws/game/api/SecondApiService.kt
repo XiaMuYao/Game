@@ -1,5 +1,7 @@
 package com.ydws.game.api
 
+import com.ydws.game.bean.FindCountriesBean
+import com.ydws.game.body.GoldTradingBody
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
 
