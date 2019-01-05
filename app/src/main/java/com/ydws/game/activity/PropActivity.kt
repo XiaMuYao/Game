@@ -40,8 +40,8 @@ class PropActivity : BaseAbstractActivity(), View.OnClickListener {
     private fun setupView() {
         activityPropBinding.llReplace.setOnClickListener {
             if (countries.isNotEmpty()) {
-                SimpleChooserDialog.showParcelables(supportFragmentManager, countries, OnChooseListener { _, content ->
-
+                SimpleChooserDialog.showParcelables(supportFragmentManager, countries, OnChooseListener { dialog, content ->
+                    dialog.dismiss()
                 })
             }
         }

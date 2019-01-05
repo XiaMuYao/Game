@@ -13,4 +13,8 @@ import kotlinx.android.parcel.Parcelize
 //private String countries;
 //private String bili;
 @Parcelize
-data class Countries(val id:String ,val countries:String,val bili:String) :Parcelable
+data class Countries(val id:String? ,val countries:String?,val bili:String?) :Parcelable{
+    override fun toString(): String {
+        return countries?:""
+    }
+}
