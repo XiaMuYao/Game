@@ -10,6 +10,8 @@ import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseResponse
+import com.ydws.game.utils.SharedPreferencesUtils
+import com.ydws.game.utils.constants.Common
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_pipei_bishang.*
@@ -33,13 +35,16 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
 
     @SuppressLint("CheckResult")
     override fun initData() {
+        val userId = SharedPreferencesUtils.getParam(applicationContext, Common.ID, "") as String
         SecondRetrofitManager.service
-                .findBalance("","","0")
+                .findBalance(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { it->
                     tv_daoju_count_show.text = it.data
                 }
+
+
     }
 
     override fun onClick(view: View) {
