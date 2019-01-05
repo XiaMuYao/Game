@@ -38,7 +38,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="请输入密保问题"
+            android:hint="请输入activity_forget_pwd.xml密保问题"
             android:inputType="textPassword"
             android:padding="5dp"
             android:textColor="@color/colorWhite"

@@ -19,7 +19,12 @@ interface ApiService {
      * 注册
      */
     @POST("game/register")
-    fun register(@Body() data: UserRegisterBean): Observable<BaseResponse<LoginBean.DataBean>>
+    fun register(@Query("userName") userName: String,
+                 @Query("password") password: String,
+                 @Query("refereesId") refereesId: String,
+                 @Query("question") question: String,
+                 @Query("answer") answer: String
+    ): Observable<BaseResponse<LoginBean.DataBean>>
 
 
     /**
@@ -27,7 +32,6 @@ interface ApiService {
      */
     @GET("/agent/getProblem")
     fun getProblem(@Query("userName") userName: String): Observable<BaseResponse<LoginBean.DataBean>>
-
 
 
 }

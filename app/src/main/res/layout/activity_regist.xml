@@ -14,6 +14,7 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/ed_tuijian"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
@@ -31,6 +32,7 @@
             android:background="@color/colorWhite" />
 
         <EditText
+            android:id="@+id/ed_account"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
@@ -48,6 +50,7 @@
             android:background="@color/colorWhite" />
 
         <EditText
+            android:id="@+id/ed_password"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
@@ -65,6 +68,7 @@
             android:background="@color/colorWhite" />
 
         <EditText
+            android:id="@+id/ed_tpassword"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
@@ -98,7 +102,7 @@
             android:layout_marginTop="50dp"
             android:orientation="horizontal">
 
-                <TextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="*注册代表您同意"
