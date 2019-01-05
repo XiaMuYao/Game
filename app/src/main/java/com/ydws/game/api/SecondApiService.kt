@@ -1,6 +1,7 @@
 package com.ydws.game.api
 
 import com.ydws.game.bean.FindCountriesBean
+import com.ydws.game.bean.GameSelectEverydayTaskBean
 import com.ydws.game.bean.PropAboutMoney
 import com.ydws.game.bean.SelectBuyBackBean
 import com.ydws.game.body.GoldTradingBody
@@ -37,4 +38,9 @@ interface SecondApiService {
     @GET("prop/aboutMoney")
     fun propAboutMoney(@Query("countries")countries:String,@Query("goldNumber")number:String):Observable<BaseResponse<PropAboutMoney.DataBean>>
 
+    @GET("game/selectEverydayTask")
+    fun  gameSelectEverydayTask(@Query("userId")userId:String):Observable<BaseResponse<GameSelectEverydayTaskBean.DataBean>>
+
+    @POST("game/receivegold")
+    fun  gameReceivegold(@Query("userId")userId:String): Observable<BaseResponse<Any>>
 }
