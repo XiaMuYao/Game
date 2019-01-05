@@ -1,5 +1,8 @@
 package com.ydws.game.body;
 
+import android.databinding.ObservableField;
+import android.databinding.ObservableInt;
+
 /***
  * Created by mo on 2019/1/5
  * 冷风如刀，以大地为砧板，视众生为鱼肉。
@@ -21,19 +24,21 @@ public class PropBody {
 //    fiat	是	Bigdecimal	约个法币价值
 //    countries
 
-    public  String userId;
-    public String city;
-    public String payee;
-    public String bankname;
-    public String cardNumber;
-    public String zhifubaoId;
-    public String wechat;
-    public String propsNumber;
-    public String traPassword;
-    public String phone;
-    public int language = 0;
-    public String sessionId;
-    public int fiat;
-    public String fiatStr;
-    public String countries;
+    public ObservableField<String> userId = new ObservableField<>();
+    public  ObservableField<String> city= new ObservableField<>();
+    public  ObservableField<String> payee= new ObservableField<>();
+    public  ObservableField<String> bankname= new ObservableField<>();
+    public  ObservableField<String> cardNumber= new ObservableField<>();
+    public  ObservableField<String> zhifubaoId= new ObservableField<>();
+    public  ObservableField<String> wechat= new ObservableField<>();
+    public  ObservableField<String> propsNumber= new ObservableField<>();
+    public  ObservableField<String> traPassword= new ObservableField<>();
+    public  ObservableField<String> phone= new ObservableField<>();
+    public ObservableInt language = new ObservableInt();
+    public  ObservableField<String> sessionId= new ObservableField<>();
+    public ObservableInt fiat= new ObservableInt();
+    public  ObservableField<String> fiatStr= new ObservableField<>();
+    public  ObservableField<String> countries= new ObservableField<>();
+
+    public  ObservableField<String> buyValue= new ObservableField<>();
 }

@@ -1,6 +1,8 @@
 package com.ydws.game.api
 
 import com.ydws.game.bean.FindCountriesBean
+import com.ydws.game.bean.PropAboutMoney
+import com.ydws.game.bean.SelectBuyBack
 import com.ydws.game.body.GoldTradingBody
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
@@ -29,4 +31,13 @@ interface SecondApiService {
 
     @GET(" agent/findCountries")
     fun findCountries(): Observable<BaseResponse<List<FindCountriesBean.DataBean>>>
+
+    @GET("prop/selectBuyBack")
+    fun  selectBuyBack(@Query("id")id:String):Observable<BaseResponse<SelectBuyBack.DataBean>>
+
+    @GET("prop/aboutMoney")
+    fun propAboutMoney(@Query("countries")countries:String,@Query("goldNumber")number:String):Observable<BaseResponse<PropAboutMoney.DataBean>>
+
+    @GET("/prop/selectBuyBack")
+    fun propSelectBuyBack(@QueryMap map: Map<String, Any>)
 }
