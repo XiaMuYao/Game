@@ -37,7 +37,7 @@ abstract class BaseObserver<T> : Observer<BaseResponse<T>> {
             onSuccees(t, t.data)
         } else {
             onCodeError(t.code, t.message)
-            Toast.makeText(App.instance,t.message,Toast.LENGTH_SHORT)
+            Toast.makeText(App.instance,t.message,Toast.LENGTH_SHORT).show()
         }
     }
 
