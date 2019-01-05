@@ -1,10 +1,7 @@
 package com.ydws.game.api
 
-import com.ydws.game.bean.FindCountriesBean
-import com.ydws.game.bean.GameSelectEverydayTaskBean
+import com.ydws.game.bean.*
 import com.ydws.game.body.GoldTradingBean
-import com.ydws.game.bean.PropAboutMoney
-import com.ydws.game.bean.SelectBuyBackBean
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
 
@@ -44,4 +41,7 @@ interface SecondApiService {
 
     @POST("game/receivegold")
     fun  gameReceivegold(@Query("userId")userId:String): Observable<BaseResponse<Any>>
+
+    @GET("prop/recordByDaoOrGold")
+    fun  propRecordByDaoOrGold(@Query("userId")userId:String,@Query("daoOrGold") daoOrGold:Int):Observable<BaseResponse<List<GameSelectGoldRecordBean.DataBean>>>
 }
