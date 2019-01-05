@@ -22,9 +22,6 @@ interface SecondApiService {
 
     @GET("agent/addGoldTrading")
     fun addGoldTrading(): Observable<BaseResponse<GoldTradingBody>>
-    fun findBalance(@Query("userId") userId: String,
-              @Query("sessionId") sessionId: String,
-              @Query("language") language: String): Observable<BaseResponse<String>>
 
     @POST("/prop/addBuyBack")
     fun  addBuyBack(@QueryMap map:Map<String,Any>): Observable<BaseResponse<Any>>
