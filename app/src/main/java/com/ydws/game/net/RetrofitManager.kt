@@ -3,7 +3,6 @@ package com.ydws.game.net
 
 
 import com.ydws.game.api.ApiService
-import com.ydws.game.api.SecondApiService
 import com.ydws.game.utils.constants.CommonURL
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
@@ -19,7 +18,7 @@ object RetrofitManager {
     private var retrofit: Retrofit? = null
 
 
-    val service: SecondApiService by lazy { getRetrofit()!!.create(SecondApiService::class.java) }
+    val service: ApiService by lazy { getRetrofit()!!.create(ApiService::class.java) }
 
 
     /**
