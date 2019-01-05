@@ -1,8 +1,6 @@
 package com.ydws.game.api
 
-import com.ydws.game.bean.GameListBean
-import com.ydws.game.bean.LoginBean
-import com.ydws.game.bean.UserRegisterBean
+import com.ydws.game.bean.*
 import io.reactivex.Observable
 import com.ydws.game.net.base.BaseResponse
 import retrofit2.http.*
@@ -42,13 +40,13 @@ interface ApiService {
      */
     @GET("game/changePassword")
     fun changePassword(@Query("userId") userId: String,
-                      @Query("password") password: String
+                       @Query("password") password: String
     ): Observable<BaseResponse<Any>>
 
     /**
      * 获取密钥
      */
-    @GET("/agent/getProblem")
+    @GET("agent/getProblem")
     fun getProblem(@Query("userName") userName: String): Observable<BaseResponse<LoginBean.DataBean>>
 
 
@@ -57,6 +55,56 @@ interface ApiService {
      */
     @GET("game/selectGoldCoinRecord")
     fun selectGoldCoinRecord(@Query("userId") userId: String,
-                       @Query("number") number: String
+                             @Query("number") number: String
     ): Observable<BaseResponse<List<GameListBean.DataBean>>>
+
+    /**
+     * 获取游戏记录
+     */
+    @GET("prop/buyingProps")
+    fun buyingProps(@Query("id") userId: String
+    ): Observable<BaseResponse<buyingPropsBean.DataBean>>
+
+
+    /**
+     * 获取金币道具数量
+     */
+    @GET("prop/findPropsMoney")
+    fun findPropsMoney(@Query("id") userId: String
+    ): Observable<BaseResponse<String>>
+
+
+    /**
+     * 获取金币道具数量
+     */
+    @POST("prop/buyProps")
+    fun buyProps(@Query("id") userId: String,
+                 @Query("money") money: String,
+                 @Query("number") number: String
+    ): Observable<BaseResponse<Any>>
+
+
+    /**
+     * 查看推广详情
+     */
+    @POST("game/findAgentGeneralInformation")
+    fun findAgentGeneralInformation(@Query("userId") userId: String):
+            Observable<BaseResponse<tuiguangBean.DataBean>>
+
+
+    /**
+     * 推广页领取业绩奖励
+     */
+    @POST("receive/receiveGoldCoin")
+    fun receiveGoldCoin(@Query("userId") userId: String):
+            Observable<BaseResponse<Any>>
+
+    /**
+     * 推广页二维码
+     */
+    @GET("agent/showPropaganda")
+    fun showPropaganda(@Query("id") userId: String):
+            Observable<BaseResponse<erweimaBean.DataBean>>
+
+
 }
