@@ -4,7 +4,6 @@ import com.ydws.game.bean.FindCountriesBean
 import com.ydws.game.body.GoldTradingBean
 import com.ydws.game.bean.PropAboutMoney
 import com.ydws.game.bean.SelectBuyBack
-import com.ydws.game.body.GoldTradingBody
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
 
