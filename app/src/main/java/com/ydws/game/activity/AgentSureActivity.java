@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.ydws.game.R;
 import com.ydws.game.base.BaseAbstractActivity;
+import com.ydws.game.utils.StringUtli;
 
 /**
  * 代理确认
@@ -24,7 +25,6 @@ public class AgentSureActivity extends BaseAbstractActivity implements View.OnCl
 
     @Override
     public void initData() {
-
     }
 
     @Override

@@ -9,12 +9,17 @@ import com.ydws.game.R
 import com.ydws.game.R.id.ed_password
 import com.ydws.game.R.id.next_btn
 import com.ydws.game.base.BaseAbstractActivity
+import com.ydws.game.bean.LoginBean
 import com.ydws.game.bean.UserRegisterBean
 import com.ydws.game.net.LL
 import com.ydws.game.net.RetrofitManager
+import com.ydws.game.net.base.BaseObserver
+import com.ydws.game.net.base.BaseResponse
+import com.ydws.game.net.scheduler.SchedulerUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_register_last.*
+import org.jetbrains.anko.startActivity
 
 class RegisterLastActivity : BaseAbstractActivity() {
 
@@ -37,12 +42,18 @@ class RegisterLastActivity : BaseAbstractActivity() {
                             guanjianzi.text.toString().trim(),
                             miyao.text.toString().trim()
                     )
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe { dataBeanBaseResponse ->
+                    .compose(SchedulerUtils.ioToMain())
+                    .subscribe(object : BaseObserver<Any>() {
+                        override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                            val starter = Intent(this@RegisterLastActivity, RegisterLastActivity::class.java)
+                            startActivity(starter)
+                            finish()
+                        }
 
+                        override fun onCodeError(code: Int, msg: String) {
+                        }
 
-                    }
+                    })
 
 
         }
