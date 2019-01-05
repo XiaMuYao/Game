@@ -21,12 +21,15 @@ public class PipeiBishangActivity extends BaseAbstractActivity implements View.O
     @Override
     public void initViews() {
         titleTv = findViewById(R.id.tv_title_bar);
+        titleTv.setText("赞助");
+        findViewById(R.id.iv_pipei_daili).setOnClickListener(this);
+        findViewById(R.id.back).setOnClickListener(this);
     }
 
     @Override
     public void initData() {
-        titleTv.setText("赞助");
-        findViewById(R.id.iv_pipei_daili).setOnClickListener(this);
+
+
     }
 
     @Override
@@ -34,6 +37,9 @@ public class PipeiBishangActivity extends BaseAbstractActivity implements View.O
         switch (view.getId()) {
             case R.id.iv_pipei_daili:
                 startActivity(new Intent(this, GoldApplyActivity.class));
+                break;
+            case R.id.back:
+                finish();
                 break;
         }
     }
