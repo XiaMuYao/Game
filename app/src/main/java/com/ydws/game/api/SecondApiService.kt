@@ -17,10 +17,14 @@ interface SecondApiService {
      * 充值时返回金币数量
      */
     @GET("agent/findBalance")
-    fun findBalance(@Query("userId") userId: String,
-              @Query("sessionId") sessionId: String,
-              @Query("language") language: String): Observable<BaseResponse<String>>
+    fun findBalance(@Query("userId") userId: String): Observable<BaseResponse<String>>
+
+    @GET("agent/addGoldTrading")
+    fun addGoldTrading(): Observable<BaseResponse<GoldTradingBody>>
 
     @POST("/prop/addBuyBack")
     fun  addBuyBack(@QueryMap map:Map<String,Any>): Observable<BaseResponse<Any>>
+
+    @GET("/agent/findCountries")
+    fun findCountries(): Observable<BaseResponse<List<FindCountriesBean.DataBean>>>
 }

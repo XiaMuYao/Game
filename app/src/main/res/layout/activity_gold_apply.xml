@@ -336,18 +336,26 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="代为兑换所需法币价值:"
+            android:text="代为兑换所需法币价值:(含服务费)"
             android:textColor="@color/colorWhite"
+            android:drawableEnd="@drawable/ic_arrow_drop_down_white_24dp"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:textColor="@color/colorWhite" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/xuanzefabijiazhi"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text=""
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@null"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_replace"/>
 
     <LinearLayout
         android:id="@+id/ll_pay_fangshi"
@@ -359,9 +367,10 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
         app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
-        app:layout_constraintTop_toBottomOf="@id/ll_replace">
+        app:layout_constraintTop_toBottomOf="@id/xuanzefabijiazhi">
 
         <TextView
+            android:id="@+id/xuanzezhifufangshi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -372,11 +381,14 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/zhifufangshi"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
+            android:paddingEnd="10dp"
             android:background="@null"
+            android:drawableEnd="@drawable/ic_arrow_drop_down_white_24dp"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
