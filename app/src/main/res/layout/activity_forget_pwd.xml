@@ -14,7 +14,9 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/zhanghaohhhh"
             android:layout_width="match_parent"
+            android:text="a1002"
             android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -34,13 +36,14 @@
             android:background="@color/colorWhite" />
 
         <EditText
+            android:id="@+id/mibaowenti"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="请输入activity_forget_pwd.xml密保问题"
-            android:inputType="textPassword"
+            android:hint="请输入密保问题"
             android:padding="5dp"
+            android:text="222222"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textCursorDrawable="@drawable/edittext_normal" />
@@ -51,12 +54,13 @@
             android:background="@color/colorWhite" />
 
         <EditText
+            android:id="@+id/mibaodaan"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
+            android:text="1546658151884qwefdsz"
             android:background="@null"
             android:hint="请输入密保答案"
-            android:inputType="textPassword"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
