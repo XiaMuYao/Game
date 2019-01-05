@@ -3,6 +3,7 @@ package com.ydws.game.net
 
 import com.ydws.game.api.ApiService
 import com.ydws.game.api.SecondApiService
+import com.ydws.game.utils.StringUtli
 import com.ydws.game.utils.constants.CommonURL
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
@@ -31,7 +32,7 @@ object SecondRetrofitManager {
             val request: Request
             val modifiedUrl = originalRequest.url().newBuilder()
                     .addQueryParameter("language", "0")
-                    .addQueryParameter("sessionId", "123")
+                    .addQueryParameter("sessionId", StringUtli.getBlueTooth())
                     .build()
             request = originalRequest.newBuilder().url(modifiedUrl).build()
             chain.proceed(request)

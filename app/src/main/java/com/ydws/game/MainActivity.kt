@@ -106,7 +106,7 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
                         LogUtils.d(TAG, response)
                         val personalMessageBean = Gson().fromJson(response, PersonalMessageBean::class.java)
                         if (personalMessageBean.code == Common.SUCCESS) {
-                            Glide.with(context).load(R.mipmap.hall_page_background).into(userIcon!!)
+                            Glide.with(this@MainActivity).load(R.mipmap.hall_page_background).into(userIcon!!)
                             jinbi!!.text = personalMessageBean.data.jinbi.toString() + ""
                             yinbi!!.text = personalMessageBean.data.yinbi.toString() + ""
                             daoju!!.text = personalMessageBean.data.propsNumber.toString() + ""

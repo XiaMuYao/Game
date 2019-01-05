@@ -1,12 +1,11 @@
 package com.ydws.game.api
 
 import com.ydws.game.bean.FindCountriesBean
-import com.ydws.game.body.GoldTradingBody
+import com.ydws.game.body.GoldTradingBean
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
 
 
-import com.ydws.game.body.PropBody
 import retrofit2.http.*
 
 /***
@@ -22,7 +21,7 @@ interface SecondApiService {
     fun findBalance(@Query("userId") userId: String): Observable<BaseResponse<String>>
 
     @GET("agent/addGoldTrading")
-    fun addGoldTrading(): Observable<BaseResponse<GoldTradingBody>>
+    fun addGoldTrading(@Query("userId") userId: String,@Query("jinbi") jinbi: String,@Query("tradingPassword") tradingPassword: String): Observable<BaseResponse<GoldTradingBean>>
 
     @POST("/prop/addBuyBack")
     fun  addBuyBack(@QueryMap map:Map<String,Any>): Observable<BaseResponse<Any>>

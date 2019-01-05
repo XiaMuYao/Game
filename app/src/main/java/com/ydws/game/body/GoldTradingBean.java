@@ -1,6 +1,8 @@
 package com.ydws.game.body;
 
-public class GoldTradingBody {
+import java.io.Serializable;
+
+public class GoldTradingBean implements Serializable {
 
     /**
      * id : 10017
