@@ -3,11 +3,12 @@ package com.ydws.game.api
 import com.ydws.game.bean.FindCountriesBean
 import com.ydws.game.body.GoldTradingBean
 import com.ydws.game.bean.PropAboutMoney
-import com.ydws.game.bean.SelectBuyBack
+import com.ydws.game.bean.SelectBuyBackBean
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
 
 
+import com.ydws.game.body.PropBody
 import retrofit2.http.*
 
 /***
@@ -25,18 +26,16 @@ interface SecondApiService {
     @GET("agent/addGoldTrading")
     fun addGoldTrading(@Query("userId") userId: String,@Query("jinbi") jinbi: String,@Query("tradingPassword") tradingPassword: String): Observable<BaseResponse<GoldTradingBean>>
 
-    @POST("/prop/addBuyBack")
-    fun  addBuyBack(@QueryMap map:Map<String,Any>): Observable<BaseResponse<Any>>
+    @POST("prop/addBuyBack")
+    fun  addBuyBack(@QueryMap map:Map<String,String>): Observable<BaseResponse<Any>>
 
     @GET(" agent/findCountries")
     fun findCountries(): Observable<BaseResponse<List<FindCountriesBean.DataBean>>>
 
     @GET("prop/selectBuyBack")
-    fun  selectBuyBack(@Query("id")id:String):Observable<BaseResponse<SelectBuyBack.DataBean>>
+    fun  selectBuyBack(@Query("id")id:String):Observable<BaseResponse<SelectBuyBackBean.DataBean>>
 
     @GET("prop/aboutMoney")
     fun propAboutMoney(@Query("countries")countries:String,@Query("goldNumber")number:String):Observable<BaseResponse<PropAboutMoney.DataBean>>
 
-    @GET("/prop/selectBuyBack")
-    fun propSelectBuyBack(@QueryMap map: Map<String, Any>)
 }
