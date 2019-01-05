@@ -19,9 +19,9 @@ public class StringUtli {
      * @return
      */
     public static String getBlueTooth(){
-        BluetoothAdapter m_BluetoothAdapter = null; // Local Bluetooth adapter
-        m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        String m_szBTMAC = m_BluetoothAdapter.getAddress();
-        return m_szBTMAC;
+//        BluetoothAdapter m_BluetoothAdapter = null; // Local Bluetooth adapter
+//        m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+//        String m_szBTMAC = m_BluetoothAdapter.getAddress();
+        return "f4gf456dgf46dgf456dgf4";
     }
 }

@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.ydws.game.R;
 import com.ydws.game.base.BaseAbstractActivity;
@@ -26,6 +27,15 @@ public class MerchantRecordActivity extends BaseAbstractActivity implements View
         radioGroup = findViewById(R.id.radio);
         findViewById(R.id.rb_gold_zanzhu).setOnClickListener(this);
         findViewById(R.id.rb_record).setOnClickListener(this);
+        TextView tv =findViewById(R.id.tv_title_bar);
+        tv.setText("記錄查詢");
+        findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                finish();
+            }
+        });
     }
 
     @Override
