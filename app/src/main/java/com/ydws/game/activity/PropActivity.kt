@@ -3,6 +3,7 @@ package com.ydws.game.activity
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
@@ -63,6 +64,8 @@ class PropActivity : BaseAbstractActivity(), View.OnClickListener {
             }
         }
         activityPropBinding.submit.setOnClickListener { addBuyBack() }
+        activityPropBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "道具回收"
+        activityPropBinding.title.findViewById<View>(R.id.back).setOnClickListener { finish() }
     }
 
     override fun initViews() {
