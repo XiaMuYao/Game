@@ -15,11 +15,9 @@ import com.ydws.game.base.BaseFragment
 import com.ydws.game.base.QuickAdapter
 import com.ydws.game.bean.GameSelectGoldRecordBean
 import com.ydws.game.bean.RecordByDaoOrGoldBean
-import com.ydws.game.body.GoldTradingBean
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
-import com.ydws.game.toast
 import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
