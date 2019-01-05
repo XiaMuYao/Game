@@ -134,12 +134,26 @@ interface ApiService {
     ):
             Observable<BaseResponse<Any?>>
 
-
-
     /**
      * USDT钱包地址
      */
     @GET("game/selectPlatformAddress")
     fun selectPlatformAddress():
             Observable<BaseResponse<usdtBean.DataBean>>
+
+
+    /**
+     * USDT钱包地址
+     */
+    @GET("game/selectGoldTradingRecord")
+    fun selectGoldTradingRecord(@Query("userId") userId: String):
+            Observable<BaseResponse<List<jiaoyijiluBean.DataBean>>>
+
+
+    /**
+     * USDT钱包地址
+     */
+    @GET("weight/gotoAgentBefor")
+    fun gotoAgentBefor(@Query("userId") userId: String):
+            Observable<BaseResponse<Any>>
 }
