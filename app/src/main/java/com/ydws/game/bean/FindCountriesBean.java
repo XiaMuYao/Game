@@ -70,17 +70,13 @@ public class FindCountriesBean {
          * bili : null
          */
 
-        private Object id;
+        private String id;
         private String countries;
-        private Object bili;
+        private String bili;
 
-        public Object getId() {
-            return id;
-        }
 
-        public void setId(Object id) {
-            this.id = id;
-        }
+
+
 
         public String getCountries() {
             return countries;
@@ -90,11 +86,19 @@ public class FindCountriesBean {
             this.countries = countries;
         }
 
-        public Object getBili() {
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getBili() {
             return bili;
         }
 
-        public void setBili(Object bili) {
+        public void setBili(String bili) {
             this.bili = bili;
         }
     }
