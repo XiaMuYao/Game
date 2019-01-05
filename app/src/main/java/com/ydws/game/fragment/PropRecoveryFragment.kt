@@ -39,8 +39,8 @@ class PropRecoveryFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickLi
         return R.layout.fragment_gold_record
     }
 
-    override fun initView() {
-        goldRv = mRootView.findViewById(R.id.rv_record)
+    override fun initView(mRootView: View?) {
+        goldRv = mRootView?.findViewById(R.id.rv_record)
     }
 
     override fun initData() {

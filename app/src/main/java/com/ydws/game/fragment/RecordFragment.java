@@ -1,5 +1,7 @@
 package com.ydws.game.fragment;
 
+import android.view.View;
+
 import com.ydws.game.R;
 import com.ydws.game.base.BaseFragment;
 
@@ -13,7 +15,7 @@ public class RecordFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View mRootView) {
 
     }
 

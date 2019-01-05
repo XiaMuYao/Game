@@ -28,6 +28,11 @@ import io.reactivex.schedulers.Schedulers
  * 金币赞助
  */
 class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickListener {
+    override fun initView(mRootView: View?) {
+        goldRv = mRootView?.findViewById(R.id.rv_record)
+
+    }
+
     private var goldRv: RecyclerView? = null
     private var recordAdapter: GoldRecordAdapter? = null
     private var userid: String by SPreference("userid", "")
@@ -38,9 +43,6 @@ class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickList
         return R.layout.fragment_gold_record
     }
 
-    override fun initView() {
-        goldRv = mRootView.findViewById(R.id.rv_record)
-    }
 
     override fun initData() {
         recordAdapter = GoldRecordAdapter(R.layout.item_gold_record)
