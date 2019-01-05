@@ -27,6 +27,6 @@ interface SecondApiService {
     @POST("/prop/addBuyBack")
     fun  addBuyBack(@QueryMap map:Map<String,Any>): Observable<BaseResponse<Any>>
 
-    @GET("/agent/findCountries")
+    @GET("agent/findCountries")
     fun findCountries(): Observable<BaseResponse<List<FindCountriesBean.DataBean>>>
 }

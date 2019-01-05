@@ -101,7 +101,7 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -133,7 +133,7 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -165,7 +165,7 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -197,7 +197,7 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -229,7 +229,7 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -261,7 +261,7 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -294,6 +294,7 @@
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
         <EditText
+            android:inputType="number"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -321,6 +322,7 @@
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:text="USDT价值:"
+
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -330,6 +332,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@{viewModel.fiatStr}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -351,7 +354,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="代为兑换所需法币价值:"
+            android:text="代为兑换所需法币价值:(含手续费)"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -361,7 +364,7 @@
             android:layout_height="30dp"
             android:background="@null"
             android:drawableEnd="@drawable/ic_arrow_drop_down_white_24dp"
-            android:text="@{viewModel.fiatStr}"
+
             android:textColor="@color/colorWhite" />
 
     </LinearLayout>
