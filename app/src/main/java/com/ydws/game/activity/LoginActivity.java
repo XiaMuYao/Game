@@ -24,6 +24,7 @@ import com.ydws.game.net.LL;
 import com.ydws.game.net.RetrofitManager;
 import com.ydws.game.net.base.BaseResponse;
 import com.ydws.game.net.scheduler.SchedulerUtils;
+import com.ydws.game.utils.SPreference;
 import com.ydws.game.utils.SharedPreferencesUtils;
 import com.ydws.game.utils.constants.Common;
 import com.ydws.game.utils.constants.CommonURL;
@@ -120,6 +121,14 @@ public class LoginActivity extends BaseAbstractActivity implements View.OnClickL
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                                 dataBeanBaseResponse -> {
+
+                                    String userId = dataBeanBaseResponse.getData().getId() + "";
+                                    String getUserName = dataBeanBaseResponse.getData().getUserName() + "";
+
+
+                                    SharedPreferencesUtils.setParam(this, "userId", userId);
+                                    SharedPreferencesUtils.setParam(this, "getUserName", getUserName);
+
                                     Intent intent = new Intent(this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
