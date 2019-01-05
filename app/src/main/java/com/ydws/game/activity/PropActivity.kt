@@ -13,7 +13,7 @@ import com.ydws.game.databinding.ActivityPropBinding
  * 道具回收
  */
 class PropActivity : BaseAbstractActivity(), View.OnClickListener {
-    private lateinit var activityPropBinding: ActivityPropBinding;
+    private lateinit var activityPropBinding: ActivityPropBinding
     override fun getContentLayoutID(): Int {
         return R.layout.activity_prop
     }
