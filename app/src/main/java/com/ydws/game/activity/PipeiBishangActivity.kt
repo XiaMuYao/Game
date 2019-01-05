@@ -2,20 +2,17 @@ package com.ydws.game.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.databinding.BaseObservable
 import android.view.View
 import android.widget.TextView
-import com.ydws.game.MainActivity
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
+import com.ydws.game.body.GoldTradingBean
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.toast
 import com.ydws.game.utils.SPreference
-import com.ydws.game.utils.SharedPreferencesUtils
-import com.ydws.game.utils.constants.Common
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_pipei_bishang.*
@@ -35,6 +32,7 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
         titleTv!!.text = "赞助"
+        ID.text = "ID:$userid"
         findViewById<View>(R.id.iv_pipei_daili).setOnClickListener(this)
         findViewById<View>(R.id.back).setOnClickListener(this)
 
@@ -67,7 +65,33 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
                     "請輸入贊助金幣數量".toast()
                     return
                 }
-                startActivity(Intent(this, GoldApplyActivity::class.java))
+                if(tv_gold_count_show.text.toString().toInt()<1000){
+                    "贊助金不能低於1000".toast()
+                    return
+                }
+                if(tv_jiaoyi_pwd_show.text.toString().isBlank()){
+                    "請輸入交易密碼".toast()
+                    return
+                }
+
+                SecondRetrofitManager.service
+                        .addGoldTrading(userid,tv_gold_count_show.text.toString(),tv_jiaoyi_pwd_show.text.toString())
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe (object : BaseObserver<GoldTradingBean>(){
+
+                            override fun onSuccees(t: BaseResponse<GoldTradingBean>, data: GoldTradingBean) {
+                                val intent = Intent(this@PipeiBishangActivity, GoldApplyActivity::class.java)
+                                intent.putExtra("data",data)
+                                startActivity(intent)
+                            }
+
+                            override fun onCodeError(code: Int, msg: String) {
+
+                            }
+                        })
+
+
             }
             R.id.back -> finish()
         }
