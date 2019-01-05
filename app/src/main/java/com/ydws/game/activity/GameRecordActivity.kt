@@ -55,6 +55,8 @@ class GameRecordActivity : BaseAbstractActivity() {
     }
 
     private fun getdataPage(page: Int) {
+
+
         RetrofitManager.service
                 .selectGoldCoinRecord(userid,
                         page.toString())
@@ -69,5 +71,7 @@ class GameRecordActivity : BaseAbstractActivity() {
                         toast(msg)
                     }
                 })
+
+
     }
 }

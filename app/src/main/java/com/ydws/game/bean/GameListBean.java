@@ -91,6 +91,7 @@ public class GameListBean {
         }
 
         public String getUserName() {
+
             return userName;
         }
 
