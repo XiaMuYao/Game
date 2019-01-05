@@ -3,6 +3,7 @@ package com.ydws.game.net
 
 
 import com.ydws.game.api.ApiService
+import com.ydws.game.api.SecondApiService
 import com.ydws.game.utils.constants.CommonURL
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
@@ -12,13 +13,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-object RetrofitManager {
+object SecondRetrofitManager {
 
     private var client: OkHttpClient? = null
     private var retrofit: Retrofit? = null
 
 
-    val service: ApiService by lazy { getRetrofit()!!.create(ApiService::class.java) }
+    val service: SecondApiService by lazy { getRetrofit()!!.create(SecondApiService::class.java) }
 
 
     /**
@@ -40,7 +41,7 @@ object RetrofitManager {
 
     private fun getRetrofit(): Retrofit? {
         if (retrofit == null) {
-            synchronized(RetrofitManager::class.java) {
+            synchronized(SecondRetrofitManager::class.java) {
                 if (retrofit == null) {
                     //添加一个log拦截器,打印所有的log
                     val httpLoggingInterceptor = HttpLoggingInterceptor()
