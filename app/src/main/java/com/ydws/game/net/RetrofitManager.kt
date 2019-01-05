@@ -1,7 +1,6 @@
 package com.ydws.game.net
 
 
-
 import com.ydws.game.api.ApiService
 import com.ydws.game.utils.constants.CommonURL
 import okhttp3.*
@@ -30,8 +29,9 @@ object RetrofitManager {
             val originalRequest = chain.request()
             val request: Request
             val modifiedUrl = originalRequest.url().newBuilder()
-                .addQueryParameter("sessionId", "123")
-                .build()
+                    .addQueryParameter("sessionId", "123")
+                    .addQueryParameter("language", "0")
+                    .build()
             request = originalRequest.newBuilder().url(modifiedUrl).build()
             chain.proceed(request)
         }
@@ -49,20 +49,20 @@ object RetrofitManager {
 
 
                     client = OkHttpClient.Builder()
-                        .addInterceptor(addQueryParameterInterceptor())  //参数添加
-                        .addInterceptor(httpLoggingInterceptor) //日志,所有的请求响应度看到
-                        .connectTimeout(60L, TimeUnit.SECONDS)
-                        .readTimeout(60L, TimeUnit.SECONDS)
-                        .writeTimeout(60L, TimeUnit.SECONDS)
-                        .build()
+                            .addInterceptor(addQueryParameterInterceptor())  //参数添加
+                            .addInterceptor(httpLoggingInterceptor) //日志,所有的请求响应度看到
+                            .connectTimeout(60L, TimeUnit.SECONDS)
+                            .readTimeout(60L, TimeUnit.SECONDS)
+                            .writeTimeout(60L, TimeUnit.SECONDS)
+                            .build()
 
                     // 获取retrofit的实例
                     retrofit = Retrofit.Builder()
-                        .baseUrl(CommonURL.URL)
-                        .client(client!!)
-                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build()
+                            .baseUrl(CommonURL.URL)
+                            .client(client!!)
+                            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build()
                 }
             }
         }
