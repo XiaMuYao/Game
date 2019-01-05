@@ -1,5 +1,6 @@
 package com.ydws.game.api
 
+import com.ydws.game.bean.FindCountriesBean
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
 
@@ -23,4 +24,7 @@ interface SecondApiService {
 
     @POST("/prop/addBuyBack")
     fun  addBuyBack(@QueryMap map:Map<String,Any>): Observable<BaseResponse<Any>>
+
+    @GET("/agent/findCountries")
+    fun findCountries(): Observable<BaseResponse<List<FindCountriesBean.DataBean>>>
 }
