@@ -13,15 +13,7 @@ import com.blankj.utilcode.util.ToastUtils
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.squareup.okhttp.Request
-import com.ydws.game.activity.EverydayTaskActivity
-import com.ydws.game.activity.GameRecordActivity
-import com.ydws.game.activity.GeneralizeActivity
-import com.ydws.game.activity.MerChantActivity
-import com.ydws.game.activity.PersonalActivity
-import com.ydws.game.activity.SeniorAgentActivity
-import com.ydws.game.activity.ShopActivity
-import com.ydws.game.activity.SponsorActivity
-import com.ydws.game.activity.VoteActivity
+import com.ydws.game.activity.*
 import com.ydws.game.base.BaseAbstractActivity
 import com.ydws.game.bean.LoginBean
 import com.ydws.game.bean.PersonalMessageBean
@@ -32,6 +24,7 @@ import com.ydws.game.utils.constants.Common
 import com.ydws.game.utils.constants.CommonURL
 import com.zhy.http.okhttp.OkHttpUtils
 import com.zhy.http.okhttp.callback.StringCallback
+import org.jetbrains.anko.toast
 
 import java.util.ArrayList
 
@@ -41,6 +34,9 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
     private var ID_TextView: TextView? = null
 
     private var jinbi: TextView? = null
+    private var userTypp = 0
+    private var agentType = 0
+
     private var yinbi: TextView? = null
     private var daoju: TextView? = null
 
@@ -111,6 +107,9 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
                             yinbi!!.text = personalMessageBean.data.yinbi.toString() + ""
                             daoju!!.text = personalMessageBean.data.propsNumber.toString() + ""
                             ID_TextView!!.text = personalMessageBean.data.id.toString() + ""
+                            userTypp = personalMessageBean.data.userType
+                            agentType = personalMessageBean.data.agentType
+
                         } else {
                             showMessage(personalMessageBean.message)
                         }
@@ -134,13 +133,31 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
 
             R.id.sponsor_ImageView -> startActivity(Intent(this, SponsorActivity::class.java))
 
-            R.id.everyday_task_ImageView -> startActivity(Intent(this, EverydayTaskActivity::class.java))
+            R.id.everyday_task_ImageView -> {
+                if (agentType == 1) {
+                    startActivity(Intent(this, EverydayTaskActivity::class.java))
+                } else {
+                    toast("角色错误")
+                }
+            }
 
-            R.id.premier_reseller_ImageView -> startActivity(Intent(this, SeniorAgentActivity::class.java))
+            R.id.premier_reseller_ImageView -> {
+                if (agentType == 1) {
+                    startActivity(Intent(this, SeniorAgentTwoActivity::class.java))
+                } else {
+                    startActivity(Intent(this, SeniorAgentActivity::class.java))
+                }
+            }
             R.id.inquire_ImageView -> startActivity(Intent(this, GameRecordActivity::class.java))
-            R.id.game_iapn_ImageView -> startActivity(Intent(this, MerChantActivity::class.java))
+            R.id.game_iapn_ImageView -> {
+                if (userTypp == 1) {
+                    startActivity(Intent(this, MerChantActivity::class.java))
+                } else if (userTypp == 3) {
+                    toast("超出时间,被注销资格")
+                }
+            }
             R.id.i_want_to_vote_ImageButton -> startActivity(Intent(this, VoteActivity::class.java))
-        }//todo 问号点击显示
+        }
     }
 
 }

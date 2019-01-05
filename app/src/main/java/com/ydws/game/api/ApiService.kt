@@ -4,6 +4,7 @@ import com.ydws.game.bean.*
 import io.reactivex.Observable
 import com.ydws.game.net.base.BaseResponse
 import retrofit2.http.*
+import java.math.BigDecimal
 
 interface ApiService {
 
@@ -106,5 +107,53 @@ interface ApiService {
     fun showPropaganda(@Query("id") userId: String):
             Observable<BaseResponse<erweimaBean.DataBean>>
 
+    /**
+     * 点击服务代理获得币商信息
+     */
+    @GET("game/selectSponsorInformation")
+    fun selectSponsorInformation(@Query("id") userId: String):
+            Observable<BaseResponse<bishangBean.DataBean>>
 
+    /**
+     * 币商向平台赞助金币 确认按钮
+     */
+    @POST("game/insertPingtaibuy")
+    fun insertPingtaibuy(@Query("goldNumber") goldNumber: Int,
+                         @Query("tradingNumber") tradingNumber: String,
+                         @Query("userId") userId: String
+    ):
+            Observable<BaseResponse<Any?>>
+
+    /**
+     * 币商向平台赞助金币 确认按钮
+     */
+    @POST("game/updatePingtaibuy")
+    fun updatePingtaibuy(@Query("USDTAddress") Address: String,
+                         @Query("goldNumber") goldNumber: Int,
+                         @Query("userId") userId: String
+    ):
+            Observable<BaseResponse<Any?>>
+
+    /**
+     * USDT钱包地址
+     */
+    @GET("game/selectPlatformAddress")
+    fun selectPlatformAddress():
+            Observable<BaseResponse<usdtBean.DataBean>>
+
+
+    /**
+     * USDT钱包地址
+     */
+    @GET("game/selectGoldTradingRecord")
+    fun selectGoldTradingRecord(@Query("userId") userId: String):
+            Observable<BaseResponse<List<jiaoyijiluBean.DataBean>>>
+
+
+    /**
+     * USDT钱包地址
+     */
+    @GET("weight/gotoAgentBefor")
+    fun gotoAgentBefor(@Query("userId") userId: String):
+            Observable<BaseResponse<Any>>
 }

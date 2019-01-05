@@ -1,12 +1,16 @@
 package com.ydws.game.api
 
+import com.ydws.game.bean.FindCountriesBean
+import com.ydws.game.bean.PayTypeBean
+import com.ydws.game.bean.GoldTradingBean
+import com.ydws.game.bean.PropAboutMoney
+import com.ydws.game.bean.SelectBuyBackBean
 import com.ydws.game.bean.*
-import com.ydws.game.body.GoldTradingBean
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
 
 
-import com.ydws.game.body.PropBody
+import okhttp3.MultipartBody
 import retrofit2.http.*
 
 /***
@@ -44,6 +48,16 @@ interface SecondApiService {
 
     @GET("prop/recordByDaoOrGold")
     fun  propRecordByDaoOrGold(@Query("userId")userId:String,@Query("daoOrGold") daoOrGold:Int):Observable<BaseResponse<List<GameSelectGoldRecordBean.DataBean>>>
+    @GET("agent/getPayType")
+    fun getPayType(): Observable<BaseResponse<List<PayTypeBean>>>
+
+    @Multipart
+    @POST("fileupload/picture")
+    fun uploadPicture(@Part inputStream: MultipartBody.Part): Observable<BaseResponse<String>>
+
+    @POST("agent/goldCommit")
+    fun goldCommit(@QueryMap map:Map<String,String>): Observable<BaseResponse<Any>>
+
 
     @GET("game/selectWantSponsor")
     fun gameSelectWantSponsor(@Query("id")userId:String):Observable<BaseResponse<SelectWantSponsorBean.DataBean>>

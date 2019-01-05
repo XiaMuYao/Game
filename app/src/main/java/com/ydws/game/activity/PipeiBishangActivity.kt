@@ -7,7 +7,7 @@ import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
-import com.ydws.game.body.GoldTradingBean
+import com.ydws.game.bean.GoldTradingBean
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse

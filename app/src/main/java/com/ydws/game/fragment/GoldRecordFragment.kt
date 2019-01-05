@@ -15,11 +15,9 @@ import com.ydws.game.base.BaseFragment
 import com.ydws.game.base.QuickAdapter
 import com.ydws.game.bean.GameSelectGoldRecordBean
 import com.ydws.game.bean.RecordByDaoOrGoldBean
-import com.ydws.game.body.GoldTradingBean
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
-import com.ydws.game.toast
 import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -28,6 +26,11 @@ import io.reactivex.schedulers.Schedulers
  * 金币赞助
  */
 class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickListener {
+    override fun initView(mRootView: View?) {
+        goldRv = mRootView?.findViewById(R.id.rv_record)
+
+    }
+
     private var goldRv: RecyclerView? = null
     private var recordAdapter: GoldRecordAdapter? = null
     private var userid: String by SPreference("userid", "")
@@ -38,9 +41,6 @@ class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickList
         return R.layout.fragment_gold_record
     }
 
-    override fun initView() {
-        goldRv = mRootView.findViewById(R.id.rv_record)
-    }
 
     override fun initData() {
         recordAdapter = GoldRecordAdapter(R.layout.item_gold_record)

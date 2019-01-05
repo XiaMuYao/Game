@@ -1,4 +1,4 @@
-package com.ydws.game.body;
+package com.ydws.game.bean;
 
 import java.io.Serializable;
 
@@ -24,8 +24,8 @@ public class GoldTradingBean implements Serializable {
     private String cardNumber;
     private String zhifubao;
     private String wechatCode;
-    private int jinbi;
-    private Object phone;
+    private String jinbi;
+    private String phone;
     private double usdt;
 
     public int getId() {
@@ -84,19 +84,19 @@ public class GoldTradingBean implements Serializable {
         this.wechatCode = wechatCode;
     }
 
-    public int getJinbi() {
+    public String getJinbi() {
         return jinbi;
     }
 
-    public void setJinbi(int jinbi) {
+    public void setJinbi(String jinbi) {
         this.jinbi = jinbi;
     }
 
-    public Object getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Object phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
