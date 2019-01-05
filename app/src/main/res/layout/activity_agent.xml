@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        
+        <variable
+            name="viewModel"
+            type="com.ydws.game.bean.SelectWantSponsorBean.DataBean"/>
     </data>
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
@@ -66,11 +68,12 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@{viewModel.city}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -97,11 +100,12 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@{viewModel.payee}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -128,11 +132,12 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@{viewModel.phone}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -159,7 +164,8 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:text="@{viewModel.bankName}"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -190,11 +196,12 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@{viewModel.cardNumber}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -221,11 +228,12 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@{viewModel.zhifubao}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -252,11 +260,12 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@{viewModel.wechat}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 

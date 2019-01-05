@@ -183,8 +183,8 @@ class PropActivity : BaseAbstractActivity(), View.OnClickListener {
         )
         SecondRetrofitManager.service.addBuyBack(params).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : BaseObserver<Any>() {
-                    override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                .subscribe(object : BaseObserver<Any?>() {
+                    override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                         "申请已提交".toast()
                         finish()
                     }

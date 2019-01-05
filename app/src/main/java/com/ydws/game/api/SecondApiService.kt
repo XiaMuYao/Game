@@ -25,7 +25,7 @@ interface SecondApiService {
     fun addGoldTrading(@Query("userId") userId: String,@Query("jinbi") jinbi: String,@Query("tradingPassword") tradingPassword: String): Observable<BaseResponse<GoldTradingBean>>
 
     @POST("prop/addBuyBack")
-    fun  addBuyBack(@QueryMap map:Map<String,String>): Observable<BaseResponse<Any>>
+    fun  addBuyBack(@QueryMap map:Map<String,String>): Observable<BaseResponse<Any?>>
 
     @GET(" agent/findCountries")
     fun findCountries(): Observable<BaseResponse<List<FindCountriesBean.DataBean>>>
@@ -44,4 +44,11 @@ interface SecondApiService {
 
     @GET("prop/recordByDaoOrGold")
     fun  propRecordByDaoOrGold(@Query("userId")userId:String,@Query("daoOrGold") daoOrGold:Int):Observable<BaseResponse<List<GameSelectGoldRecordBean.DataBean>>>
+
+    @GET("game/selectWantSponsor")
+    fun gameSelectWantSponsor(@Query("id")userId:String):Observable<BaseResponse<SelectWantSponsorBean.DataBean>>
+
+    @POST("game/addWantSponsor")
+    fun gameAddWantSponsor(@QueryMap map: Map<String, Any>) : Observable<BaseResponse<Any?>>
+
 }
