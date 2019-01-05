@@ -45,8 +45,7 @@ class RegisterLastActivity : BaseAbstractActivity() {
                     .compose(SchedulerUtils.ioToMain())
                     .subscribe(object : BaseObserver<Any>() {
                         override fun onSuccees(t: BaseResponse<Any>, data: Any) {
-                            val starter = Intent(this@RegisterLastActivity, RegisterLastActivity::class.java)
-                            startActivity(starter)
+                            LoginActivity.start(this@RegisterLastActivity)
                             finish()
                         }
 

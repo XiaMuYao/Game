@@ -1,5 +1,6 @@
 package com.ydws.game.activity
 
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.View
@@ -53,7 +54,12 @@ class LoginActivity : BaseAbstractActivity(), View.OnClickListener {
 
     private var userid: String by SPreference("userid", "")
     private var userName: String by SPreference("userName", "")
-
+companion object {
+    fun start(context: Context){
+        val starter = Intent(context,LoginActivity::class.java)
+        context.startActivity(starter)
+    }
+}
 
     override fun getContentLayoutID(): Int {
         return R.layout.activity_login

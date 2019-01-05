@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/hall_page_background">
@@ -41,6 +42,13 @@
         app:layout_constraintEnd_toEndOf="@id/iv_game_record_bottom"
         app:layout_constraintStart_toStartOf="@id/iv_game_record_bottom" />
 
+    <Button
+        android:id="@+id/xiayiye"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一页"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_game_record"
+        app:layout_constraintEnd_toEndOf="@+id/rv_game_record" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_game_record"
         android:layout_width="0dp"
