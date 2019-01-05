@@ -24,7 +24,7 @@ interface ApiService {
                  @Query("refereesId") refereesId: String,
                  @Query("question") question: String,
                  @Query("answer") answer: String
-    ): Observable<BaseResponse<LoginBean.DataBean>>
+    ): Observable<BaseResponse<Any>>
 
 
     /**
