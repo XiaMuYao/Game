@@ -1,7 +1,10 @@
 package com.ydws.game.net
 
 
+import android.content.Context
+import android.telephony.TelephonyManager
 import com.ydws.game.api.ApiService
+import com.ydws.game.utils.StringUtli
 import com.ydws.game.utils.constants.CommonURL
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
@@ -29,7 +32,7 @@ object RetrofitManager {
             val originalRequest = chain.request()
             val request: Request
             val modifiedUrl = originalRequest.url().newBuilder()
-                    .addQueryParameter("sessionId", "123")
+                    .addQueryParameter("sessionId", StringUtli.getBlueTooth())
                     .addQueryParameter("language", "0")
                     .build()
             request = originalRequest.newBuilder().url(modifiedUrl).build()
