@@ -12,6 +12,8 @@ import com.ydws.game.base.BaseAbstractActivity
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
+import com.ydws.game.toast
+import com.ydws.game.utils.SPreference
 import com.ydws.game.utils.SharedPreferencesUtils
 import com.ydws.game.utils.constants.Common
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -23,6 +25,8 @@ import kotlinx.android.synthetic.main.activity_pipei_bishang.*
  */
 class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
     private var titleTv: TextView? = null
+    private var userid: String by SPreference("userid", "")
+    private var userName: String by SPreference("userName", "")
 
     override fun getContentLayoutID(): Int {
         return R.layout.activity_pipei_bishang
@@ -33,13 +37,13 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
         titleTv!!.text = "赞助"
         findViewById<View>(R.id.iv_pipei_daili).setOnClickListener(this)
         findViewById<View>(R.id.back).setOnClickListener(this)
+
     }
 
     @SuppressLint("CheckResult")
     override fun initData() {
-        val userId = SharedPreferencesUtils.getParam(applicationContext, Common.ID, "") as String
         SecondRetrofitManager.service
-                .findBalance(userId)
+                .findBalance(userid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe (object : BaseObserver<String>(){
@@ -58,7 +62,13 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.iv_pipei_daili -> startActivity(Intent(this, GoldApplyActivity::class.java))
+            R.id.iv_pipei_daili -> {
+                if(tv_gold_count_show.text.toString().isBlank()){
+                    "請輸入贊助金幣數量".toast()
+                    return
+                }
+                startActivity(Intent(this, GoldApplyActivity::class.java))
+            }
             R.id.back -> finish()
         }
     }

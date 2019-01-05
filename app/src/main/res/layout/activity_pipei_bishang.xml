@@ -102,7 +102,7 @@
         app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
         app:layout_constraintTop_toTopOf="@id/tv_gold_count_show" />
 
-    <TextView
+    <EditText
         android:id="@+id/tv_gold_count_show"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
         app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
         app:layout_constraintTop_toTopOf="@id/tv_jiaoyi_pwd_show" />
 
-    <TextView
+    <EditText
         android:id="@+id/tv_jiaoyi_pwd_show"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
