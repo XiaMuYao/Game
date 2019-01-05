@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ydws.game.body.PropBody"/>
+    </data>
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/hall_page_background">
+
 
     <include
         android:id="@+id/title"
@@ -67,6 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
+            android:text="@={viewModel.city}"
             android:background="@null"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
@@ -99,6 +106,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@={viewModel.phone}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -130,6 +138,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@={viewModel.payee}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -161,6 +170,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@={viewModel.bankname}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -192,6 +202,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@={viewModel.cardNumber}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -223,6 +234,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@={viewModel.zhifubaoId}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -254,6 +266,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@={viewModel.wechat}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -285,6 +298,7 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:text="@={viewModel.propsNumber}"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -311,7 +325,7 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -342,12 +356,14 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_weight="1"
             android:background="@null"
+            android:drawableEnd="@drawable/ic_arrow_drop_down_white_24dp"
+            android:text="@{viewModel.fiatStr}"
             android:textColor="@color/colorWhite" />
+
     </LinearLayout>
 
     <LinearLayout
