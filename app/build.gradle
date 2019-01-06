@@ -54,7 +54,7 @@ dependencies {
     //    //fragmentation
     //    implementation "me.yokeyword:fragmentation:${fragmentationVersion}"
     //    implementation "me.yokeyword:fragmentation-swipeback:${fragmentationVersion}"
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
@@ -69,12 +69,12 @@ dependencies {
 
 
     /*时间倒计时控件*/
-<<<<<<< HEAD
+//<<<<<<< HEAD
     implementation 'com.github.zrunker:ZCountDownView:v1.1'
     implementation 'com.android.support:design:27.1.1'
-=======
-    api 'com.github.zrunker:ZCountDownView:v1.1'
->>>>>>> e77217d406bba083d95f69f83fed6a976c52eafa
+//=======
+//    api 'com.github.zrunker:ZCountDownView:v1.1'
+//>>>>>>> e77217d406bba083d95f69f83fed6a976c52eafa
 
 }
 repositories {
