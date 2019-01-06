@@ -215,6 +215,15 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
             R.id.iv_jiaoyi_mima -> startActivity(Intent(this, ResetPasswordActivity::class.java))
             //修改信息
             R.id.button -> {
+                if (show_name.text.isNullOrBlank() ||
+                        show_sex.text.isNullOrBlank() ||
+                        show_age.text.isNullOrBlank() ||
+                        show_tel.text.isNullOrBlank() ||
+                        show_nicheng.text.isNullOrBlank()
+                ) {
+                    toast("有信息为空")
+                    return
+                }
                 val sex = show_sex.text.toString()
                 var a = 0;
                 if (!"男".equals(sex) || !"女".equals(sex)) {
@@ -227,12 +236,12 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 
                     RetrofitManager.service
                             .updateUserEntity(userid,
-                                    personalInfo!!.payee,
+                                    show_name.text.toString().trim(),
                                     personalInfo!!.photo,
                                     a,
-                                    personalInfo!!.phone,
-                                    personalInfo!!.niName,
-                                    personalInfo!!.city
+                                    show_tel.text.toString().trim(),
+                                    show_name.text.toString().trim(),
+                                    show_age.text.toString().trim()
                             )
                             .compose(SchedulerUtils.ioToMain())
                             .subscribe(object : BaseObserver<Any?>() {
