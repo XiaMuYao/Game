@@ -58,6 +58,9 @@
         <activity android:name=".activity.RegisterLastActivity" />
         <activity android:name=".activity.InputPassword"></activity>
         <activity android:name=".activity.ShowImageDetailActivity" />
+        <activity android:name=".activity.DaiLiCaoZuoActivity" />
+        <activity android:name=".activity.DaiLiCaoZuoGoldSearchActivity" />
+        <activity android:name=".activity.DaiLiCaoZuoDaoSearchActivity" />
     </application>
 
 </manifest>

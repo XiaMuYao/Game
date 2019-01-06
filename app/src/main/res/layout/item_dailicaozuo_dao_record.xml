@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="viewModel" type="com.ydws.game.bean.RecordByDaoOrGoldBean"/>
+        <variable name="viewModel" type="com.ydws.game.bean.DaiLiCaoZuoRecordByDaoBean"/>
         <import type="android.view.View"/>
     </data>
     
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="@{viewModel.buyOrSellStr}"
+        android:text="@{viewModel.userIdStr}"
         android:textColor="@color/colorWhite"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        tools:text="@{viewModel.goldNumberStr}"
+        tools:text="@{viewModel.statusStr}"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="@id/tv_gold_record_id"
         app:layout_constraintStart_toEndOf="@id/tv_gold_record_id"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        tools:text="@{viewModel.statusStr}"
+        tools:text="@{viewModel.propsNumber}"
         android:textColor="#dddddd"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@id/tv_gold_record_count"
@@ -69,20 +69,9 @@
         android:layout_margin="10dp"
         android:onClick="@{()->viewModel.lookup()}"
         android:src="@mipmap/record_check_detail"
-        android:visibility="@{viewModel.isShowDetail?View.VISIBLE:View.GONE}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:id="@+id/report"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:onClick="@{()->viewModel.report()}"
-        android:src="@mipmap/report"
-        android:visibility="@{viewModel.type==1?View.VISIBLE:View.GONE}"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
 </layout>

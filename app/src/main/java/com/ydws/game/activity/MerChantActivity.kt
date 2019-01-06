@@ -112,7 +112,7 @@ class MerChantActivity : BaseAbstractActivity(), View.OnClickListener {
                 transaction.replace(R.id.frame_mer_chant, GoldShutFragment())
             }
 
-            R.id.iv_agent -> startActivity(Intent(this, MerchantRecordActivity::class.java))
+            R.id.iv_agent -> startActivity(Intent(this, DaiLiCaoZuoActivity::class.java))
         }
         transaction.commit()
     }

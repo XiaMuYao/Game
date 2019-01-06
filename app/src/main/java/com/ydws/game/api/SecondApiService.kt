@@ -1,5 +1,6 @@
 package com.ydws.game.api
 
+import com.yalantis.ucrop.UCropActivity
 import com.ydws.game.bean.FindCountriesBean
 import com.ydws.game.bean.PayTypeBean
 import com.ydws.game.bean.GoldTradingBean
@@ -78,4 +79,25 @@ interface SecondApiService {
 
     @POST("prop/report")
     fun report(@Query("userId")userId:String,@Query("id")id:String): Observable<BaseResponse<Any?>>
+
+    @GET("agent/getRecord")
+    fun getRecord(@Query("userId")userId:String): Observable<BaseResponse<List<DaiLiCaoZuoJinBiBean>>>
+
+    @GET("agent/getDetails")
+    fun getDetails(@Query("userId")userId:String,@Query("id")id:String): Observable<BaseResponse<DaiLiCaoZuoGoldDetailBean>>
+
+    @POST("prop/biJuBaoUser")
+    fun biJuBaoUser(@Query("userId")userId:String,@Query("id")id:String): Observable<BaseResponse<Any?>>
+
+    @POST("agent/DeterminingTransactions")
+    fun DeterminingTransactions(@Query("userId")userId:String,@Query("jiluId")jiluId:String,@Query("bishangId")bishangId:String,@Query("jinbishu")jinbishu:String):Observable<BaseResponse<Any?>>
+
+    @GET("prop/sponsorId")
+    fun sponsorId(@Query("bishangId")bishangId:String): Observable<BaseResponse<List<DaiLiCaoZuoDaojuBean>>>
+
+    @GET("prop/userBuyBack")
+    fun userBuyBack(@Query("userId")userId:String,@Query("id")id:String):Observable<BaseResponse<DaiLiCaoZuoDaoSearchBean>>
+
+    @POST("prop/sponsorConfirm")
+    fun sponsorConfirm(@Query("userId")userId:String,@Query("zhuanzhangPhoto")zhuanzhangPhoto:String,@Query("payType")payType:String,@Query("id")id:String):Observable<BaseResponse<Any?>>
 }
