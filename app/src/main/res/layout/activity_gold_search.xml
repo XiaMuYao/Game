@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/hall_page_background">
@@ -13,7 +14,7 @@
     <ImageView
         android:id="@+id/iv_gold_apply_bg"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="426dp"
         android:src="@mipmap/gen_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,6 +37,19 @@
         android:src="@mipmap/tuiguang_detail"
         app:layout_constraintBottom_toBottomOf="@id/iv_gold_apply_bg"
         app:layout_constraintEnd_toEndOf="@id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
+
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@mipmap/id"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@id/iv_gold_apply_bg"
         app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
         app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
 
@@ -62,16 +76,18 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/zanzhushuliang"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:gravity="center_vertical"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_daili"
+        android:id="@+id/ll_shijian"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -88,15 +104,50 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="购买时间:"
+            android:text="赞助时间:"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/goumaishijian"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:background="@null"
+            android:textColor="@color/colorWhite" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_daili"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="2dp"
+        android:background="@mipmap/xuankuang"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+        app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+        app:layout_constraintTop_toBottomOf="@id/ll_shijian">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:text="赞助方式:"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
+            app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+
+        <TextView
+            android:id="@+id/zanzhufangshi"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
             android:background="@null"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
@@ -119,15 +170,17 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="查看状态:"
+            android:text="查看凭证:"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/chakanpingzheng"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             android:background="@null"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
@@ -155,11 +208,13 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/phone"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:gravity="center_vertical"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
@@ -186,22 +241,40 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/zhuangtai"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
+            android:gravity="center_vertical|end"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 
 
     <ImageView
         android:id="@+id/iv_submit"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        app:layout_constraintWidth_percent="0.3"
         android:src="@mipmap/right"
-        app:layout_constraintEnd_toEndOf="@id/ll_zhanghao"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toStartOf="@+id/report"
         app:layout_constraintStart_toStartOf="@id/ll_zhanghao"
         app:layout_constraintTop_toBottomOf="@id/ll_zhanghao" />
+
+    <ImageView
+        android:id="@+id/report"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/report"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_submit"
+        app:layout_constraintEnd_toEndOf="@id/ll_zhanghao"
+        app:layout_constraintStart_toEndOf="@+id/iv_submit"
+        app:layout_constraintTop_toTopOf="@id/iv_submit"
+        app:layout_constraintWidth_percent="0.3" />
 </android.support.constraint.ConstraintLayout>

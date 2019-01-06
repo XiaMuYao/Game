@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/hall_page_background">
@@ -34,43 +35,14 @@
         app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
 
 
-    <RadioGroup
-        android:id="@+id/radio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@mipmap/title_record_one"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@id/iv_gold_apply_bg"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintBottom_toBottomOf="@id/iv_gold_apply_bg"
-        app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
-        app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg">
-
-        <RadioButton
-            android:id="@+id/rb_gold_zanzhu"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null" />
-
-        <RadioButton
-            android:id="@+id/rb_record"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:button="@null" />
-
-    </RadioGroup>
-
-    <FrameLayout
-        android:id="@+id/frame_mer_chant"
+    <ImageView
+        android:id="@+id/image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_margin="20dp"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/iv_gold_apply_bg"
-        app:layout_constraintEnd_toEndOf="@id/radio"
-        app:layout_constraintStart_toStartOf="@id/radio"
-        app:layout_constraintTop_toBottomOf="@id/radio"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg" />
 </android.support.constraint.ConstraintLayout>

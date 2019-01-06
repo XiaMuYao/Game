@@ -75,4 +75,10 @@ interface SecondApiService {
 
     @POST("game/upTraPasswordModify")
     fun gameUpTraPasswordModify(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
+
+    @GET("prop/detailsOfPropRepurchase")
+    fun detailsOfPropRepurchase(@Query("userId")userId:String,@Query("dingdanId")dingdanId:String): Observable<BaseResponse<DetailsOfPropRepurchaseBean>>
+
+    @POST("prop/report")
+    fun report(@Query("userId")userId:String,@Query("id")id:String): Observable<BaseResponse<Any?>>
 }
