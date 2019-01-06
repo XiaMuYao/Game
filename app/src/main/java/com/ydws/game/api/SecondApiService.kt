@@ -72,4 +72,7 @@ interface SecondApiService {
 
     @GET("game/selectPlatformAddress")
     fun  gameSelectPlatformAddress():Observable<BaseResponse<GameSelectPlatformAddressBean.DataBean>>
+
+    @POST("game/upTraPasswordModify")
+    fun gameUpTraPasswordModify(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
 }

@@ -1,141 +1,237 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@mipmap/hall_page_background">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <include
-        android:id="@+id/title"
-        layout="@layout/view_title_bar"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-    <ImageView
-        android:id="@+id/iv_personal_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/gen_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
+        <variable
+            name="idStr"
+            type="String" />
 
-    <ImageView
-        android:id="@+id/iv_user_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:src="@mipmap/user_icon"
-        app:layout_constraintEnd_toEndOf="@id/iv_personal_bg"
-        app:layout_constraintTop_toTopOf="@id/iv_personal_bg" />
+        <variable
+            name="oldPassword"
+            type="String" />
 
-    <TextView
-        android:id="@+id/tv_user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:text="玩家 : 赫尔墨斯baby"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="@id/iv_user_icon"
-        app:layout_constraintEnd_toStartOf="@id/iv_user_icon"
-        app:layout_constraintTop_toTopOf="@id/iv_user_icon" />
+        <variable
+            name="newPassword"
+            type="String" />
 
-    <ImageView
-        android:id="@+id/iv_account_head"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:src="@mipmap/account_head"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_user_icon" />
+        <variable
+            name="newPasswordRepeat"
+            type="String" />
 
-    <ImageView
-        android:id="@+id/iv_personal_huakuang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/huakuang"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_account_head" />
+    </data>
 
-    <EditText
-        android:id="@+id/tv_wechat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="2dp"
-        android:background="@mipmap/xuankuang_two"
-        android:gravity="center_vertical"
-        android:hint="旧密码"
-        android:paddingStart="10dp"
-        android:textColorHint="@color/colorWhite"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
-        app:layout_constraintTop_toTopOf="@id/iv_personal_huakuang" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/hall_page_background">
 
-    <EditText
-        android:id="@+id/tv_zhifubao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="2dp"
-        android:background="@mipmap/xuankuang"
-        android:gravity="center_vertical"
-        android:hint="新密码"
-        android:paddingStart="10dp"
-        android:textColorHint="@color/colorWhite"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
-        app:layout_constraintTop_toBottomOf="@id/tv_wechat" />
+        <include
+            android:id="@+id/view_title"
+            layout="@layout/view_title_bar"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/kaihu_hang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="2dp"
-        android:background="@mipmap/xuankuang"
-        android:gravity="center_vertical"
-        android:hint="再次确认密码"
-        android:paddingStart="10dp"
-        android:textColorHint="@color/colorWhite"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
-        app:layout_constraintTop_toBottomOf="@id/tv_zhifubao" />
+        <ImageView
+            android:id="@+id/iv_shop_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@mipmap/ban_pipei_gold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_title" />
 
-    <TextView
-        android:id="@+id/tv_tishi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="提示: 密码为9-12位字母和数字组合,不能有特殊符号"
-        android:textColor="@color/colorWhite"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="@id/iv_personal_huakuang"
-        app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
-        app:layout_constraintTop_toBottomOf="@id/kaihu_hang" />
+        <TextView
+            android:id="@+id/ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@mipmap/id"
+            android:gravity="center"
+            android:text="@{idStr}"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@id/iv_shop_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_shop_bg" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="请牢记并妥善保管新密码,祝您游戏愉快"
-        android:textColor="@color/colorWhite"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="@id/tv_tishi"
-        app:layout_constraintStart_toStartOf="@id/tv_tishi"
-        app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
+        <ImageView
+            android:id="@+id/iv_shop_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/trade_password"
+            app:layout_constraintBottom_toTopOf="@id/iv_shop_bottom"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bottom" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:src="@mipmap/sure_submit"
-        app:layout_constraintBottom_toBottomOf="@+id/iv_personal_huakuang"
-        app:layout_constraintEnd_toEndOf="@id/iv_personal_huakuang"
-        app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang" />
+        <ImageView
+            android:id="@+id/iv_shop_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/pipei_bottom"
+            app:layout_constraintBottom_toBottomOf="@id/iv_shop_bg"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_shop_bg" />
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:id="@+id/ll_gold_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@mipmap/xuankuang"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+            app:layout_constraintTop_toTopOf="@+id/iv_shop_bottom">
+
+            <TextView
+                android:id="@+id/tv_gold_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:text="持有金币数量"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_daoju_count_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:drawableEnd="@mipmap/gold_single"
+                android:gravity="center"
+                android:text="99999999"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+                app:layout_constraintStart_toEndOf="@id/tv_daoju_count"
+                app:layout_constraintTop_toTopOf="@id/iv_shop_bottom" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_gold_count_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="原交易碼："
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_gold_count_show"
+            app:layout_constraintEnd_toStartOf="@id/tv_gold_count_show"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+            app:layout_constraintTop_toTopOf="@id/tv_gold_count_show" />
+
+        <EditText
+            android:id="@+id/tv_gold_count_show"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/shape_reset_password"
+            android:inputType="text"
+            android:textColor="@color/colorWhite"
+            android:text="@={oldPassword}"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+            app:layout_constraintStart_toEndOf="@id/tv_gold_count_buy"
+            app:layout_constraintTop_toBottomOf="@id/ll_gold_count" />
+
+        <TextView
+            android:id="@+id/tv_jiaoyi_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="新交易碼："
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_jiaoyi_pwd_show"
+            app:layout_constraintEnd_toStartOf="@id/tv_jiaoyi_pwd_show"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
+            app:layout_constraintTop_toTopOf="@id/tv_jiaoyi_pwd_show" />
+
+        <EditText
+            android:id="@+id/tv_jiaoyi_pwd_show"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="@={newPassword}"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/shape_reset_password"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+            app:layout_constraintStart_toEndOf="@id/tv_jiaoyi_pwd"
+            app:layout_constraintTop_toBottomOf="@id/tv_gold_count_show" />
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:text="確認新密碼："
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/editText3"
+            app:layout_constraintStart_toStartOf="@+id/iv_shop_bottom"
+            app:layout_constraintTop_toTopOf="@+id/editText3" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="@={newPasswordRepeat}"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/shape_reset_password"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+            app:layout_constraintStart_toStartOf="@id/tv_jiaoyi_pwd_show"
+            app:layout_constraintTop_toBottomOf="@id/tv_jiaoyi_pwd_show" />
+
+        <ImageView
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@mipmap/sure_submit"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+            app:layout_constraintTop_toBottomOf="@+id/tips2" />
+
+        <TextView
+            android:id="@+id/tv_tishi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="提示: 密码为9-12位字母和数字组合,不能有特殊符号"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+            app:layout_constraintTop_toBottomOf="@id/iv_shop_bottom" />
+
+        <TextView
+            android:id="@+id/tips2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="请牢记并妥善保管新密码,祝您游戏愉快"
+            android:textColor="@color/colorWhite"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
+            app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
