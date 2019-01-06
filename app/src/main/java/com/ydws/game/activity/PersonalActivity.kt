@@ -215,30 +215,44 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
             R.id.iv_jiaoyi_mima -> startActivity(Intent(this, SetPasswordActivity::class.java))
             //修改信息
             R.id.button -> {
+                val sex = show_sex.text.toString()
+                var a = 0;
+                if (!"男".equals(sex) || !"女".equals(sex)) {
 
-                RetrofitManager.service
-                        .updateUserEntity(userid,
-                                personalInfo!!.payee,
-                                personalInfo!!.photo,
-                                personalInfo!!.sex,
-                                personalInfo!!.phone,
-                                personalInfo!!.niName,
-                                personalInfo!!.city
-                        )
-                        .compose(SchedulerUtils.ioToMain())
-                        .subscribe(object : BaseObserver<Any?>() {
-                            override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                                toast(t.message)
+                    if ("男".equals(sex)) {
+                        a = 1
+                    } else if ("女".equals(sex)) {
+                        a = 2
+                    }
 
-                            }
+                    RetrofitManager.service
+                            .updateUserEntity(userid,
+                                    personalInfo!!.payee,
+                                    personalInfo!!.photo,
+                                    a,
+                                    personalInfo!!.phone,
+                                    personalInfo!!.niName,
+                                    personalInfo!!.city
+                            )
+                            .compose(SchedulerUtils.ioToMain())
+                            .subscribe(object : BaseObserver<Any?>() {
+                                override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                                    toast(t.message)
 
-                            override fun onCodeError(code: Int, msg: String) {
-                                toast(msg)
-                            }
-                        })
+                                }
 
+                                override fun onCodeError(code: Int, msg: String) {
+                                    toast(msg)
+                                }
+                            })
 
+                } else {
+                    toast("性别输入错误")
+                    show_sex.text.clear()
+                }
             }
+
+
             //赞助
             R.id.iv_personal_zanzhu -> {
                 startActivity(Intent(this, SponsorActivity::class.java))
