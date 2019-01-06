@@ -4,6 +4,9 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * ================================================
  * 作    者：夏沐尧  Github地址：https://github.com/XiaMuYaoDQX
@@ -19,9 +22,9 @@ public class StringUtli {
      * @return
      */
     public static String getBlueTooth(){
-        BluetoothAdapter m_BluetoothAdapter = null; // Local Bluetooth adapter
-        m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        String m_szBTMAC = m_BluetoothAdapter.getAddress();
-        return m_szBTMAC;
+//        BluetoothAdapter m_BluetoothAdapter = null; // Local Bluetooth adapter
+//        m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+//        String m_szBTMAC = m_BluetoothAdapter.getAddress();
+        return "12345679dfgdfg";
     }
 }
