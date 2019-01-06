@@ -169,7 +169,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 
         if (personalInfo?.usdtbalance == 1) {
             if(personalInfo?.bankName.isNullOrBlank() || personalInfo?.cardNumber.isNullOrBlank()){
-                showMessage("銀行卡信息不")
+                showMessage("銀行卡信息不能為空")
                 return
             }
         }

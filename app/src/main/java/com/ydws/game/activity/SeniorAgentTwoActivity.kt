@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.text.SpannableStringBuilder
 import android.view.View
+import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
@@ -30,6 +31,10 @@ class SeniorAgentTwoActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun initViews() {
         findViewById<View>(R.id.immediately_extension).setOnClickListener(this)
         findViewById<View>(R.id.add_task).setOnClickListener(this)
+        findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
+        findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
+        val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
+        viewById.text = "高级代理"
     }
 
     companion object {

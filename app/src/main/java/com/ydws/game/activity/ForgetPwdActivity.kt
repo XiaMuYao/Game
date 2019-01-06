@@ -2,6 +2,7 @@ package com.ydws.game.activity
 
 import android.content.Intent
 import android.view.View
+import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
@@ -41,8 +42,8 @@ class ForgetPwdActivity : BaseAbstractActivity(), View.OnClickListener {
                                 mibaowenti.text.toString().trim(),
                                 mibaodaan.text.toString().trim())
                         .compose(SchedulerUtils.ioToMain())
-                        .subscribe(object : BaseObserver<Any>() {
-                            override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                        .subscribe(object : BaseObserver<String>() {
+                            override fun onSuccees(t: BaseResponse<String>, data: String) {
                                 toast(t.message)
                                 userid = data.toString()
                                 ResetPwdActivity.start(this@ForgetPwdActivity)

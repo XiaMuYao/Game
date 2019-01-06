@@ -96,7 +96,7 @@
 
             <TextView
                 tools:text="123"
-                android:gravity="center"
+                android:gravity="start|center_vertical"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
@@ -135,7 +135,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"         tools:text="123"
-                android:gravity="center"
+                android:gravity="start|center_vertical"
                 android:background="@null"
                 android:text="@{unfinishedGame}"
                 android:textColor="@color/colorWhite" />
@@ -169,8 +169,10 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
+
                 android:background="@null"         tools:text="123"
-                android:gravity="center"
+                android:gravity="start|center_vertical"
+
                 android:text="@{weekGames}"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
@@ -204,7 +206,8 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"         tools:text="123"
-                android:gravity="center"
+                android:gravity="start|center_vertical"
+
                 android:background="@null"
                 android:text="@{weilingquJiangli}"
                 android:textColor="@color/colorWhite" />

@@ -37,10 +37,11 @@ class ResetPwdActivity : BaseAbstractActivity() {
                     .changePassword(userid,
                             xinmima.text.toString().trim())
                     .compose(SchedulerUtils.ioToMain())
-                    .subscribe(object : BaseObserver<Any>() {
-                        override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                    .subscribe(object : BaseObserver<Any?>() {
+                        override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                             LoginActivity.start(this@ResetPwdActivity)
                             finish()
+                            toast(t.message)
                         }
 
                         override fun onCodeError(code: Int, msg: String) {

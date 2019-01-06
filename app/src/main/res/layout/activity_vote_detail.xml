@@ -1,12 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/hall_page_background">
 
     <include
+        android:id="@+id/include"
         layout="@layout/view_title_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_gold_apply_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:src="@mipmap/gen_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title" />
+
+
+    <ImageView
+        android:id="@+id/iv_generalize_huakuang"
+        android:layout_width="274dp"
+        android:layout_height="294dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/tuiguang_detail"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintVertical_bias="0.64" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/xianshiwenzi"
+        android:layout_width="267dp"
+        android:layout_height="291dp"
+        android:fadeScrollbars="false"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+        android:text="1231231231111111"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_generalize_huakuang"
+        app:layout_constraintEnd_toEndOf="@+id/iv_generalize_huakuang"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/iv_generalize_huakuang"
+        app:layout_constraintTop_toTopOf="@+id/iv_generalize_huakuang" />
+
+
+    <TextView
+        android:id="@+id/leijipiaoshu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+
+        android:layout_marginTop="16dp"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="@+id/xianshiwenzi"
+        app:layout_constraintTop_toBottomOf="@+id/xianshiwenzi"
+        tools:text="累计票数" />
+
+    <Button
+        android:id="@+id/toupiao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        android:text="投票"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintTop_toBottomOf="@+id/iv_generalize_huakuang"
+        app:layout_constraintVertical_bias="0.9" />
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg"
+        tools:text="豆豆猪" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:text="请为您喜欢的游戏投票" />
+
+    <TextView
+        android:id="@+id/jiezhishijian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="4dp"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:text="有效投票截止时间:" />
 </android.support.constraint.ConstraintLayout>
