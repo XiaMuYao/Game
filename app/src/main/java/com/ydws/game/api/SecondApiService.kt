@@ -91,4 +91,7 @@ interface SecondApiService {
 
     @GET("game/judgeQuestion")
     fun gameJudgeQuestion(@Query("userId")userId:String,@Query("question")question:String,@Query("answer")answer:String) : Observable<BaseResponse<Any?>>
+
+    @POST("game/updatePassword")
+    fun gameUpdatePassword(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
 }
