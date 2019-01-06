@@ -200,7 +200,20 @@ interface ApiService {
     @POST("game/selectVoteByIdNumber")
     fun selectVoteByIdNumber(@Query("id") id: String,
                              @Query("userId") userId: String
-    ):
-            Observable<BaseResponse<Any?>>
+    ): Observable<BaseResponse<Any?>>
+
+
+    /**
+     * 游戏投票详情
+     */
+    @POST("game/updateUserEntity")
+    fun updateUserEntity(@Query("id") id: String,
+                         @Query("payee") payee: String,
+                         @Query("photo") photo: String,
+                         @Query("sex") sex: Int,
+                         @Query("phone") phone: String,
+                         @Query("niName") niName: String,
+                         @Query("city") city: String
+    ): Observable<BaseResponse<Any?>>
 
 }

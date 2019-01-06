@@ -17,12 +17,16 @@ import com.ydws.game.bean.PersonalBean
 import com.ydws.game.bean.SelectEntityById
 import com.ydws.game.databinding.ActivityPersonalBinding
 import com.ydws.game.databinding.LayoutYanZhengMiBaoBinding
+import com.ydws.game.net.RetrofitManager
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
+import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_personal.*
+import org.jetbrains.anko.toast
 
 import java.util.ArrayList
 
@@ -65,9 +69,17 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
                         personalInfo = data
                         activityPersonalBinding.sexStr = if (personalInfo?.sex == 1) "男" else "女"
                         activityPersonalBinding.viewModel = personalInfo
+
+                        //手机和姓名被修改
+                        if (!personalInfo?.payee.isNullOrBlank()) {
+                            show_name.isEnabled = false
+                            show_tel.isEnabled = false
+                        }
+
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
+
                     }
 
                 })
@@ -80,6 +92,8 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun initData() {
         findViewById<View>(R.id.iv_reset_password).setOnClickListener(this)
         findViewById<View>(R.id.iv_jiaoyi_mima).setOnClickListener(this)
+        findViewById<View>(R.id.button).setOnClickListener(this)
+        findViewById<View>(R.id.iv_personal_zanzhu).setOnClickListener(this)
 
 
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -168,16 +182,16 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 //        stutas
 
         if (personalInfo?.usdtbalance == 1) {
-            if(personalInfo?.bankName.isNullOrBlank() || personalInfo?.cardNumber.isNullOrBlank()){
+            if (personalInfo?.bankName.isNullOrBlank() || personalInfo?.cardNumber.isNullOrBlank()) {
                 showMessage("銀行卡信息不能為空")
                 return
             }
         }
         val params = mapOf(
                 "id" to userid,
-                "wechat" to (personalInfo?.wechat?:""),
-                "zhifubao" to (personalInfo?.zhifubao?:""),
-                "bankName" to (personalInfo?.bankName?:""),
+                "wechat" to (personalInfo?.wechat ?: ""),
+                "zhifubao" to (personalInfo?.zhifubao ?: ""),
+                "bankName" to (personalInfo?.bankName ?: ""),
                 "stutas" to (personalInfo?.usdtbalance.toString())
 
         )
@@ -197,8 +211,39 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.iv_reset_password -> startActivity(Intent(this, SetPasswordActivity::class.java))
-            R.id.iv_jiaoyi_mima -> startActivity(Intent(this, ResetPasswordActivity::class.java))
+            R.id.iv_reset_password -> startActivity(Intent(this, ResetPasswordActivity::class.java))
+            R.id.iv_jiaoyi_mima -> startActivity(Intent(this, SetPasswordActivity::class.java))
+            //修改信息
+            R.id.button -> {
+
+                RetrofitManager.service
+                        .updateUserEntity(userid,
+                                personalInfo!!.payee,
+                                personalInfo!!.photo,
+                                personalInfo!!.sex,
+                                personalInfo!!.phone,
+                                personalInfo!!.niName,
+                                personalInfo!!.city
+                        )
+                        .compose(SchedulerUtils.ioToMain())
+                        .subscribe(object : BaseObserver<Any?>() {
+                            override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                                toast(t.message)
+
+                            }
+
+                            override fun onCodeError(code: Int, msg: String) {
+                                toast(msg)
+                            }
+                        })
+
+
+            }
+            //赞助
+            R.id.iv_personal_zanzhu -> {
+                startActivity(Intent(this, SponsorActivity::class.java))
+            }
+
         }
     }
 }
