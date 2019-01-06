@@ -81,4 +81,14 @@ interface SecondApiService {
 
     @POST("prop/report")
     fun report(@Query("userId")userId:String,@Query("id")id:String): Observable<BaseResponse<Any?>>
+
+    @GET("game/selectEntityById")
+    fun gameSelectEntityById(@Query("id") userId: String):Observable<BaseResponse<SelectEntityById.DataBean>>
+
+    @POST("game/updateGathering")
+    fun gameUpdateGathering(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
+
+
+    @GET("game/judgeQuestion")
+    fun gameJudgeQuestion(@Query("userId")userId:String,@Query("question")question:String,@Query("answer")answer:String) : Observable<BaseResponse<Any?>>
 }
