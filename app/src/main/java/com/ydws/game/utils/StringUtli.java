@@ -25,9 +25,12 @@ public class StringUtli {
         m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         if(BuildConfig.DEBUG && m_BluetoothAdapter == null){
-            return "https://github.com/XiaMuYaoDQX";
+            return "asdkljqwldjasdoiqwpoiddd";
         }
         String m_szBTMAC = m_BluetoothAdapter.getAddress();
+        if (null == m_szBTMAC || m_szBTMAC.isEmpty()){
+            m_szBTMAC = "askdklsdlasjdoasjud";
+        }
         return m_szBTMAC;
     }
 }

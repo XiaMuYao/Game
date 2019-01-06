@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/hall_page_background">
@@ -66,8 +67,8 @@
             android:id="@+id/countdownView"
             android:layout_width="100dp"
             android:layout_height="20dp"
-            android:layout_marginLeft="12dp"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp" />
 
     </LinearLayout>
 
@@ -100,7 +101,10 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
-            android:textColor="@color/colorWhite" />
+            android:gravity="start|center_vertical"
+            android:enabled="false"
+            android:textColor="@color/colorWhite"
+            tools:text="123" />
     </LinearLayout>
 
     <LinearLayout
@@ -132,7 +136,10 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
-            android:textColor="@color/colorWhite" />
+            android:gravity="start|center_vertical"
+            android:enabled="false"
+            android:textColor="@color/colorWhite"
+            tools:text="123" />
     </LinearLayout>
 
     <LinearLayout
@@ -164,7 +171,10 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
-            android:textColor="@color/colorWhite" />
+            android:gravity="start|center_vertical"
+            android:enabled="false"
+            android:textColor="@color/colorWhite"
+            tools:text="123" />
     </LinearLayout>
 
     <LinearLayout
@@ -196,7 +206,10 @@
             android:layout_height="30dp"
             android:layout_weight="1"
             android:background="@null"
-            android:textColor="@color/colorWhite" />
+            android:gravity="start|center_vertical"
+            android:enabled="false"
+            android:textColor="@color/colorWhite"
+            tools:text="123" />
     </LinearLayout>
 
     <TextView

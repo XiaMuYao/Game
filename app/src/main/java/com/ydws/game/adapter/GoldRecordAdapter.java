@@ -5,6 +5,8 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.ydws.game.R;
 import com.ydws.game.bean.RecordByDaoOrGoldBean;
 
+import java.util.UUID;
+
 public class GoldRecordAdapter extends BaseQuickAdapter<RecordByDaoOrGoldBean, BaseViewHolder> {
     public GoldRecordAdapter(int layoutResId) {
         super(layoutResId);

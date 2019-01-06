@@ -62,25 +62,23 @@ public class BootPageActivity extends BaseAbstractActivity implements OnBannerLi
 
         mBanner.setImages(imagePath).setOnBannerListener(this).start();
 
-//        if (mTimer == null) {
-//            mTimer = new CountDownTimer((long) (recLen * imagePath.size() * 1000), 1000) {
-//
-//                @Override
-//                public void onTick(long millisUntilFinished) {
-//                    if (!BootPageActivity.this.isFinishing()) {
-//                        final int remainTime = (int) (millisUntilFinished / 1000L);
-//
-//
-//                    }
-//                }
-//
-//                @Override
-//                public void onFinish() {
-//                    intent();
-//                }
-//            };
-//            mTimer.start();
-//        }
+        if (mTimer == null) {
+            mTimer = new CountDownTimer((long) (recLen * imagePath.size() * 1000), 1000) {
+
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    if (!BootPageActivity.this.isFinishing()) {
+                        final int remainTime = (int) (millisUntilFinished / 1000L);
+                    }
+                }
+
+                @Override
+                public void onFinish() {
+                    intent();
+                }
+            };
+            mTimer.start();
+        }
 
     }
 
