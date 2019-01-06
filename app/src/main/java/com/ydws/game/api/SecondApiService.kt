@@ -6,6 +6,7 @@ import com.ydws.game.bean.GoldTradingBean
 import com.ydws.game.bean.PropAboutMoney
 import com.ydws.game.bean.SelectBuyBackBean
 import com.ydws.game.bean.*
+import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import io.reactivex.Observable
 
@@ -26,28 +27,29 @@ interface SecondApiService {
     fun findBalance(@Query("userId") userId: String): Observable<BaseResponse<String>>
 
     @GET("agent/addGoldTrading")
-    fun addGoldTrading(@Query("userId") userId: String,@Query("jinbi") jinbi: String,@Query("tradingPassword") tradingPassword: String): Observable<BaseResponse<GoldTradingBean>>
+    fun addGoldTrading(@Query("userId") userId: String, @Query("jinbi") jinbi: String, @Query("tradingPassword") tradingPassword: String): Observable<BaseResponse<GoldTradingBean>>
 
     @POST("prop/addBuyBack")
-    fun  addBuyBack(@QueryMap map:Map<String,String>): Observable<BaseResponse<Any?>>
+    fun addBuyBack(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
 
     @GET(" agent/findCountries")
     fun findCountries(): Observable<BaseResponse<List<FindCountriesBean.DataBean>>>
 
     @GET("prop/selectBuyBack")
-    fun  selectBuyBack(@Query("id")id:String):Observable<BaseResponse<SelectBuyBackBean.DataBean>>
+    fun selectBuyBack(@Query("id") id: String): Observable<BaseResponse<SelectBuyBackBean.DataBean>>
 
     @GET("prop/aboutMoney")
-    fun propAboutMoney(@Query("countries")countries:String,@Query("goldNumber")number:String):Observable<BaseResponse<PropAboutMoney.DataBean>>
+    fun propAboutMoney(@Query("countries") countries: String, @Query("goldNumber") number: String): Observable<BaseResponse<PropAboutMoney.DataBean>>
 
     @GET("game/selectEverydayTask")
-    fun  gameSelectEverydayTask(@Query("userId")userId:String):Observable<BaseResponse<GameSelectEverydayTaskBean.DataBean>>
+    fun gameSelectEverydayTask(@Query("userId") userId: String): Observable<BaseResponse<GameSelectEverydayTaskBean.DataBean>>
 
     @POST("game/receivegold")
-    fun  gameReceivegold(@Query("userId")userId:String): Observable<BaseResponse<Any>>
+    fun gameReceivegold(@Query("userId") userId: String): Observable<BaseResponse<Any>>
 
     @GET("prop/recordByDaoOrGold")
-    fun  propRecordByDaoOrGold(@Query("userId")userId:String,@Query("daoOrGold") daoOrGold:Int):Observable<BaseResponse<List<GameSelectGoldRecordBean.DataBean>>>
+    fun propRecordByDaoOrGold(@Query("userId") userId: String, @Query("daoOrGold") daoOrGold: Int): Observable<BaseResponse<List<GameSelectGoldRecordBean.DataBean>>>
+
     @GET("agent/getPayType")
     fun getPayType(): Observable<BaseResponse<List<PayTypeBean>>>
 
@@ -56,13 +58,18 @@ interface SecondApiService {
     fun uploadPicture(@Part inputStream: MultipartBody.Part): Observable<BaseResponse<String>>
 
     @POST("agent/goldCommit")
-    fun goldCommit(@QueryMap map:Map<String,String>): Observable<BaseResponse<Any>>
+    fun goldCommit(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any>>
 
 
     @GET("game/selectWantSponsor")
-    fun gameSelectWantSponsor(@Query("id")userId:String):Observable<BaseResponse<SelectWantSponsorBean.DataBean>>
+    fun gameSelectWantSponsor(@Query("id") userId: String): Observable<BaseResponse<SelectWantSponsorBean.DataBean>>
 
     @POST("game/addWantSponsor")
-    fun gameAddWantSponsor(@QueryMap map: Map<String, Any>) : Observable<BaseResponse<Any?>>
+    fun gameAddWantSponsor(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
 
+    @POST("game/upAgentTransactionNumber")
+    fun gameUpAgentTransactionNumber(@Query("tradingNumber") tradingNumber: String, @Query("userId") userId: String): Observable<BaseResponse<Any?>>
+
+    @GET("game/selectPlatformAddress")
+    fun  gameSelectPlatformAddress():Observable<BaseResponse<GameSelectPlatformAddressBean.DataBean>>
 }

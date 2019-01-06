@@ -13,6 +13,7 @@ import com.ydws.game.databinding.ActivityAgentBinding
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
+import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -23,6 +24,7 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
 
     private lateinit var activityAgentBinding: ActivityAgentBinding
     private val viewModel: SelectWantSponsorBean.DataBean by lazy { intent.getParcelableExtra(argBecomeStatus) as SelectWantSponsorBean.DataBean }
+    private var userid: String by SPreference("userid", "")
 
     override fun getContentLayoutID(): Int {
         return R.layout.activity_agent
@@ -52,11 +54,22 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
 //    language	是	int	语言language
 //    sessionId
     private fun gameAddWantSponsor() {
-        SecondRetrofitManager.service.gameAddWantSponsor(mapOf()).subscribeOn(Schedulers.io())
+
+        val params = mapOf("city" to (viewModel.city?:""),
+                "shoukuanName" to (viewModel.payee?:""),
+                "bankName" to (viewModel.bankName?:""),
+                "cardNumber" to (viewModel.cardNumber?:""),
+                "zhifubaoNumber" to (viewModel.zhifubao?:""),
+                "wechat" to (viewModel.wechat?:""),
+                "userId" to (userid?:"")
+                )
+
+        SecondRetrofitManager.service.gameAddWantSponsor(params).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
 //                        handleBecomeStatus(data)
+                        showMessage("代理已申請")
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
@@ -76,9 +89,9 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View) {
-        when (view.id) {
-            R.id.iv_submit -> startActivity(Intent(this, AgentSureActivity::class.java))
-        }
+//        when (view.id) {
+//            R.id.iv_submit -> startActivity(Intent(this, AgentSureActivity::class.java))
+//        }
     }
 
     companion object {

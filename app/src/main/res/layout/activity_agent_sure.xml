@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="editable"
+            type="Boolean"/>
+        <variable
+            name="tradeNumber"
+            type="String"/>
+        <variable name="usdtAddress" type="String"/>
+    </data>
+<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/hall_page_background">
@@ -40,7 +50,7 @@
         app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
         app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/ll_country"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -58,18 +68,29 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="USDY钱包地址:"
+            android:text="USDT钱包地址:"
+            android:layout_centerVertical="true"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/copy"
+            android:layout_alignParentEnd="true"
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_height="30dp"
-            android:layout_weight="1"
-            android:background="@null"
+            android:layout_margin="8dp"
+            android:background="#C45514"
+            android:text="複製"
+            android:gravity="center"
+            android:textSize="@dimen/sp_14"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:textColor="@color/colorWhite" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/ll_daili"
@@ -89,7 +110,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="123456674124216123:"
+            android:text="@{usdtAddress}"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -98,6 +119,7 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
+            android:visibility="gone"
             android:background="@null"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
@@ -118,6 +140,8 @@
         android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_margin="5dp"
+        android:focusable="@{editable}"
+        android:text="@={tradeNumber}"
         android:background="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="@id/ll_daili"
         app:layout_constraintStart_toEndOf="@id/number"
@@ -157,3 +181,4 @@
         app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
 
 </android.support.constraint.ConstraintLayout>
+</layout>
