@@ -4,7 +4,6 @@ import com.ydws.game.bean.*
 import io.reactivex.Observable
 import com.ydws.game.net.base.BaseResponse
 import retrofit2.http.*
-import java.math.BigDecimal
 
 interface ApiService {
 
@@ -156,4 +155,29 @@ interface ApiService {
     @GET("weight/gotoAgentBefor")
     fun gotoAgentBefor(@Query("userId") userId: String):
             Observable<BaseResponse<Any>>
+
+
+    /**
+     * 高级代理的推广详情
+     */
+    @GET("agent/findHighGenerationDetails")
+    fun findHighGenerationDetails(@Query("userId") userId: String):
+            Observable<BaseResponse<gaojidailituiguangBean.DataBean>>
+
+
+
+    /**
+     * 查询用户的加权信息
+     */
+    @GET("weight/findWeighting")
+    fun findWeighting(@Query("userId") userId: String):
+            Observable<BaseResponse<jiaquanBean.DataBean>>
+
+    /**
+     * 主动开启加权任务
+     */
+    @GET("weight/openWeighting")
+    fun openWeighting(@Query("userId") userId: String):
+            Observable<BaseResponse<Any>>
+
 }

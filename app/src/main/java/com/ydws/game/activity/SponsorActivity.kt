@@ -70,9 +70,7 @@ class SponsorActivity : BaseAbstractActivity(), View.OnClickListener {
                 AgentActivity.start(this ,data)
             }
             data.becomeStatus == 1 -> showMessage("您已是服務代理")
-            data.becomeStatus == 4 -> {
-
-            }
+            data.becomeStatus == 4 -> AgentSureActivity.start(this,data)
         }
     }
 

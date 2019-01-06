@@ -67,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:background="@null"
+            android:editable="false"
             android:text="赫都莫"
             android:textColor="#20c7ff"
             android:textSize="12sp"
@@ -94,6 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:background="@null"
+            android:editable="false"
             android:text="男"
             android:textColor="#20c7ff"
             android:textSize="12sp"
@@ -124,6 +126,7 @@
             android:layout_height="14dp"
             android:layout_marginStart="5dp"
             android:background="@null"
+            android:editable="false"
             android:text="108"
             android:textColor="#20c7ff"
             android:textSize="12sp"
@@ -153,6 +156,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:background="@null"
+            android:editable="false"
             android:text="18698711169"
             android:textColor="#20c7ff"
             android:textSize="12sp"
@@ -182,6 +186,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:background="@null"
+            android:editable="false"
             android:text="麦兜点点"
             android:textColor="#20c7ff"
             android:textSize="12sp"
@@ -211,6 +216,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:background="@null"
+            android:editable="false"
             android:text="zouguohua707696"
             android:textColor="#20c7ff"
             android:textSize="12sp"
@@ -224,6 +230,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:src="@mipmap/revise"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/iv_personal_message"
             app:layout_constraintEnd_toEndOf="@id/iv_personal_message" />
 
@@ -247,7 +254,7 @@
 
             <RadioButton
                 android:id="@+id/rb_record"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null" />
@@ -263,7 +270,7 @@
         <FrameLayout
             android:id="@+id/frame_mer_chant"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             app:layout_constraintEnd_toEndOf="@id/radio"
             app:layout_constraintStart_toStartOf="@id/radio"
             app:layout_constraintTop_toBottomOf="@id/radio" />

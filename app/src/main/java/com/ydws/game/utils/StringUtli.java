@@ -4,6 +4,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
+import com.ydws.game.BuildConfig;
+
 /**
  * ================================================
  * 作    者：夏沐尧  Github地址：https://github.com/XiaMuYaoDQX
@@ -21,6 +23,10 @@ public class StringUtli {
     public static String getBlueTooth(){
         BluetoothAdapter m_BluetoothAdapter = null; // Local Bluetooth adapter
         m_BluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        if(BuildConfig.DEBUG && m_BluetoothAdapter == null){
+            return "https://github.com/XiaMuYaoDQX";
+        }
         String m_szBTMAC = m_BluetoothAdapter.getAddress();
         return m_szBTMAC;
     }

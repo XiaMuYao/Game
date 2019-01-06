@@ -62,12 +62,13 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            android:background="@null"
-            android:textColor="@color/colorWhite" />
+        <cc.ibooker.zcountdownviewlib.CountDownView
+            android:id="@+id/countdownView"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center_vertical" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -93,7 +94,8 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/jiaquandengji"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -124,7 +126,8 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/dangqianjiaquzhuangtai"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -155,7 +158,8 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/dangqianrenwudengji"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
@@ -186,7 +190,8 @@
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
-        <EditText
+        <TextView
+            android:id="@+id/chengfajibie"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_weight="1"
