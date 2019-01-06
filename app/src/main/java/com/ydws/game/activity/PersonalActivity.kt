@@ -93,6 +93,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
         findViewById<View>(R.id.iv_reset_password).setOnClickListener(this)
         findViewById<View>(R.id.iv_jiaoyi_mima).setOnClickListener(this)
         findViewById<View>(R.id.button).setOnClickListener(this)
+        findViewById<View>(R.id.iv_personal_zanzhu).setOnClickListener(this)
 
 
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
