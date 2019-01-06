@@ -121,7 +121,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 
     private fun showQuestionAndAnswer() {
         val binding = LayoutYanZhengMiBaoBinding.inflate(LayoutInflater.from(this))
-        val builder = AlertDialog.Builder(this);
+        val builder = AlertDialog.Builder(this)
         builder.setView(binding.root)
         builder.setPositiveButton("驗證") { _, _ ->
             if (binding.question.isNullOrBlank()) {
