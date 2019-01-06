@@ -175,7 +175,7 @@ interface ApiService {
     /**
      * 主动开启加权任务
      */
-    @GET("weight/openWeighting")
+    @POST("weight/openWeighting")
     fun openWeighting(@Query("userId") userId: String):
             Observable<BaseResponse<Any>>
 
