@@ -1,6 +1,8 @@
 package com.ydws.game.activity
 
 import android.text.SpannableStringBuilder
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import cc.ibooker.zcountdownviewlib.CountDownView
 import com.ydws.game.MainActivity
@@ -27,6 +29,12 @@ class SeniorAgentThreeActivity : BaseAbstractActivity() {
     }
 
     override fun initViews() {
+
+        findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
+        val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
+        viewById.text = "加权任务"
+
+
         val yanse = "#FFFFFF"
         val beijing = "#005D3C2D"
         val textsize = 15F

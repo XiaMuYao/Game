@@ -74,6 +74,9 @@ interface SecondApiService {
     @GET("game/selectPlatformAddress")
     fun  gameSelectPlatformAddress():Observable<BaseResponse<GameSelectPlatformAddressBean.DataBean>>
 
+    @POST("game/upTraPasswordModify")
+    fun gameUpTraPasswordModify(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
+
     @GET("prop/detailsOfPropRepurchase")
     fun detailsOfPropRepurchase(@Query("userId")userId:String,@Query("dingdanId")dingdanId:String): Observable<BaseResponse<DetailsOfPropRepurchaseBean>>
 
@@ -100,4 +103,17 @@ interface SecondApiService {
 
     @POST("prop/sponsorConfirm")
     fun sponsorConfirm(@Query("userId")userId:String,@Query("zhuanzhangPhoto")zhuanzhangPhoto:String,@Query("payType")payType:String,@Query("id")id:String):Observable<BaseResponse<Any?>>
+
+    @GET("game/selectEntityById")
+    fun gameSelectEntityById(@Query("id") userId: String):Observable<BaseResponse<SelectEntityById.DataBean>>
+
+    @POST("game/updateGathering")
+    fun gameUpdateGathering(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
+
+
+    @GET("game/judgeQuestion")
+    fun gameJudgeQuestion(@Query("userId")userId:String,@Query("question")question:String,@Query("answer")answer:String) : Observable<BaseResponse<Any?>>
+
+    @POST("game/updatePassword")
+    fun gameUpdatePassword(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
 }

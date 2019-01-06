@@ -20,6 +20,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_register_last.*
 import org.jetbrains.anko.startActivity
+import java.util.*
 
 class RegisterLastActivity : BaseAbstractActivity() {
 
@@ -59,9 +60,7 @@ class RegisterLastActivity : BaseAbstractActivity() {
 
         huoqumibao.setOnClickListener {
 
-
-            miyao.text = System.currentTimeMillis().toString() + "qwefdsz"
-
+            miyao.text = UUID.randomUUID().toString().substring(0, 20)
 
         }
 

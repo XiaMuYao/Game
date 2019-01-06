@@ -4,10 +4,9 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
-import com.ydws.game.databinding.ActivityResetBinding
+import com.ydws.game.databinding.ActivitySetPasswordBinding
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
@@ -15,11 +14,14 @@ import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
+/**
+ * 设置交易密码
+ */
+class SetPasswordActivity : BaseAbstractActivity() {
     private var titleTv: TextView? = null
     private var userid: String by SPreference("userid", "")
 
-    private lateinit var activityResetBinding: ActivityResetBinding
+    private lateinit var activityResetBinding: ActivitySetPasswordBinding
 
     override fun getContentLayoutID(): Int {
         return R.layout.activity_reset
@@ -27,10 +29,10 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityResetBinding = DataBindingUtil.setContentView(this, R.layout.activity_reset)
+        activityResetBinding = DataBindingUtil.setContentView(this, R.layout.activity_set_password)
         activityResetBinding.idStr = "ID$userid"
 
-        activityResetBinding.viewTitle.findViewById<TextView>(R.id.tv_title_bar).text = "修改交易密碼"
+        activityResetBinding.viewTitle.findViewById<TextView>(R.id.tv_title_bar).text = "修改密碼"
         activityResetBinding.viewTitle.findViewById<View>(R.id.back).setOnClickListener { finish() }
         activityResetBinding.submit.setOnClickListener {
             resetPassword()
@@ -69,13 +71,13 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
 //                language	是	int	语言，0汉语，其他英文
 //        sessionId
         val params = mapOf(
-                "tradingPassword" to activityResetBinding.oldPassword!!,
-                "tradingPasswordXin" to activityResetBinding.newPassword!!,
-                "tradingPasswordXin2" to activityResetBinding.newPasswordRepeat!!,
+                "oldPassword" to activityResetBinding.oldPassword!!,
+                "password" to activityResetBinding.newPassword!!,
+                "password2" to activityResetBinding.newPasswordRepeat!!,
                 "id" to userid
         )
 
-        SecondRetrofitManager.service.gameUpTraPasswordModify(params).subscribeOn(Schedulers.io())
+        SecondRetrofitManager.service.gameUpdatePassword(params).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
@@ -91,7 +93,5 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
 
     }
 
-    override fun onClick(view: View) {
 
-    }
 }

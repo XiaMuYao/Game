@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
-
+import com.ydws.game.R;
 
 
 public abstract class BaseAbstractActivity extends AppCompatActivity implements IBaseActivity {

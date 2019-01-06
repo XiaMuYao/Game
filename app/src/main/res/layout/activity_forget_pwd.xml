@@ -16,7 +16,6 @@
         <EditText
             android:id="@+id/zhanghaohhhh"
             android:layout_width="match_parent"
-            android:text="a1002"
             android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -43,7 +42,6 @@
             android:background="@null"
             android:hint="请输入密保问题"
             android:padding="5dp"
-            android:text="222222"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textCursorDrawable="@drawable/edittext_normal" />
@@ -58,7 +56,6 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
-            android:text="1546658151884qwefdsz"
             android:background="@null"
             android:hint="请输入密保答案"
             android:padding="5dp"

@@ -31,7 +31,9 @@
         <activity android:name=".activity.ResetPwdActivity" />
         <activity android:name=".activity.RegistActivity" />
         <activity android:name=".activity.ShopActivity" />
-        <activity android:name=".activity.PersonalActivity" />
+        <activity
+            android:name=".activity.PersonalActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".activity.ResetPasswordActivity" />
         <activity android:name=".activity.GeneralizeActivity" />
         <activity android:name=".activity.GeneralizeTwoActivity" />

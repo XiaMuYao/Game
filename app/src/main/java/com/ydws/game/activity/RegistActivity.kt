@@ -13,6 +13,7 @@ import com.ydws.game.net.RetrofitManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_regist.*
+import org.jetbrains.anko.toast
 
 /**
  * 注册
@@ -31,11 +32,25 @@ class RegistActivity : BaseAbstractActivity() {
     override fun initData() {
         next_btn.setOnClickListener {
 
-            RegisterLastActivity.start(this,
-                    ed_tuijian.text.toString().trim(),
-                    ed_account.text.toString().trim(),
-                    ed_password.text.toString().trim()
-            )
+            if (ed_tpassword.text.isNullOrBlank()
+                    || ed_tuijian.text.isNullOrBlank()
+                    || ed_account.text.isNullOrBlank()
+                    || ed_password.text.isNullOrBlank()) {
+
+                toast("有字段未填写")
+
+            } else {
+
+                if (ed_password.text.equals(ed_tpassword.text)) {
+                    RegisterLastActivity.start(this,
+                            ed_tuijian.text.toString().trim(),
+                            ed_account.text.toString().trim(),
+                            ed_password.text.toString().trim())
+                } else {
+                    toast("两次密码不相同")
+                }
+            }
+
         }
     }
 }

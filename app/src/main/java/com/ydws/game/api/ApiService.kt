@@ -29,19 +29,19 @@ interface ApiService {
     /**
      * 找回密码 下一步按钮
      */
-    @POST("game/foundPassword")
+    @GET("game/foundPassword")
     fun foundPassword(@Query("userName") userName: String,
                       @Query("mibaoQuestion") mibaoQuestion: String,
                       @Query("mibaoAnswer") mibaoAnswer: String
-    ): Observable<BaseResponse<Any>>
+    ): Observable<BaseResponse<String>>
 
     /**
      * 验证秘钥成功后 重置密码页面 确定按钮
      */
-    @GET("game/changePassword")
+    @POST("game/changePassword")
     fun changePassword(@Query("userId") userId: String,
                        @Query("password") password: String
-    ): Observable<BaseResponse<Any>>
+    ): Observable<BaseResponse<Any?>>
 
     /**
      * 获取密钥
@@ -165,7 +165,6 @@ interface ApiService {
             Observable<BaseResponse<gaojidailituiguangBean.DataBean>>
 
 
-
     /**
      * 查询用户的加权信息
      */
@@ -179,5 +178,42 @@ interface ApiService {
     @GET("weight/openWeighting")
     fun openWeighting(@Query("userId") userId: String):
             Observable<BaseResponse<Any>>
+
+    /**
+     * 游戏列表
+     */
+    @GET("game/selectVote")
+    fun selectVote():
+            Observable<BaseResponse<List<youxitoutiaoBean.DataBean>>>
+
+
+    /**
+     * 游戏投票详情
+     */
+    @GET("game/selectVoteById")
+    fun selectVoteById(@Query("id") id: String):
+            Observable<BaseResponse<gameInfoBean.DataBean>>
+
+    /**
+     * 游戏投票详情
+     */
+    @POST("game/selectVoteByIdNumber")
+    fun selectVoteByIdNumber(@Query("id") id: String,
+                             @Query("userId") userId: String
+    ): Observable<BaseResponse<Any?>>
+
+
+    /**
+     * 游戏投票详情
+     */
+    @POST("game/updateUserEntity")
+    fun updateUserEntity(@Query("id") id: String,
+                         @Query("payee") payee: String,
+                         @Query("photo") photo: String,
+                         @Query("sex") sex: Int,
+                         @Query("phone") phone: String,
+                         @Query("niName") niName: String,
+                         @Query("city") city: String
+    ): Observable<BaseResponse<Any?>>
 
 }
