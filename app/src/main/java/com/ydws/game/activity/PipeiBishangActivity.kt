@@ -44,14 +44,16 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
                 .findBalance(userid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe (object : BaseObserver<String>(){
+                .subscribe(object : BaseObserver<String>() {
 
                     override fun onSuccees(t: BaseResponse<String>, data: String) {
                         tv_daoju_count_show.text = data
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
-
+                        if (code==205){
+                            finish()
+                        }
                     }
                 })
 
@@ -61,37 +63,37 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.iv_pipei_daili -> {
-                if(tv_gold_count_show.text.toString().isBlank()){
+                if (tv_gold_count_show.text.toString().isBlank()) {
                     "請輸入贊助金幣數量".toast()
                     return
                 }
-                if(tv_gold_count_show.text.toString().toInt()<1000){
+                if (tv_gold_count_show.text.toString().toInt() < 1000) {
                     "贊助金不能低於1000".toast()
                     return
                 }
-                if(tv_jiaoyi_pwd_show.text.toString().isBlank()){
+                if (tv_jiaoyi_pwd_show.text.toString().isBlank()) {
                     "請輸入交易密碼".toast()
                     return
                 }
 
                 SecondRetrofitManager.service
-                        .addGoldTrading(userid,tv_gold_count_show.text.toString(),tv_jiaoyi_pwd_show.text.toString())
+                        .addGoldTrading(userid, tv_gold_count_show.text.toString(), tv_jiaoyi_pwd_show.text.toString())
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe (object : BaseObserver<GoldTradingBean>(){
+                        .subscribe(object : BaseObserver<GoldTradingBean>() {
 
                             override fun onSuccees(t: BaseResponse<GoldTradingBean>, data: GoldTradingBean) {
                                 val intent = Intent(this@PipeiBishangActivity, GoldApplyActivity::class.java)
-                                intent.putExtra("data",data)
+                                intent.putExtra("data", data)
                                 startActivity(intent)
                             }
 
                             override fun onCodeError(code: Int, msg: String) {
-
+                                if (code == 205) {
+                                    finish()
+                                }
                             }
                         })
-
-
             }
             R.id.back -> finish()
         }
