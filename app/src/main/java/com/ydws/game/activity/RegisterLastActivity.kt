@@ -20,6 +20,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_register_last.*
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import java.util.*
 
 class RegisterLastActivity : BaseAbstractActivity() {
@@ -54,17 +55,15 @@ class RegisterLastActivity : BaseAbstractActivity() {
                         }
 
                     })
-
-
         }
 
         huoqumibao.setOnClickListener {
-
-            miyao.text = UUID.randomUUID().toString().substring(0, 20)
-
+            if (guanjianzi.text.isEmpty()) {
+                toast("关键字为空")
+            } else {
+                miyao.text = UUID.randomUUID().toString().substring(0, 20)
+            }
         }
-
-
     }
 
 

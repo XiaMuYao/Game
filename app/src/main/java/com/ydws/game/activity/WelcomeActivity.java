@@ -52,7 +52,7 @@ public class WelcomeActivity extends BaseAbstractActivity {
     }
 
     private void intent() {
-        startActivity(new Intent(getApplicationContext(), BootPageActivity.class));
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         finish();
     }
 }
