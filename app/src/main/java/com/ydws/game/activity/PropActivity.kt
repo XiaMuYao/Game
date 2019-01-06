@@ -100,6 +100,15 @@ class PropActivity : BaseAbstractActivity(), View.OnClickListener {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<SelectBuyBackBean.DataBean>() {
                     override fun onSuccees(t: BaseResponse<SelectBuyBackBean.DataBean>, data: SelectBuyBackBean.DataBean) {
+
+//                        city,payee,bankName,cardNumber,zhifubao,wechat,phone
+                        if (data.city.isNullOrBlank() || data.payee.isNullOrBlank() || data.bankName.isNullOrBlank() || data.cardNumber.isNullOrBlank() || data.zhifubao.isNullOrBlank() || data.wechat.isNullOrBlank() || data.phone.isNullOrBlank()) {
+                            showMessage("請完善個人資料")
+                            finish()
+                            return
+                        }
+
+
                         propBody.bankname.set(data.bankName)
                         propBody.cardNumber.set(data.cardNumber)
                         propBody.city.set(data.city)

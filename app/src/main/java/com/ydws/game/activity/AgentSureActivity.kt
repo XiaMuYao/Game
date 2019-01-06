@@ -33,6 +33,8 @@ class AgentSureActivity : BaseAbstractActivity(), View.OnClickListener {
 
 
     override fun getContentLayoutID(): Int {
+//        mapOf<Int, String>(R.mipmap.icon_one to "1")
+
         return R.layout.activity_agent_sure
     }
 
@@ -46,7 +48,7 @@ class AgentSureActivity : BaseAbstractActivity(), View.OnClickListener {
         activityAgentSureBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "服務代理"
         activityAgentSureBinding.title.findViewById<View>(R.id.back).setOnClickListener { finish() }
 
-        activityAgentSureBinding.copy.setOnClickListener{
+        activityAgentSureBinding.copy.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             val clipData = ClipData.newPlainText(null, activityAgentSureBinding.usdtAddress)
             clipboard.primaryClip = clipData
@@ -66,7 +68,7 @@ class AgentSureActivity : BaseAbstractActivity(), View.OnClickListener {
 
     private fun submitForm() {
         SecondRetrofitManager.service.gameUpAgentTransactionNumber(
-                activityAgentSureBinding.tradeNumber?:"",
+                activityAgentSureBinding.tradeNumber ?: "",
                 userid
 
         ).subscribeOn(Schedulers.io())
