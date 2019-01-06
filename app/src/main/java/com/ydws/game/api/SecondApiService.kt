@@ -116,4 +116,10 @@ interface SecondApiService {
 
     @POST("game/updatePassword")
     fun gameUpdatePassword(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any?>>
+
+    @GET("game/selectPortrait")
+    fun selectPortrait(): Observable<BaseResponse<List<selectPortraitBean>>>
+
+    @POST("game/updPhoto")
+    fun updPhoto(@Query("id")id:String,@Query("photo")photo:String): Observable<BaseResponse<Any?>>
 }

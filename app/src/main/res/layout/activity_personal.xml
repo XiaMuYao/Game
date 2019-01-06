@@ -56,12 +56,14 @@
 
         <ImageView
             android:id="@+id/iv_user_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"
             android:src="@mipmap/user_icon"
             app:layout_constraintBottom_toBottomOf="@id/iv_personal_message"
+            app:layout_constraintDimensionRatio="h,1.5:1"
             app:layout_constraintStart_toStartOf="@id/iv_personal_message"
             app:layout_constraintTop_toTopOf="@id/iv_personal_message" />
 
@@ -218,10 +220,9 @@
             android:id="@+id/iv_reset_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:src="@mipmap/edit_password"
             app:layout_constraintBottom_toTopOf="@id/iv_jiaoyi_mima"
-            app:layout_constraintStart_toEndOf="@+id/iv_personal_message"
+            app:layout_constraintEnd_toEndOf="@+id/iv_personal_zanzhu"
             app:layout_constraintTop_toBottomOf="@+id/iv_personal_zanzhu" />
 
         <ImageView
