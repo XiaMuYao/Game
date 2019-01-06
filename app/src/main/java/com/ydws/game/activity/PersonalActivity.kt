@@ -211,8 +211,8 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when (view.id) {
-            R.id.iv_reset_password -> startActivity(Intent(this, ResetPasswordActivity::class.java))
-            R.id.iv_jiaoyi_mima -> startActivity(Intent(this, SetPasswordActivity::class.java))
+            R.id.iv_reset_password -> startActivity(Intent(this, SetPasswordActivity::class.java))
+            R.id.iv_jiaoyi_mima -> startActivity(Intent(this, ResetPasswordActivity::class.java))
             //修改信息
             R.id.button -> {
                 val sex = show_sex.text.toString()
