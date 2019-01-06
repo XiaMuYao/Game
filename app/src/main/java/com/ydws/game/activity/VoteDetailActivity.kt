@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.text.method.ScrollingMovementMethod
+import android.view.View
+import android.widget.TextView
 import com.ydws.game.R
 import com.ydws.game.adapter.VoteAdapter
 import com.ydws.game.adapter.gameinfoAdapter
@@ -28,6 +30,9 @@ class VoteDetailActivity : BaseAbstractActivity() {
 
     override fun initViews() {
         toupiaoid = intent.getStringExtra("toupiaoid")
+        findViewById<View>(R.id.include).findViewById<View>(R.id.back).setOnClickListener { finish() }
+        val viewById = findViewById<View>(R.id.include).findViewById<TextView>(R.id.tv_title_bar)
+        viewById.text = "游戏详情"
     }
 
     companion object {
@@ -45,7 +50,7 @@ class VoteDetailActivity : BaseAbstractActivity() {
                 .subscribe(object : BaseObserver<gameInfoBean.DataBean>() {
                     override fun onSuccees(t: BaseResponse<gameInfoBean.DataBean>, data: gameInfoBean.DataBean) {
                         toast(t.message)
-                        var list: List<String> = arrayListOf("游戏介绍", data.gameIntroduce, "游戏特色", data.gameFeatures, "游戏玩法", data.gameRules)
+                        var list: List<String> = arrayListOf(data.gameIntroduce, data.gameFeatures, data.gameRules)
 
                         val layoutManager = LinearLayoutManager(this@VoteDetailActivity)
                         val voteAdapter = gameinfoAdapter(R.layout.item_game)

@@ -2,6 +2,7 @@ package com.ydws.game.activity
 
 import android.content.Intent
 import android.view.View
+import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity

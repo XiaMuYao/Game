@@ -8,6 +8,7 @@ import android.text.SpannableStringBuilder
 import android.util.Log
 import android.view.View
 import android.widget.RadioGroup
+import android.widget.TextView
 
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.ToastUtils
@@ -54,9 +55,11 @@ class MerChantActivity : BaseAbstractActivity(), View.OnClickListener {
         findViewById<View>(R.id.rb_record).setOnClickListener(this)
         findViewById<View>(R.id.rb_shut).setOnClickListener(this)
         findViewById<View>(R.id.iv_agent).setOnClickListener(this)
+        findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
+        val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
+        viewById.text = "服务代理"
 
     }
-
     override fun initData() {
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()

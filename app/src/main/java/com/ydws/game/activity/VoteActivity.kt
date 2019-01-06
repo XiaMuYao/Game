@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.TextView
 
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.ydws.game.R
@@ -36,6 +37,10 @@ class VoteActivity : BaseAbstractActivity(), BaseQuickAdapter.OnItemClickListene
 
     override fun initViews() {
         voteRv = findViewById(R.id.rv_vote)
+
+        findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
+        val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
+        viewById.text = "投票"
     }
 
     override fun initData() {
