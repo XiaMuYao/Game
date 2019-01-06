@@ -57,6 +57,7 @@
         <activity android:name=".activity.VoteDetailActivity" />
         <activity android:name=".activity.RegisterLastActivity" />
         <activity android:name=".activity.InputPassword"></activity>
+        <activity android:name=".activity.ShowImageDetailActivity" />
     </application>
 
 </manifest>

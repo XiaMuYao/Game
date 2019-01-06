@@ -68,9 +68,21 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:onClick="@{()->viewModel.lookup()}"
-        android:visibility="@{viewModel.buyOrSell==2?View.VISIBLE:View.GONE}"
         android:src="@mipmap/record_check_detail"
+        android:visibility="@{viewModel.isShowDetail?View.VISIBLE:View.GONE}"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="@{()->viewModel.report()}"
+        android:src="@mipmap/report"
+        android:visibility="@{viewModel.type==1?View.VISIBLE:View.GONE}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
 </layout>

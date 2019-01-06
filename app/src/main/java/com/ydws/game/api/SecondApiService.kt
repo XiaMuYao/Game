@@ -65,4 +65,9 @@ interface SecondApiService {
     @POST("game/addWantSponsor")
     fun gameAddWantSponsor(@QueryMap map: Map<String, Any>) : Observable<BaseResponse<Any?>>
 
+    @GET("prop/detailsOfPropRepurchase")
+    fun detailsOfPropRepurchase(@Query("userId")userId:String,@Query("dingdanId")dingdanId:String): Observable<BaseResponse<DetailsOfPropRepurchaseBean>>
+
+    @POST("prop/report")
+    fun report(@Query("userId")userId:String,@Query("id")id:String): Observable<BaseResponse<Any?>>
 }

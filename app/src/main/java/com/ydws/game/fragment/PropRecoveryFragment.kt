@@ -59,12 +59,13 @@ class PropRecoveryFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickLi
         fetchData()
     }
     private fun fetchData(){
-        SecondRetrofitManager.service.propRecordByDaoOrGold(userid,2).subscribeOn(Schedulers.io())
+        SecondRetrofitManager.service.propRecordByDaoOrGold(userid,1).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<List<GameSelectGoldRecordBean.DataBean>>() {
                     override fun onSuccees(t: BaseResponse<List<GameSelectGoldRecordBean.DataBean>>, data: List<GameSelectGoldRecordBean.DataBean>) {
                         val result =  data.map {
                             RecordByDaoOrGoldBean(
+                                    type = 2,
                                     context = context!!,
                                     id = it.id,
                                     idStr = it.id.toString(),

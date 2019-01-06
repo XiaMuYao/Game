@@ -57,12 +57,13 @@ class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickList
     }
 
     private fun fetchData(){
-        SecondRetrofitManager.service.propRecordByDaoOrGold(userid,1).subscribeOn(Schedulers.io())
+        SecondRetrofitManager.service.propRecordByDaoOrGold(userid,2).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<List<GameSelectGoldRecordBean.DataBean>>() {
                     override fun onSuccees(t: BaseResponse<List<GameSelectGoldRecordBean.DataBean>>, data: List<GameSelectGoldRecordBean.DataBean>) {
                           val result =  data.map {
                                 RecordByDaoOrGoldBean(
+                                        type = 1,
                                         context = context!!,
                                         id = it.id,
                                         idStr = it.id.toString(),
@@ -89,7 +90,6 @@ class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickList
 
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
         when (view.id) {
-            R.id.iv_right_gold -> startActivity(Intent(mActivity, GoldSearchActivity::class.java))
         }
     }
 }
