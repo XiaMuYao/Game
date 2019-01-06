@@ -152,7 +152,7 @@ interface ApiService {
     /**
      * USDT钱包地址
      */
-    @GET("weight/gotoAgentBefor")
+    @POST("weight/gotoAgentBefor")
     fun gotoAgentBefor(@Query("userId") userId: String):
             Observable<BaseResponse<Any>>
 
