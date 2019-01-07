@@ -137,7 +137,7 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
                 if (agentType == 1) {
                     startActivity(Intent(this, EverydayTaskActivity::class.java))
                 } else {
-                    toast("角色错误")
+                    toast("您还不是高级代理 不能从查看")
                 }
             }
 
