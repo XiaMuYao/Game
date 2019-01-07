@@ -58,7 +58,6 @@
         <activity android:name=".activity.VoteActivity" />
         <activity android:name=".activity.VoteDetailActivity" />
         <activity android:name=".activity.RegisterLastActivity" />
-        <activity android:name=".activity.InputPassword" />
         <activity android:name=".activity.ShowImageDetailActivity" />
         <activity android:name=".activity.DaiLiCaoZuoActivity" />
         <activity android:name=".activity.DaiLiCaoZuoGoldSearchActivity" />
