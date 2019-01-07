@@ -362,7 +362,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                                     personalInfo!!.photo,
                                     a,
                                     show_tel.text.toString().trim(),
-                                    show_name.text.toString().trim(),
+                                    show_nicheng.text.toString().trim(),
                                     show_age.text.toString().trim()
                             )
                             .compose(SchedulerUtils.ioToMain())

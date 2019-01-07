@@ -39,7 +39,7 @@ class VoteActivity : BaseAbstractActivity(), BaseQuickAdapter.OnItemClickListene
 
     override fun initViews() {
         voteRv = findViewById(R.id.rv_vote)
-        ID.text = userid
+        ID.text = "ID."+userid
         findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
         viewById.text = "投票"

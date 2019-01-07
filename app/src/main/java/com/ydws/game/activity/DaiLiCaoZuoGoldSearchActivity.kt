@@ -69,7 +69,7 @@ class DaiLiCaoZuoGoldSearchActivity : BaseAbstractActivity() {
                 .subscribe(object : BaseObserver<DaiLiCaoZuoGoldDetailBean>(){
                     override fun onSuccees(t: BaseResponse<DaiLiCaoZuoGoldDetailBean>, data: DaiLiCaoZuoGoldDetailBean) {
                         pageData = data
-                        ID.text = userid
+                        ID.text = "ID."+userid
                         phone.text = data.phone
                         zanzhufangshi.text = data.pay
                         goumaishijian.text = data.createTime

@@ -36,7 +36,7 @@ class GenerlizeThreeActivity : BaseAbstractActivity() {
     override fun initData() {
         titleTv!!.text = "我的推廣"
 
-        ID.text = userid
+        ID.text = "ID."+userid
         RetrofitManager.service
                 .showPropaganda(userid)
                 .compose(SchedulerUtils.ioToMain())

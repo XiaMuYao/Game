@@ -26,7 +26,7 @@ class GeneralizeTwoActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initViews() {
-        ID.text = userid
+        ID.text = "ID."+userid
         titleTv = findViewById(R.id.tv_title_bar)
         findViewById<TextView>(R.id.ID).text ="ID.$userid"
 

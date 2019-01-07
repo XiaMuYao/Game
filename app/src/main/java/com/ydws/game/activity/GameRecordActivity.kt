@@ -35,7 +35,7 @@ class GameRecordActivity : BaseAbstractActivity() {
 
     override fun initViews() {
         gameRecordRv = findViewById(R.id.rv_game_record)
-ID.text = userid
+        ID.text = "ID." + userid
 
         findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)

@@ -46,7 +46,7 @@ class VoteDetailActivity : BaseAbstractActivity() {
     override fun initData() {
         getData()
 
-        ID.text = userid
+        ID.text = "ID."+userid
         toupiao.setOnClickListener {
 
 

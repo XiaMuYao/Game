@@ -21,9 +21,10 @@ class GeneralizeActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initViews() {
-        ID.text = userid
+        ID.text = "ID."+userid
         titleTv = findViewById(R.id.tv_title_bar)
         findViewById<View>(R.id.btn_next).setOnClickListener(this)
+        findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
 
     }
 

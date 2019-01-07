@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@mipmap/hall_page_background">
 
-    <include layout="@layout/view_title_bar" />
+    <include
+        android:id="@id/title"
+        layout="@layout/view_title_bar" />
 
     <ImageView
         android:id="@+id/iv_gen_bg"
@@ -17,18 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:background="@mipmap/id"
-        android:gravity="center"
-        android:text="@{idStr}"
-        android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@id/iv_gen_bg"
-        app:layout_constraintStart_toStartOf="@id/iv_gen_bg"
-        app:layout_constraintTop_toTopOf="@id/iv_gen_bg" />
 
 
     <ImageView

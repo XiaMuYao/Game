@@ -58,7 +58,7 @@ class MerChantActivity : BaseAbstractActivity(), View.OnClickListener {
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
         viewById.text = "服务代理"
 
-        ID.text = userid
+        ID.text = "ID."+userid
     }
     override fun initData() {
         val fragmentManager = supportFragmentManager

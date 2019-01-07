@@ -34,7 +34,7 @@ class SeniorAgentThreeActivity : BaseAbstractActivity() {
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
         viewById.text = "加权任务"
 
-        ID.text = userid
+        ID.text = "ID."+userid
         val yanse = "#FFFFFF"
         val beijing = "#005D3C2D"
         val textsize = 15F
