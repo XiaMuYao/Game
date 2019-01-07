@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.config.PictureMimeType
@@ -29,6 +30,7 @@ import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.toast
+import com.ydws.game.utils.Drawable2FileUtils
 import com.ydws.game.utils.SPreference
 import com.ydws.game.widget.chooser.OnChooseListener
 import com.ydws.game.widget.chooser.SimpleChooserDialog
@@ -45,7 +47,48 @@ import java.util.*
 /**
  * 个人页
  */
-class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
+class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuickAdapter.OnItemChildClickListener {
+    val imgs = ArrayList<Int>()
+    override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
+        val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"),
+                Drawable2FileUtils.drawableToFile(this@PersonalActivity,
+                        imgs[position],
+                        imgs[position].toString()))
+        val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
+
+        showHud(true)
+        SecondRetrofitManager.service.uploadPicture(part)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : BaseObserver<String>() {
+                    override fun onSuccees(t: BaseResponse<String>, data: String) {
+                        currentImage = data
+                        SecondRetrofitManager.service.updPhoto(userid,data)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(object : BaseObserver<Any?>(){
+                                    override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                                        showHud(false)
+                                        "上傳成功".toast()
+                                        Glide.with(this@PersonalActivity).load(currentImage).into(activityPersonalBinding.ivUserIcon)
+                                    }
+
+                                    override fun onCodeError(code: Int, msg: String) {
+                                        showHud(false)
+                                    }
+
+                                })
+
+//                                    showHud(false)
+
+                    }
+
+                    override fun onCodeError(code: Int, msg: String) {
+                        showHud(false)
+                    }
+
+                })
+    }
 
     private var personalRv: RecyclerView? = null
     private var personalAdapter: PersonalAdapter? = null
@@ -171,8 +214,9 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         personalAdapter = PersonalAdapter(R.layout.item_personal)
+        personalAdapter?.onItemChildClickListener = this
         datas = ArrayList()
-        val imgs = ArrayList<Int>()
+
         imgs.add(R.mipmap.icon_one)
         imgs.add(R.mipmap.icon_two)
         imgs.add(R.mipmap.icon_three)

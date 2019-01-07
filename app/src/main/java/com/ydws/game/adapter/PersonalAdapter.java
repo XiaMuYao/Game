@@ -16,5 +16,7 @@ public class PersonalAdapter extends BaseQuickAdapter<PersonalBean, BaseViewHold
     @Override
     protected void convert(BaseViewHolder helper, PersonalBean item) {
         Glide.with(mContext).load(item.getImgId()).into((ImageView) helper.getView(R.id.iv_personal));
+        helper.addOnClickListener(R.id.iv_personal);
+
     }
 }
