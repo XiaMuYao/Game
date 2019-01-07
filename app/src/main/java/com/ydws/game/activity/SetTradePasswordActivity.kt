@@ -29,7 +29,7 @@ class SetTradePasswordActivity : BaseAbstractActivity() {
         activityResetBinding = DataBindingUtil.setContentView(this, R.layout.activity_set_trade_password)
         activityResetBinding.idStr = "ID$userid"
 
-        activityResetBinding.viewTitle.findViewById<TextView>(R.id.tv_title_bar).text = "修改交易密碼"
+        activityResetBinding.viewTitle.findViewById<TextView>(R.id.tv_title_bar).text = "設置交易密碼"
         activityResetBinding.viewTitle.findViewById<View>(R.id.back).setOnClickListener { finish() }
         activityResetBinding.submit.setOnClickListener {
             resetPassword()
