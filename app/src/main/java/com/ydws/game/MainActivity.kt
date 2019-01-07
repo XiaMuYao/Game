@@ -150,10 +150,10 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
             }
             R.id.inquire_ImageView -> startActivity(Intent(this, GameRecordActivity::class.java))
             R.id.game_iapn_ImageView -> {
-                if (userTypp == 1) {
-                    startActivity(Intent(this, MerChantActivity::class.java))
-                } else if (userTypp == 3) {
-                    toast("超出时间,被注销资格")
+                when (userTypp) {
+                    1 -> startActivity(Intent(this, MerChantActivity::class.java))
+                    3 -> toast("您休息超过6天 已被注销代理资格")
+                    else -> "您还不是服务代理".toast()
                 }
             }
             R.id.i_want_to_vote_ImageButton -> startActivity(Intent(this, VoteActivity::class.java))
