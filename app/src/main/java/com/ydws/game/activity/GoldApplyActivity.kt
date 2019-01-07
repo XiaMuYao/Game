@@ -267,7 +267,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath))
+                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath?:selectList[0].path))
                     val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
                     showHud(true)
                     SecondRetrofitManager.service.uploadPicture(part)
