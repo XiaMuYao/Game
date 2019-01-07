@@ -74,7 +74,8 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
                                 .sizeMultiplier(0.5f)// glide 加载图片大小 0~1之间 如设置 .glideOverride()无效
                                 .setOutputCameraPath("/CustomPath")// 自定义拍照保存路径,可不填
                                 .enableCrop(false)// 是否裁剪 true or false
-                                .compress(false)// 是否压缩 true or false
+                                .cropCompressQuality(10)
+                                .compress(true)// 是否压缩 true or false
                                 .isGif(false)// 是否显示gif图片 true or false
                                 .minimumCompressSize(100)// 小于100kb的图片不压缩
                                 .synOrAsy(true)//同步true或异步false 压缩 默认同步
@@ -279,7 +280,7 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].path))
+                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath))
                     val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
                     showHud(true)
                     SecondRetrofitManager.service.uploadPicture(part)
