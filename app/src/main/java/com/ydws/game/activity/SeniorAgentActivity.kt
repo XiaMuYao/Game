@@ -2,6 +2,7 @@ package com.ydws.game.activity
 
 import android.content.Intent
 import android.view.View
+import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
@@ -26,6 +27,8 @@ class SeniorAgentActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun initViews() {
         findViewById<View>(R.id.iv_agent_senior).setOnClickListener(this)
+        val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
+        viewById.text = "高级代理"
     }
 
     override fun initData() {
@@ -39,8 +42,8 @@ class SeniorAgentActivity : BaseAbstractActivity(), View.OnClickListener {
                 RetrofitManager.service
                         .gotoAgentBefor(userid)
                         .compose(SchedulerUtils.ioToMain())
-                        .subscribe(object : BaseObserver<Any>() {
-                            override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                        .subscribe(object : BaseObserver<Any?>() {
+                            override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                                 toast("成功成为高级代理")
                                 SeniorAgentTwoActivity.start(this@SeniorAgentActivity)
                             }

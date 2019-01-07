@@ -171,4 +171,19 @@
         app:layout_constraintBottom_toBottomOf="@id/iv_generalize_huakuang"
         app:layout_constraintEnd_toEndOf="@id/iv_generalize_huakuang"
         app:layout_constraintStart_toStartOf="@id/iv_generalize_huakuang" />
+
+
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@mipmap/id"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/iv_gen_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_gen_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_gen_bg" />
 </android.support.constraint.ConstraintLayout>

@@ -37,7 +37,7 @@ class RegistActivity : BaseAbstractActivity() {
                     || ed_password.text.isNullOrBlank()) {
                 toast("有字段未填写")
             } else {
-                if (ed_password.text.equals(ed_tpassword.text)) {
+                if (!ed_password.text.equals(ed_tpassword.text)) {
                     RegisterLastActivity.start(this,
                             ed_tuijian.text.toString().trim(),
                             ed_account.text.toString().trim(),

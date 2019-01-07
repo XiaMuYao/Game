@@ -154,7 +154,7 @@ interface ApiService {
      */
     @POST("weight/gotoAgentBefor")
     fun gotoAgentBefor(@Query("userId") userId: String):
-            Observable<BaseResponse<Any>>
+            Observable<BaseResponse<Any?>>
 
 
     /**
@@ -177,7 +177,7 @@ interface ApiService {
      */
     @POST("weight/openWeighting")
     fun openWeighting(@Query("userId") userId: String):
-            Observable<BaseResponse<Any>>
+            Observable<BaseResponse<Any?>>
 
     /**
      * 游戏列表

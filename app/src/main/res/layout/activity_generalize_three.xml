@@ -7,7 +7,9 @@
     android:background="@mipmap/hall_page_background"
     android:orientation="vertical">
 
-    <include layout="@layout/view_title_bar" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/view_title_bar" />
 
     <ImageView
         android:id="@+id/iv_gen_bg"
@@ -26,6 +28,19 @@
         android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="@+id/iv_gen_bg"
         app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/iv_gen_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_gen_bg" />
+
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@mipmap/id"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/iv_gen_bg"
         app:layout_constraintStart_toStartOf="@+id/iv_gen_bg"
         app:layout_constraintTop_toTopOf="@+id/iv_gen_bg" />
 

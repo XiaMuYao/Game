@@ -16,6 +16,7 @@ import com.ydws.game.toast
 import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_everyday_task.*
 
 class EverydayTaskActivity : BaseAbstractActivity() {
     private lateinit var activityEverydayTaskBinding: ActivityEverydayTaskBinding
@@ -34,7 +35,7 @@ class EverydayTaskActivity : BaseAbstractActivity() {
         activityEverydayTaskBinding.addTask.setOnClickListener {
             receiveGold()
         }
-
+        ID.text = userid
         activityEverydayTaskBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "每日任務"
         activityEverydayTaskBinding.title.findViewById<View>(R.id.back).setOnClickListener { finish() }
         fetchData()

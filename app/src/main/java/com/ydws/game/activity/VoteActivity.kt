@@ -16,6 +16,8 @@ import com.ydws.game.net.RetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.net.scheduler.SchedulerUtils
+import com.ydws.game.utils.SPreference
+import kotlinx.android.synthetic.main.activity_vote.*
 import org.jetbrains.anko.toast
 
 import java.util.ArrayList
@@ -27,7 +29,7 @@ class VoteActivity : BaseAbstractActivity(), BaseQuickAdapter.OnItemClickListene
     override fun onItemClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
         VoteDetailActivity.start(this@VoteActivity, list[position].id.toString())
     }
-
+    private var userid: String by SPreference("userid", "")
     private var voteRv: RecyclerView? = null
     private var voteAdapter: VoteAdapter? = null
     private var list: List<youxitoutiaoBean.DataBean> = ArrayList<youxitoutiaoBean.DataBean>()
@@ -37,7 +39,7 @@ class VoteActivity : BaseAbstractActivity(), BaseQuickAdapter.OnItemClickListene
 
     override fun initViews() {
         voteRv = findViewById(R.id.rv_vote)
-
+        ID.text = userid
         findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
         viewById.text = "投票"

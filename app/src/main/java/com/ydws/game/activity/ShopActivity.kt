@@ -30,6 +30,7 @@ class ShopActivity : BaseAbstractActivity() {
     override fun initViews() {
         tv_daoju_count_show.isEnabled = false
         titleTv = findViewById(R.id.tv_title_bar)
+        ID.text = userid
 
         tv_daoju_count_show.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -53,6 +54,7 @@ class ShopActivity : BaseAbstractActivity() {
                     .subscribe(object : BaseObserver<Any>() {
                         override fun onSuccees(t: BaseResponse<Any>, data: Any) {
                             "购买成功".toast()
+                            finish()
                         }
 
 

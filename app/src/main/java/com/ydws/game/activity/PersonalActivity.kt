@@ -121,7 +121,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
                         personalInfo = data
                         activityPersonalBinding.sexStr = if (personalInfo?.sex == 1) "男" else "女"
                         activityPersonalBinding.viewModel = personalInfo
-
+                        Glide.with(this@PersonalActivity).load(personalInfo?.photo).into(iv_user_icon)
                         //手机和姓名被修改
                         if (!personalInfo?.payee.isNullOrBlank()) {
                             show_name.isEnabled = false
@@ -309,7 +309,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
                                     personalInfo!!.photo,
                                     a,
                                     show_tel.text.toString().trim(),
-                                    show_name.text.toString().trim(),
+                                    show_nicheng.text.toString().trim(),
                                     show_age.text.toString().trim()
                             )
                             .compose(SchedulerUtils.ioToMain())

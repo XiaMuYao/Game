@@ -34,7 +34,7 @@ class SeniorAgentThreeActivity : BaseAbstractActivity() {
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
         viewById.text = "加权任务"
 
-
+        ID.text = userid
         val yanse = "#FFFFFF"
         val beijing = "#005D3C2D"
         val textsize = 15F
@@ -70,8 +70,9 @@ class SeniorAgentThreeActivity : BaseAbstractActivity() {
             RetrofitManager.service
                     .openWeighting(userid)
                     .compose(SchedulerUtils.ioToMain())
-                    .subscribe(object : BaseObserver<Any>() {
-                        override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                    .subscribe(object : BaseObserver<Any?>() {
+                        override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                            countdownView.setCountTime(0)
                             toast(t.message)
                         }
 
