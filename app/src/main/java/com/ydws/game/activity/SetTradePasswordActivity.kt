@@ -4,10 +4,9 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
-import com.ydws.game.databinding.ActivityResetBinding
+import com.ydws.game.databinding.ActivitySetTradePasswordBinding
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
@@ -15,11 +14,11 @@ import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
+class SetTradePasswordActivity : BaseAbstractActivity() {
     private var titleTv: TextView? = null
     private var userid: String by SPreference("userid", "")
 
-    private lateinit var activityResetBinding: ActivityResetBinding
+    private lateinit var activityResetBinding: ActivitySetTradePasswordBinding
 
     override fun getContentLayoutID(): Int {
         return R.layout.activity_reset
@@ -27,10 +26,10 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityResetBinding = DataBindingUtil.setContentView(this, R.layout.activity_reset)
+        activityResetBinding = DataBindingUtil.setContentView(this, R.layout.activity_set_trade_password)
         activityResetBinding.idStr = "ID.$userid"
 
-        activityResetBinding.viewTitle.findViewById<TextView>(R.id.tv_title_bar).text = "修改交易密碼"
+        activityResetBinding.viewTitle.findViewById<TextView>(R.id.tv_title_bar).text = "設置交易密碼"
         activityResetBinding.viewTitle.findViewById<View>(R.id.back).setOnClickListener { finish() }
         activityResetBinding.submit.setOnClickListener {
             resetPassword()
@@ -42,23 +41,19 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        titleTv!!.text = "修改交易密码"
+        titleTv!!.text = "設置交易密码"
 
     }
 
     private fun resetPassword() {
-        if (activityResetBinding.oldPassword.isNullOrBlank()) {
-            showMessage("請輸入原交易碼")
-            return
-        }
 
         if (activityResetBinding.newPassword.isNullOrBlank()) {
-            showMessage("請輸入新交易碼")
+            showMessage("請輸入交易密碼")
             return
         }
 
         if (activityResetBinding.newPassword != activityResetBinding.newPasswordRepeat) {
-            showMessage("兩次交易碼不一致")
+            showMessage("兩次交易密碼不一致")
             return
         }
 
@@ -75,11 +70,11 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
                 "id" to userid
         )
 
-        SecondRetrofitManager.service.gameUpTraPasswordModify(params).subscribeOn(Schedulers.io())
+        SecondRetrofitManager.service.gameUpdateTradingPassword(userid, activityResetBinding.newPassword!!, activityResetBinding.newPasswordRepeat!!).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                        showMessage("修改成功")
+                        showMessage("交易密碼設置成功")
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
@@ -91,7 +86,5 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
 
     }
 
-    override fun onClick(view: View) {
 
-    }
 }

@@ -21,6 +21,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@mipmap/id"
+        android:gravity="center"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@id/iv_gen_bg"
+        app:layout_constraintStart_toStartOf="@id/iv_gen_bg"
+        app:layout_constraintTop_toTopOf="@id/iv_gen_bg" />
+
     <ImageView
         android:id="@+id/erweima"
         android:layout_width="250dp"

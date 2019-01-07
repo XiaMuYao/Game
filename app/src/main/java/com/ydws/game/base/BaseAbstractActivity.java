@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kaopiz.kprogresshud.KProgressHUD;
+import com.luck.picture.lib.tools.PictureFileUtils;
 import com.ydws.game.R;
 
 
@@ -73,7 +74,7 @@ public abstract class BaseAbstractActivity extends AppCompatActivity implements 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        PictureFileUtils.deleteCacheDirFile(this);
     }
 
     /**

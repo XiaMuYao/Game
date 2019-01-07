@@ -122,4 +122,8 @@ interface SecondApiService {
 
     @POST("game/updPhoto")
     fun updPhoto(@Query("id")id:String,@Query("photo")photo:String): Observable<BaseResponse<Any?>>
+
+
+    @POST("game/updateTradingPassword")
+    fun  gameUpdateTradingPassword(@Query("id")id:String,@Query("tradingPassword")tradingPassword:String,@Query("tradingPassword2")tradingPassword2:String): Observable<BaseResponse<Any?>>
 }

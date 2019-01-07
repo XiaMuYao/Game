@@ -34,10 +34,21 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         activityAgentBinding = DataBindingUtil.setContentView(this, R.layout.activity_agent)
         activityAgentBinding.viewModel = viewModel
+        activityAgentBinding.idStr = "ID.$userid"
         activityAgentBinding.ivSubmit.setOnClickListener {
             if (viewModel.becomeStatus == 3) {
                 showMessage("正在通過一級審核，請等待")
             } else if (viewModel.becomeStatus in arrayOf(0, 2)) {
+                if(viewModel.city.isNullOrBlank() ||
+                        viewModel.payee.isNullOrBlank() ||
+                        viewModel.phone.isNullOrBlank() ||
+                        viewModel.bankName.isNullOrBlank() ||
+                        viewModel.cardNumber.isNullOrBlank() ||
+                        viewModel.zhifubao.isNullOrBlank() ||
+                        viewModel.wechat.isNullOrBlank()){
+                    showMessage("请完善资料")
+                    return@setOnClickListener
+                }
                 gameAddWantSponsor()
             }
         }

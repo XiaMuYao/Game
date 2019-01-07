@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.config.PictureMimeType
@@ -29,6 +30,7 @@ import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.toast
+import com.ydws.game.utils.Drawable2FileUtils
 import com.ydws.game.utils.SPreference
 import com.ydws.game.widget.chooser.OnChooseListener
 import com.ydws.game.widget.chooser.SimpleChooserDialog
@@ -45,7 +47,48 @@ import java.util.*
 /**
  * 个人页
  */
-class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
+class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuickAdapter.OnItemChildClickListener {
+    val imgs = ArrayList<Int>()
+    override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
+        val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"),
+                Drawable2FileUtils.drawableToFile(this@PersonalActivity,
+                        imgs[position],
+                        imgs[position].toString()))
+        val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
+
+        showHud(true)
+        SecondRetrofitManager.service.uploadPicture(part)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : BaseObserver<String>() {
+                    override fun onSuccees(t: BaseResponse<String>, data: String) {
+                        currentImage = data
+                        SecondRetrofitManager.service.updPhoto(userid,data)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(object : BaseObserver<Any?>(){
+                                    override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                                        showHud(false)
+                                        "上傳成功".toast()
+                                        Glide.with(this@PersonalActivity).load(currentImage).into(activityPersonalBinding.ivUserIcon)
+                                    }
+
+                                    override fun onCodeError(code: Int, msg: String) {
+                                        showHud(false)
+                                    }
+
+                                })
+
+//                                    showHud(false)
+
+                    }
+
+                    override fun onCodeError(code: Int, msg: String) {
+                        showHud(false)
+                    }
+
+                })
+    }
 
     private var personalRv: RecyclerView? = null
     private var personalAdapter: PersonalAdapter? = null
@@ -98,7 +141,8 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
                                 .sizeMultiplier(0.5f)// glide 加载图片大小 0~1之间 如设置 .glideOverride()无效
                                 .setOutputCameraPath("/CustomPath")// 自定义拍照保存路径,可不填
                                 .enableCrop(false)// 是否裁剪 true or false
-                                .compress(false)// 是否压缩 true or false
+                                .cropCompressQuality(10)
+                                .compress(true)// 是否压缩 true or false
                                 .isGif(false)// 是否显示gif图片 true or false
                                 .minimumCompressSize(100)// 小于100kb的图片不压缩
                                 .synOrAsy(true)//同步true或异步false 压缩 默认同步
@@ -121,7 +165,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
                         personalInfo = data
                         activityPersonalBinding.sexStr = if (personalInfo?.sex == 1) "男" else "女"
                         activityPersonalBinding.viewModel = personalInfo
-                        Glide.with(this@PersonalActivity).load(personalInfo?.photo).into(iv_user_icon)
+                        Glide.with(this@PersonalActivity).load(data.photo).into(activityPersonalBinding.ivUserIcon)
                         //手机和姓名被修改
                         if (!personalInfo?.payee.isNullOrBlank()) {
                             show_name.isEnabled = false
@@ -162,6 +206,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 //        personalRv = findViewById(R.id.rv_personal)
     }
 
+
     override fun initData() {
         findViewById<View>(R.id.iv_reset_password).setOnClickListener(this)
         findViewById<View>(R.id.iv_jiaoyi_mima).setOnClickListener(this)
@@ -171,13 +216,14 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
 
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         personalAdapter = PersonalAdapter(R.layout.item_personal)
+        personalAdapter?.onItemChildClickListener = this
         datas = ArrayList()
-        val imgs = ArrayList<Int>()
+        imgs.clear()
         imgs.add(R.mipmap.icon_one)
         imgs.add(R.mipmap.icon_two)
         imgs.add(R.mipmap.icon_three)
         imgs.add(R.mipmap.icon_four)
-
+        datas?.clear()
         for (i in imgs.indices) {
             val personalBean = PersonalBean()
             personalBean.imgId = imgs[i]
@@ -206,6 +252,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
         val binding = LayoutYanZhengMiBaoBinding.inflate(LayoutInflater.from(this))
         val builder = AlertDialog.Builder(this)
         builder.setView(binding.root)
+        builder.setTitle("驗證密保")
         builder.setPositiveButton("驗證") { _, _ ->
             if (binding.question.isNullOrBlank()) {
                 showMessage("關鍵字不能為空")
@@ -281,7 +328,13 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
             R.id.iv_reset_password -> startActivity(Intent(this, SetPasswordActivity::class.java))
-            R.id.iv_jiaoyi_mima -> startActivity(Intent(this, ResetPasswordActivity::class.java))
+            R.id.iv_jiaoyi_mima -> {
+                if(personalInfo?.tradingWord == 0){
+                    startActivity(Intent(this, SetTradePasswordActivity::class.java))
+                }else{
+                    startActivity(Intent(this, ResetPasswordActivity::class.java))
+                }
+            }
             //修改信息
             R.id.button -> {
                 if (show_name.text.isNullOrBlank() ||
@@ -309,7 +362,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
                                     personalInfo!!.photo,
                                     a,
                                     show_tel.text.toString().trim(),
-                                    show_nicheng.text.toString().trim(),
+                                    show_name.text.toString().trim(),
                                     show_age.text.toString().trim()
                             )
                             .compose(SchedulerUtils.ioToMain())
@@ -350,7 +403,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener {
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].path))
+                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath))
                     val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
                     showHud(true)
                     SecondRetrofitManager.service.uploadPicture(part)
