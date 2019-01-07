@@ -51,7 +51,7 @@ class GeneralizeTwoActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        titleTv!!.text = "我的推廣"
+        titleTv!!.text  = "我的推廣"
 
         RetrofitManager.service
                 .findAgentGeneralInformation(userid)
