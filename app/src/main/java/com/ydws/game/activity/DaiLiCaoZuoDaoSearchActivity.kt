@@ -58,6 +58,8 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
                     "打开照相机" -> {
                         PictureSelector.create(this@DaiLiCaoZuoDaoSearchActivity)
                                 .openCamera(PictureMimeType.ofImage())
+                                .cropCompressQuality(10)
+                                .compress(true)// 是否压缩 true or false
                                 .forResult(PictureConfig.CHOOSE_REQUEST)
                     }
                     "从手机相册获取" ->{
