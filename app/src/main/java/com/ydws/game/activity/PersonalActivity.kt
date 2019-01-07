@@ -250,6 +250,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
         val binding = LayoutYanZhengMiBaoBinding.inflate(LayoutInflater.from(this))
         val builder = AlertDialog.Builder(this)
         builder.setView(binding.root)
+        builder.setTitle("驗證密保")
         builder.setPositiveButton("驗證") { _, _ ->
             if (binding.question.isNullOrBlank()) {
                 showMessage("關鍵字不能為空")
