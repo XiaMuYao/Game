@@ -28,6 +28,8 @@ class GeneralizeTwoActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
+        findViewById<TextView>(R.id.ID).text ="ID.$userid"
+
         findViewById<View>(R.id.iv_next).setOnClickListener(this)
         findViewById<View>(R.id.back).setOnClickListener { finish() }
         lingqujiangli.setOnClickListener {

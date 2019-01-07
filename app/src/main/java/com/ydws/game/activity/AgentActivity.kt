@@ -34,6 +34,7 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         activityAgentBinding = DataBindingUtil.setContentView(this, R.layout.activity_agent)
         activityAgentBinding.viewModel = viewModel
+        activityAgentBinding.idStr = "ID.$userid"
         activityAgentBinding.ivSubmit.setOnClickListener {
             if (viewModel.becomeStatus == 3) {
                 showMessage("正在通過一級審核，請等待")

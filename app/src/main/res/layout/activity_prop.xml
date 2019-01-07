@@ -12,6 +12,10 @@
         <variable
             name="buyValueVisibility"
             type="int" />
+
+        <variable
+            name="idStr"
+            type="String"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -34,6 +38,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/title" />
+
+        <TextView
+            android:id="@+id/ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@mipmap/id"
+            android:gravity="center"
+            android:text="@{idStr}"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@id/iv_gen_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_gen_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_gen_bg" />
 
         <ImageView
             android:id="@+id/iv_shop_head"

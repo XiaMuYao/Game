@@ -27,6 +27,7 @@ class GenerlizeThreeActivity : BaseAbstractActivity() {
 
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
+        findViewById<TextView>(R.id.ID).text ="ID.$userid"
     }
 
     override fun initData() {

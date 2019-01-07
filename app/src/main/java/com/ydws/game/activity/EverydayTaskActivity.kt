@@ -35,7 +35,7 @@ class EverydayTaskActivity : BaseAbstractActivity() {
             receiveGold()
         }
 
-        activityEverydayTaskBinding.idStr  = userid
+        activityEverydayTaskBinding.idStr  = "ID.$userid"
 
         activityEverydayTaskBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "每日任務"
         activityEverydayTaskBinding.title.findViewById<View>(R.id.back).setOnClickListener { finish() }
