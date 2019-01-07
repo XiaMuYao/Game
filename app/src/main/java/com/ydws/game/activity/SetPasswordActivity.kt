@@ -82,6 +82,8 @@ class SetPasswordActivity : BaseAbstractActivity() {
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                         showMessage("修改成功")
+                        finishAffinity()
+                        LoginActivity.start(this@SetPasswordActivity)
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
