@@ -252,6 +252,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
         val binding = LayoutYanZhengMiBaoBinding.inflate(LayoutInflater.from(this))
         val builder = AlertDialog.Builder(this)
         builder.setView(binding.root)
+        builder.setTitle("驗證密保")
         builder.setPositiveButton("驗證") { _, _ ->
             if (binding.question.isNullOrBlank()) {
                 showMessage("關鍵字不能為空")
@@ -327,7 +328,13 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
     override fun onClick(view: View) {
         when (view.id) {
             R.id.iv_reset_password -> startActivity(Intent(this, SetPasswordActivity::class.java))
-            R.id.iv_jiaoyi_mima -> startActivity(Intent(this, ResetPasswordActivity::class.java))
+            R.id.iv_jiaoyi_mima -> {
+                if(personalInfo?.tradingWord == 0){
+                    startActivity(Intent(this, SetTradePasswordActivity::class.java))
+                }else{
+                    startActivity(Intent(this, ResetPasswordActivity::class.java))
+                }
+            }
             //修改信息
             R.id.button -> {
                 if (show_name.text.isNullOrBlank() ||

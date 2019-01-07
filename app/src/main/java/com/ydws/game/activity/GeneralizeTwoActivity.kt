@@ -29,6 +29,7 @@ class GeneralizeTwoActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
         findViewById<View>(R.id.iv_next).setOnClickListener(this)
+        findViewById<View>(R.id.back).setOnClickListener { finish() }
         lingqujiangli.setOnClickListener {
 
             RetrofitManager.service
@@ -50,7 +51,7 @@ class GeneralizeTwoActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initData() {
-        titleTv!!.text = "我的推廣"
+        titleTv!!.text  = "我的推廣"
 
         RetrofitManager.service
                 .findAgentGeneralInformation(userid)

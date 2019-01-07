@@ -81,7 +81,7 @@ public class tuiguangBean {
         private int zongZhituiPlayerYeji;
         private int zongQudaoPlayerYeji;
         private int leijiGold;
-        private int weekGold;
+        private String weekGold;
         private int weiLingGold;
 
         public int getZongZhituiPlayerNumber() {
@@ -124,11 +124,11 @@ public class tuiguangBean {
             this.leijiGold = leijiGold;
         }
 
-        public int getWeekGold() {
+        public String getWeekGold() {
             return weekGold;
         }
 
-        public void setWeekGold(int weekGold) {
+        public void setWeekGold(String weekGold) {
             this.weekGold = weekGold;
         }
 

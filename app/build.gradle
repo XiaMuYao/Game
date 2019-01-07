@@ -66,8 +66,6 @@ dependencies {
     implementation "org.jetbrains.anko:anko:0.10.8"
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.3'
 
-
-
     /*时间倒计时控件*/
 //<<<<<<< HEAD
     implementation 'com.github.zrunker:ZCountDownView:v1.1'

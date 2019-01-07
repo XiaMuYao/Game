@@ -231,7 +231,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginBottom="10dp"
-            android:src="@mipmap/mine_tuiguang"
+            android:src="@mipmap/set_trade_password"
             app:layout_constraintBottom_toBottomOf="@id/iv_personal_message"
             app:layout_constraintStart_toEndOf="@+id/iv_personal_message"
             app:layout_constraintTop_toBottomOf="@+id/iv_reset_password" />
