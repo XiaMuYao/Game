@@ -168,5 +168,17 @@
         app:layout_constraintEnd_toEndOf="@id/match"
         app:layout_constraintStart_toStartOf="@+id/match" />
 
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@mipmap/id"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/iv_shop_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_shop_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_shop_bg" />
 
 </android.support.constraint.ConstraintLayout>

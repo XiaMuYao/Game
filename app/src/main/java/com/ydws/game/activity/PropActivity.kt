@@ -45,6 +45,8 @@ class PropActivity : BaseAbstractActivity(), View.OnClickListener {
         activityPropBinding = DataBindingUtil.setContentView(this, R.layout.activity_prop)
         activityPropBinding.buyValueVisibility = View.GONE
         propBody.userId.set(userid)
+
+        activityPropBinding.idStr = "ID.$userid"
         setupView()
     }
 

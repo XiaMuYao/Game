@@ -7,6 +7,9 @@
         <variable
             name="viewModel"
             type="com.ydws.game.bean.SelectWantSponsorBean.DataBean" />
+        <variable
+            name="idStr"
+            type="String"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -37,6 +40,19 @@
             app:layout_constraintBottom_toTopOf="@id/iv_shop_bottom"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
             app:layout_constraintStart_toStartOf="@id/iv_shop_bottom" />
+
+        <TextView
+            android:id="@+id/ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@mipmap/id"
+            android:gravity="center"
+            android:text="@{idStr}"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toTopOf="@id/iv_gold_apply_bg"
+            app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
+            app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
 
         <ImageView
             android:id="@+id/iv_shop_bottom"

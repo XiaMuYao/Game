@@ -44,6 +44,32 @@ class VoteDetailActivity : BaseAbstractActivity() {
     }
 
     override fun initData() {
+        getData()
+
+        ID.text = "ID."+userid
+        toupiao.setOnClickListener {
+
+
+            RetrofitManager.service
+                    .selectVoteByIdNumber(toupiaoid, userid)
+                    .compose(SchedulerUtils.ioToMain())
+                    .subscribe(object : BaseObserver<Any?>() {
+                        override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                            toast(t.message)
+                            getData()
+
+                        }
+
+                        override fun onCodeError(code: Int, msg: String) {
+                            toast(msg)
+                        }
+                    })
+
+
+        }
+    }
+
+    private fun getData() {
         RetrofitManager.service
                 .selectVoteById(toupiaoid)
                 .compose(SchedulerUtils.ioToMain())
@@ -68,25 +94,5 @@ class VoteDetailActivity : BaseAbstractActivity() {
                         toast(msg)
                     }
                 })
-
-        toupiao.setOnClickListener {
-
-
-            RetrofitManager.service
-                    .selectVoteByIdNumber(toupiaoid, userid)
-                    .compose(SchedulerUtils.ioToMain())
-                    .subscribe(object : BaseObserver<Any?>() {
-                        override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                            toast(t.message)
-
-                        }
-
-                        override fun onCodeError(code: Int, msg: String) {
-                            toast(msg)
-                        }
-                    })
-
-
-        }
     }
 }

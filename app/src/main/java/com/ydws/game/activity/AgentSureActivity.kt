@@ -44,7 +44,7 @@ class AgentSureActivity : BaseAbstractActivity(), View.OnClickListener {
         activityAgentSureBinding.editable = viewModel.tradingNumber == null
         activityAgentSureBinding.tradeNumber = viewModel.tradingNumber
 
-
+        activityAgentSureBinding.idStr = "ID.$userid"
         activityAgentSureBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "服務代理"
         activityAgentSureBinding.title.findViewById<View>(R.id.back).setOnClickListener { finish() }
 

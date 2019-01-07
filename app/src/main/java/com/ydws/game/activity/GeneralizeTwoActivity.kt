@@ -14,7 +14,6 @@ import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.toast
 import com.ydws.game.utils.SPreference
 import kotlinx.android.synthetic.main.activity_generalize_two.*
-import kotlinx.android.synthetic.main.activity_shop.*
 import org.jetbrains.anko.toast
 
 
@@ -27,7 +26,10 @@ class GeneralizeTwoActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initViews() {
+        ID.text = "ID."+userid
         titleTv = findViewById(R.id.tv_title_bar)
+        findViewById<TextView>(R.id.ID).text ="ID.$userid"
+
         findViewById<View>(R.id.iv_next).setOnClickListener(this)
         findViewById<View>(R.id.back).setOnClickListener { finish() }
         lingqujiangli.setOnClickListener {

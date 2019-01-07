@@ -16,6 +16,7 @@ import com.ydws.game.toast
 import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_everyday_task.*
 
 class EverydayTaskActivity : BaseAbstractActivity() {
     private lateinit var activityEverydayTaskBinding: ActivityEverydayTaskBinding
@@ -29,19 +30,21 @@ class EverydayTaskActivity : BaseAbstractActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityEverydayTaskBinding = DataBindingUtil.setContentView(this,R.layout.activity_everyday_task)
+        activityEverydayTaskBinding = DataBindingUtil.setContentView(this, R.layout.activity_everyday_task)
         activityEverydayTaskBinding.tipsVisibility = View.GONE
         activityEverydayTaskBinding.addTask.setOnClickListener {
             receiveGold()
         }
+        ID.text = "ID" + userid
 
-        activityEverydayTaskBinding.idStr  = userid
+        activityEverydayTaskBinding.idStr = "ID.$userid"
 
         activityEverydayTaskBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "每日任務"
         activityEverydayTaskBinding.title.findViewById<View>(R.id.back).setOnClickListener { finish() }
         fetchData()
     }
-    private fun fetchData(){
+
+    private fun fetchData() {
         SecondRetrofitManager.service.gameSelectEverydayTask(userid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -49,10 +52,10 @@ class EverydayTaskActivity : BaseAbstractActivity() {
                     override fun onSuccees(t: BaseResponse<GameSelectEverydayTaskBean.DataBean>, data: GameSelectEverydayTaskBean.DataBean) {
                         activityEverydayTaskBinding.completeGame = data.completeGame.toString()
                         activityEverydayTaskBinding.unfinishedGame = data.unfinishedGame.toString()
-                        activityEverydayTaskBinding.weekGames =data.weekGames.toString()
+                        activityEverydayTaskBinding.weekGames = data.weekGames.toString()
                         activityEverydayTaskBinding.weilingquJiangli = data.weilingquJiangli.toString()
-                        activityEverydayTaskBinding.tipsVisibility = if(data.unfinishedGame == 0) View.VISIBLE else View.GONE
-                        }
+                        activityEverydayTaskBinding.tipsVisibility = if (data.unfinishedGame == 0) View.VISIBLE else View.GONE
+                    }
 
                     override fun onCodeError(code: Int, msg: String) {
                     }
@@ -68,7 +71,7 @@ class EverydayTaskActivity : BaseAbstractActivity() {
 
     }
 
-    private fun receiveGold(){
+    private fun receiveGold() {
         SecondRetrofitManager.service.gameReceivegold(userid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

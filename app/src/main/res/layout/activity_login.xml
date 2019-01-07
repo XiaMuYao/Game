@@ -46,7 +46,6 @@
             android:hint="请输入账号"
             android:lines="1"
             android:padding="5dp"
-            android:text="a1004"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textCursorDrawable="@drawable/edittext_normal" />
@@ -68,7 +67,6 @@
             android:hint="请输入密码"
             android:inputType="textPassword"
             android:padding="5dp"
-            android:text="123456"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
             android:textCursorDrawable="@drawable/edittext_normal" />

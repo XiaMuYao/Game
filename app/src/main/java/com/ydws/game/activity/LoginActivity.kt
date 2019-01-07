@@ -2,6 +2,7 @@ package com.ydws.game.activity
 
 import android.content.Context
 import android.content.Intent
+import android.text.SpannableStringBuilder
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
@@ -72,12 +73,11 @@ class LoginActivity : BaseAbstractActivity(), View.OnClickListener {
         login_account_edit_text = findViewById(R.id.login_account_edit_text)
         login_password_edit_text = findViewById(R.id.login_password_edit_text)
         sign_in_button = findViewById(R.id.sign_in_button)
-
+        login_account_edit_text?.text = SpannableStringBuilder(userName)
         set_TextView!!.setOnClickListener(this)
         sign_in_button!!.setOnClickListener(this)
         findViewById<View>(R.id.tv_forget_pwd).setOnClickListener(this)
         findViewById<View>(R.id.regist_tv).setOnClickListener(this)
-
     }
 
     override fun initData() {
@@ -121,7 +121,7 @@ class LoginActivity : BaseAbstractActivity(), View.OnClickListener {
 
                                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                 startActivity(intent)
-
+                                finish()
                             }
 
                             override fun onCodeError(code: Int, msg: String) {

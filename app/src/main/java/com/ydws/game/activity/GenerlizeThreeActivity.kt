@@ -1,5 +1,6 @@
 package com.ydws.game.activity
 
+import android.view.View
 import android.widget.TextView
 import com.bumptech.glide.Glide
 
@@ -21,18 +22,21 @@ import org.jetbrains.anko.toast
 class GenerlizeThreeActivity : BaseAbstractActivity() {
     private var userid: String by SPreference("userid", "")
     private var titleTv: TextView? = null
+
     override fun getContentLayoutID(): Int {
         return R.layout.activity_generalize_three
     }
 
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
+        findViewById<View>(R.id.include).findViewById<View>(R.id.back).setOnClickListener { finish() }
+        findViewById<TextView>(R.id.ID).text ="ID.$userid"
     }
 
     override fun initData() {
         titleTv!!.text = "我的推廣"
 
-
+        ID.text = "ID."+userid
         RetrofitManager.service
                 .showPropaganda(userid)
                 .compose(SchedulerUtils.ioToMain())

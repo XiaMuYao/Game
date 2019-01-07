@@ -9,7 +9,8 @@
     <include
         android:id="@+id/title"
         layout="@layout/view_title_bar"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
 
     <ImageView
         android:id="@+id/iv_gold_apply_bg"
@@ -239,4 +240,17 @@ android:enabled="false"
         app:layout_constraintEnd_toEndOf="@id/add_task"
         app:layout_constraintStart_toStartOf="@id/add_task"
         app:layout_constraintTop_toBottomOf="@id/add_task" />
+
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@mipmap/id"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg" />
 </android.support.constraint.ConstraintLayout>

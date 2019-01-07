@@ -2,6 +2,8 @@ package com.ydws.game.activity
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
+import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.adapter.GameRecordAdapter
@@ -26,12 +28,18 @@ class GameRecordActivity : BaseAbstractActivity() {
     private var gameRecordRv: RecyclerView? = null
     private var userid: String by SPreference("userid", "")
     var page: Int = 1;
+
     override fun getContentLayoutID(): Int {
         return R.layout.activity_game_record
     }
 
     override fun initViews() {
         gameRecordRv = findViewById(R.id.rv_game_record)
+        ID.text = "ID." + userid
+
+        findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
+        val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
+        viewById.text = "查询"
 
         xiayiye.setOnClickListener {
 

@@ -2,6 +2,7 @@ package com.ydws.game.activity
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.widget.TextView
 
 import com.ydws.game.R
@@ -30,6 +31,8 @@ class ShopActivity : BaseAbstractActivity() {
     override fun initViews() {
         tv_daoju_count_show.isEnabled = false
         titleTv = findViewById(R.id.tv_title_bar)
+        ID.text = "ID."+userid
+        findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
 
         tv_daoju_count_show.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
@@ -53,6 +56,7 @@ class ShopActivity : BaseAbstractActivity() {
                     .subscribe(object : BaseObserver<Any>() {
                         override fun onSuccees(t: BaseResponse<Any>, data: Any) {
                             "购买成功".toast()
+                            finish()
                         }
 
 
