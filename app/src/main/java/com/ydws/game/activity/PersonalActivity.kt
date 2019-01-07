@@ -141,7 +141,8 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                                 .sizeMultiplier(0.5f)// glide 加载图片大小 0~1之间 如设置 .glideOverride()无效
                                 .setOutputCameraPath("/CustomPath")// 自定义拍照保存路径,可不填
                                 .enableCrop(false)// 是否裁剪 true or false
-                                .compress(false)// 是否压缩 true or false
+                                .cropCompressQuality(10)
+                                .compress(true)// 是否压缩 true or false
                                 .isGif(false)// 是否显示gif图片 true or false
                                 .minimumCompressSize(100)// 小于100kb的图片不压缩
                                 .synOrAsy(true)//同步true或异步false 压缩 默认同步
@@ -164,7 +165,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                         personalInfo = data
                         activityPersonalBinding.sexStr = if (personalInfo?.sex == 1) "男" else "女"
                         activityPersonalBinding.viewModel = personalInfo
-
+                        Glide.with(this@PersonalActivity).load(data.photo).into(activityPersonalBinding.ivUserIcon)
                         //手机和姓名被修改
                         if (!personalInfo?.payee.isNullOrBlank()) {
                             show_name.isEnabled = false
@@ -205,6 +206,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
 //        personalRv = findViewById(R.id.rv_personal)
     }
 
+
     override fun initData() {
         findViewById<View>(R.id.iv_reset_password).setOnClickListener(this)
         findViewById<View>(R.id.iv_jiaoyi_mima).setOnClickListener(this)
@@ -216,12 +218,12 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
         personalAdapter = PersonalAdapter(R.layout.item_personal)
         personalAdapter?.onItemChildClickListener = this
         datas = ArrayList()
-
+        imgs.clear()
         imgs.add(R.mipmap.icon_one)
         imgs.add(R.mipmap.icon_two)
         imgs.add(R.mipmap.icon_three)
         imgs.add(R.mipmap.icon_four)
-
+        datas?.clear()
         for (i in imgs.indices) {
             val personalBean = PersonalBean()
             personalBean.imgId = imgs[i]
@@ -394,7 +396,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].path))
+                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath))
                     val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
                     showHud(true)
                     SecondRetrofitManager.service.uploadPicture(part)
