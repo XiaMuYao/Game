@@ -26,6 +26,11 @@
         name="mq_private_cache"
         path="images" />
 
+    <!--代表app 私有的存储区域 Context.getCacheDir()目录下的images目录 /data/user/0/com.hm.camerademo/cache/images-->
+    <cache-path
+        name="mq_private_cache_2"
+        path="PictureSelector/CameraImage" />
+
     <!--代表app 外部存储区域根目录下的文件 Context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)目录下的Pictures目录-->
     <external-files-path
         name="mq_external_files"
@@ -45,4 +50,6 @@
     <root-path
         name="mq_external_cache"
         path="" />
+
+
 </paths>
