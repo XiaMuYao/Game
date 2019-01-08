@@ -311,7 +311,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 "zhifubao" to (personalInfo?.zhifubao ?: ""),
                 "bankName" to (personalInfo?.bankName ?: ""),
                 "stutas" to (personalInfo?.usdtbalance.toString()),
-                "bankName" to (personalInfo?.cardNumber?:"")
+                "cardNumber" to (personalInfo?.cardNumber?:"")
 
         )
         SecondRetrofitManager.service.gameUpdateGathering(params).subscribeOn(Schedulers.io())
