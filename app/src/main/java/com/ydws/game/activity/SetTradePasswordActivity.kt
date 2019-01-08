@@ -63,12 +63,12 @@ class SetTradePasswordActivity : BaseAbstractActivity() {
 //                tradingPasswordXin2	是	string	再次输入新交易密码
 //                language	是	int	语言，0汉语，其他英文
 //        sessionId
-        val params = mapOf(
-                "tradingPassword" to activityResetBinding.oldPassword!!,
-                "tradingPasswordXin" to activityResetBinding.newPassword!!,
-                "tradingPasswordXin2" to activityResetBinding.newPasswordRepeat!!,
-                "id" to userid
-        )
+//        val params = mapOf(
+//                "tradingPassword" to activityResetBinding.oldPassword!!,
+//                "tradingPasswordXin" to activityResetBinding.newPassword!!,
+//                "tradingPasswordXin2" to activityResetBinding.newPasswordRepeat!!,
+//                "id" to userid
+//        )
 
         SecondRetrofitManager.service.gameUpdateTradingPassword(userid, activityResetBinding.newPassword!!, activityResetBinding.newPasswordRepeat!!).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

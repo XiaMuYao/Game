@@ -310,7 +310,8 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 "wechat" to (personalInfo?.wechat ?: ""),
                 "zhifubao" to (personalInfo?.zhifubao ?: ""),
                 "bankName" to (personalInfo?.bankName ?: ""),
-                "stutas" to (personalInfo?.usdtbalance.toString())
+                "stutas" to (personalInfo?.usdtbalance.toString()),
+                "bankName" to (personalInfo?.cardNumber?:"")
 
         )
         SecondRetrofitManager.service.gameUpdateGathering(params).subscribeOn(Schedulers.io())
