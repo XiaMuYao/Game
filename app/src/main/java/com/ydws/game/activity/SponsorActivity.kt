@@ -1,6 +1,7 @@
 package com.ydws.game.activity
 
 import android.content.Intent
+import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 
@@ -11,8 +12,12 @@ import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.utils.SPreference
+import com.ydws.game.utils.TestPopupWindow
+import com.ydws.game.utils.TestPopuptwoWindow
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_sponsor.*
 
 /**
  * 赞助首页
@@ -20,6 +25,7 @@ import io.reactivex.schedulers.Schedulers
 class SponsorActivity : BaseAbstractActivity(), View.OnClickListener {
     private var titleTv: TextView? = null
     private var userid: String by SPreference("userid", "")
+    private var selecy: Int by SPreference("selecy", 1)
 
     override fun getContentLayoutID(): Int {
         return R.layout.activity_sponsor
@@ -32,6 +38,9 @@ class SponsorActivity : BaseAbstractActivity(), View.OnClickListener {
         findViewById<View>(R.id.iv_daoju_huishou).setOnClickListener(this)
         findViewById<View>(R.id.iv_dali_shenqing).setOnClickListener(this)
         findViewById<View>(R.id.record).setOnClickListener(this)
+        findViewById<View>(R.id.ddddddddddddddddddd).setOnClickListener(this)
+        ID.text = userid
+        selecy = 1
     }
 
     override fun initData() {
@@ -44,10 +53,15 @@ class SponsorActivity : BaseAbstractActivity(), View.OnClickListener {
             R.id.iv_daoju_huishou -> startActivity(Intent(this, PropActivity::class.java))
             R.id.iv_dali_shenqing -> gameSelectWantSponsor()
             R.id.record -> startActivity(Intent(this, MerchantRecordActivity::class.java))
+            R.id.ddddddddddddddddddd -> {
+                var mWindow = TestPopuptwoWindow(this);
+                mWindow.showAtLocation(ddddddddddddddddddd, Gravity.CENTER,0,0)
+            }
         }
     }
-//startActivity(Intent(this, AgentActivity::class.java))
-    private fun  gameSelectWantSponsor(){
+
+    //startActivity(Intent(this, AgentActivity::class.java))
+    private fun gameSelectWantSponsor() {
         SecondRetrofitManager.service.gameSelectWantSponsor(userid).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<SelectWantSponsorBean.DataBean>() {
@@ -63,14 +77,14 @@ class SponsorActivity : BaseAbstractActivity(), View.OnClickListener {
                 })
     }
 
-    private fun handleBecomeStatus(data: SelectWantSponsorBean.DataBean){
+    private fun handleBecomeStatus(data: SelectWantSponsorBean.DataBean) {
         when {
-            data.becomeStatus in arrayOf(0,2,3) -> {
+            data.becomeStatus in arrayOf(0, 2, 3) -> {
 //                startActivity(Intent(this, AgentActivity::class.java))
-                AgentActivity.start(this ,data)
+                AgentActivity.start(this, data)
             }
             data.becomeStatus == 1 -> showMessage("您已是服務代理")
-            data.becomeStatus == 4 -> AgentSureActivity.start(this,data)
+            data.becomeStatus == 4 -> AgentSureActivity.start(this, data)
         }
     }
 

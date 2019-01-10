@@ -37,6 +37,7 @@ class GoldSearchActivity : BaseAbstractActivity() {
                     .subscribe(object : BaseObserver<Any?>(){
                         override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                             "举报成功".toast()
+                            finish()
                         }
 
                         override fun onCodeError(code: Int, msg: String) {

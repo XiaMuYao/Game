@@ -27,6 +27,15 @@ import com.zhy.http.okhttp.callback.StringCallback
 import org.jetbrains.anko.toast
 
 import java.util.ArrayList
+import android.view.Gravity
+import com.blankj.utilcode.util.SnackbarUtils.dismiss
+import android.graphics.drawable.BitmapDrawable
+import android.widget.PopupWindow
+import android.view.LayoutInflater
+import android.app.Activity
+import com.ydws.game.utils.TestPopupWindow
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : BaseAbstractActivity(), View.OnClickListener {
     private var main_background: ImageView? = null
@@ -72,6 +81,7 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
         userIcon!!.setOnClickListener(this)
         findViewById<View>(R.id.store_ImageView).setOnClickListener(this)
         findViewById<View>(R.id.generalize_ImageView).setOnClickListener(this)
+        findViewById<View>(R.id.wenhaodianji).setOnClickListener(this)
         findViewById<View>(R.id.sponsor_ImageView).setOnClickListener(this)
         findViewById<View>(R.id.everyday_task_ImageView).setOnClickListener(this)
         findViewById<View>(R.id.premier_reseller_ImageView).setOnClickListener(this)
@@ -157,7 +167,13 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
                 }
             }
             R.id.i_want_to_vote_ImageButton -> startActivity(Intent(this, VoteActivity::class.java))
+
+            R.id.wenhaodianji -> {
+                var mWindow = TestPopupWindow(this);
+                mWindow.showAtLocation(wenhaodianji, Gravity.CENTER,0,0)
+            }
         }
     }
+
 
 }

@@ -23,13 +23,15 @@
 
     <ImageView
         android:id="@+id/iv_gen_introduce"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="282dp"
+        android:layout_height="361dp"
         android:src="@mipmap/gen_introduce"
         app:layout_constraintBottom_toBottomOf="@id/iv_gen_bg"
         app:layout_constraintEnd_toEndOf="@id/iv_gen_bg"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@id/iv_gen_bg"
-        app:layout_constraintTop_toTopOf="@id/iv_gen_bg" />
+        app:layout_constraintTop_toTopOf="@id/iv_gen_bg"
+        app:layout_constraintVertical_bias="0.344" />
 
     <ImageView
         android:id="@+id/btn_next"

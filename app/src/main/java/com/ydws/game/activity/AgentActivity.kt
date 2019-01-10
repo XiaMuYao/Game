@@ -5,6 +5,7 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
@@ -35,6 +36,7 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
         activityAgentBinding = DataBindingUtil.setContentView(this, R.layout.activity_agent)
         activityAgentBinding.viewModel = viewModel
         activityAgentBinding.idStr = "ID.$userid"
+        activityAgentBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "服務代理申请"
         activityAgentBinding.ivSubmit.setOnClickListener {
             if (viewModel.becomeStatus == 3) {
                 showMessage("正在通過一級審核，請等待")

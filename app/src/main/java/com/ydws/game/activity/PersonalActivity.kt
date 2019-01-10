@@ -49,7 +49,12 @@ import java.util.*
  */
 class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuickAdapter.OnItemChildClickListener {
     val imgs = ArrayList<Int>()
+    var stutas = -1
+    private var dddd: Int by SPreference("intcode", -1)
+
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
+
+
         val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"),
                 Drawable2FileUtils.drawableToFile(this@PersonalActivity,
                         imgs[position],
@@ -63,24 +68,62 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 .subscribe(object : BaseObserver<String>() {
                     override fun onSuccees(t: BaseResponse<String>, data: String) {
                         currentImage = data
-                        SecondRetrofitManager.service.updPhoto(userid,data)
+                        SecondRetrofitManager.service.updPhoto(userid, data)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(object : BaseObserver<Any?>(){
+                                .subscribe(object : BaseObserver<Any?>() {
                                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                                         showHud(false)
                                         "上傳成功".toast()
                                         Glide.with(this@PersonalActivity).load(currentImage).into(activityPersonalBinding.ivUserIcon)
+
+                                        var dataDecoders: MutableList<PersonalBean>? = ArrayList()
+                                        imgs.clear()
+
+                                        when (position) {
+                                            0 -> {
+                                                imgs.add(R.mipmap.sone)
+                                                imgs.add(R.mipmap.two)
+                                                imgs.add(R.mipmap.three)
+                                                imgs.add(R.mipmap.four)
+                                            }
+                                            1 -> {
+                                                imgs.add(R.mipmap.one)
+                                                imgs.add(R.mipmap.stwo)
+                                                imgs.add(R.mipmap.three)
+                                                imgs.add(R.mipmap.four)
+                                            }
+                                            2 -> {
+                                                imgs.add(R.mipmap.one)
+                                                imgs.add(R.mipmap.two)
+                                                imgs.add(R.mipmap.sthree)
+                                                imgs.add(R.mipmap.four)
+                                            }
+                                            3 -> {
+                                                imgs.add(R.mipmap.one)
+                                                imgs.add(R.mipmap.two)
+                                                imgs.add(R.mipmap.three)
+                                                imgs.add(R.mipmap.sfour)
+                                            }
+                                        }
+
+
+
+                                        for (i in imgs.indices) {
+                                            val personalBean = PersonalBean()
+                                            personalBean.imgId = imgs[i]
+
+                                            dataDecoders?.add(personalBean)
+                                        }
+
+                                        personalAdapter?.setNewData(dataDecoders)
                                     }
 
                                     override fun onCodeError(code: Int, msg: String) {
                                         showHud(false)
                                     }
-
                                 })
-
 //                                    showHud(false)
-
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
@@ -129,7 +172,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                                 .compress(true)// 是否压缩 true or false
                                 .forResult(PictureConfig.CHOOSE_REQUEST)
                     }
-                    "从手机相册获取" ->{
+                    "从手机相册获取" -> {
                         PictureSelector.create(this@PersonalActivity)
                                 .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
                                 .maxSelectNum(1)// 最大图片选择数量 int
@@ -167,6 +210,14 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                         personalInfo = data
                         activityPersonalBinding.sexStr = if (personalInfo?.sex == 1) "男" else "女"
                         activityPersonalBinding.viewModel = personalInfo
+                        if (personalInfo?.wechat.isNullOrBlank() &&
+                                personalInfo?.zhifubao.isNullOrBlank() &&
+                                personalInfo?.cardNumber.isNullOrBlank() &&
+                                personalInfo?.bankName.isNullOrBlank()) {
+                            stutas = 1
+                        } else {
+                            stutas = 0
+                        }
                         Glide.with(this@PersonalActivity).load(data.photo).into(activityPersonalBinding.ivUserIcon)
                         //手机和姓名被修改
                         if (!personalInfo?.payee.isNullOrBlank()) {
@@ -205,7 +256,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
     }
 
     override fun initViews() {
-//        personalRv = findViewById(R.id.rv_personal)
+
     }
 
 
@@ -221,10 +272,10 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
         personalAdapter?.onItemChildClickListener = this
         datas = ArrayList()
         imgs.clear()
-        imgs.add(R.mipmap.icon_one)
-        imgs.add(R.mipmap.icon_two)
-        imgs.add(R.mipmap.icon_three)
-        imgs.add(R.mipmap.icon_four)
+        imgs.add(R.mipmap.one)
+        imgs.add(R.mipmap.two)
+        imgs.add(R.mipmap.three)
+        imgs.add(R.mipmap.four)
         datas?.clear()
         for (i in imgs.indices) {
             val personalBean = PersonalBean()
@@ -243,9 +294,9 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
             return
         }
 
-        if (personalInfo?.tradingWord != 0) {
+        if (stutas == 0) {
             showQuestionAndAnswer()
-        } else {
+        } else if (stutas == 1) {
             changePayment()
         }
     }
@@ -310,15 +361,15 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 "wechat" to (personalInfo?.wechat ?: ""),
                 "zhifubao" to (personalInfo?.zhifubao ?: ""),
                 "bankName" to (personalInfo?.bankName ?: ""),
-                "stutas" to (personalInfo?.usdtbalance.toString()),
-                "cardNumber" to (personalInfo?.cardNumber?:"")
+                "stutas" to (stutas.toString()),
+                "cardNumber" to (personalInfo?.cardNumber ?: "")
 
         )
         SecondRetrofitManager.service.gameUpdateGathering(params).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                        changePayment()
+                        fetchData()
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
@@ -332,9 +383,9 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
         when (view.id) {
             R.id.iv_reset_password -> startActivity(Intent(this, SetPasswordActivity::class.java))
             R.id.iv_jiaoyi_mima -> {
-                if(personalInfo?.tradingWord == 0){
+                if (personalInfo?.tradingWord == 0) {
                     startActivity(Intent(this, SetTradePasswordActivity::class.java))
-                }else{
+                } else {
                     startActivity(Intent(this, ResetPasswordActivity::class.java))
                 }
             }
@@ -394,9 +445,10 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
 
         }
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode === Activity.RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 PictureConfig.CHOOSE_REQUEST -> {
                     // 图片、视频、音频选择结果回调
@@ -406,7 +458,8 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath?:selectList[0].path))
+                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath
+                            ?: selectList[0].path))
                     val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
                     showHud(true)
                     SecondRetrofitManager.service.uploadPicture(part)
@@ -415,10 +468,10 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                             .subscribe(object : BaseObserver<String>() {
                                 override fun onSuccees(t: BaseResponse<String>, data: String) {
                                     currentImage = data
-                                    SecondRetrofitManager.service.updPhoto(userid,data)
+                                    SecondRetrofitManager.service.updPhoto(userid, data)
                                             .subscribeOn(Schedulers.io())
                                             .observeOn(AndroidSchedulers.mainThread())
-                                            .subscribe(object : BaseObserver<Any?>(){
+                                            .subscribe(object : BaseObserver<Any?>() {
                                                 override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                                                     showHud(false)
                                                     "上傳成功".toast()
@@ -444,5 +497,10 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchData()
     }
 }

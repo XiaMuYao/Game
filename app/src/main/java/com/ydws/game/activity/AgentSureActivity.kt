@@ -45,7 +45,7 @@ class AgentSureActivity : BaseAbstractActivity(), View.OnClickListener {
         activityAgentSureBinding.tradeNumber = viewModel.tradingNumber
 
         activityAgentSureBinding.idStr = "ID.$userid"
-        activityAgentSureBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "服務代理"
+        activityAgentSureBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "服務代理申请"
         activityAgentSureBinding.title.findViewById<View>(R.id.back).setOnClickListener { finish() }
 
         activityAgentSureBinding.copy.setOnClickListener {

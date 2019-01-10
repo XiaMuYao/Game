@@ -46,7 +46,7 @@ class VoteDetailActivity : BaseAbstractActivity() {
     override fun initData() {
         getData()
 
-        ID.text = "ID."+userid
+        ID.text = "ID." + userid
         toupiao.setOnClickListener {
 
 
@@ -57,7 +57,6 @@ class VoteDetailActivity : BaseAbstractActivity() {
                         override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                             toast(t.message)
                             getData()
-
                         }
 
                         override fun onCodeError(code: Int, msg: String) {
@@ -75,8 +74,7 @@ class VoteDetailActivity : BaseAbstractActivity() {
                 .compose(SchedulerUtils.ioToMain())
                 .subscribe(object : BaseObserver<gameInfoBean.DataBean>() {
                     override fun onSuccees(t: BaseResponse<gameInfoBean.DataBean>, data: gameInfoBean.DataBean) {
-                        toast(t.message)
-                        var list: List<String> = arrayListOf(data.gameIntroduce, data.gameFeatures, data.gameRules)
+                        var list: List<String> = arrayListOf("游戏人数", data.gameCount, "道具使用说明", data.gameProps, "游戏介绍", data.gameIntroduce)
 
                         val layoutManager = LinearLayoutManager(this@VoteDetailActivity)
                         val voteAdapter = gameinfoAdapter(R.layout.item_game)

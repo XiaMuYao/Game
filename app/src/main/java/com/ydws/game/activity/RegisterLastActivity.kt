@@ -16,12 +16,13 @@ import com.ydws.game.net.RetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.net.scheduler.SchedulerUtils
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_register_last.*
-import org.jetbrains.anko.startActivity
+import kotlinx.android.synthetic.main.view_title_bar.view.*
 import org.jetbrains.anko.toast
 import java.util.*
+import android.content.ClipData
+import android.content.ClipboardManager
+
 
 class RegisterLastActivity : BaseAbstractActivity() {
 
@@ -35,6 +36,8 @@ class RegisterLastActivity : BaseAbstractActivity() {
 
     override fun initViews() {
 
+        titledd.tv_title_bar.text = "修改密码"
+
         next.setOnClickListener {
 
             RetrofitManager.service
@@ -47,6 +50,7 @@ class RegisterLastActivity : BaseAbstractActivity() {
                     .compose(SchedulerUtils.ioToMain())
                     .subscribe(object : BaseObserver<Any>() {
                         override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                            toast("注册成功")
                             LoginActivity.start(this@RegisterLastActivity)
                             finish()
                         }
@@ -55,6 +59,13 @@ class RegisterLastActivity : BaseAbstractActivity() {
                         }
 
                     })
+        }
+
+        fuzhi.setOnClickListener {
+
+            val clip = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            clip.text = miyao.text
+
         }
 
         huoqumibao.setOnClickListener {

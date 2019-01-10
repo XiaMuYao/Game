@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@mipmap/daili_bottom">
 
     <EditText
-        android:id="@+id/address"
+        android:id="@+id/addressdddd"
         android:layout_width="175dp"
-        android:textColor="#ffffff"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@mipmap/xuankuang"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,21 +22,22 @@
         android:layout_marginEnd="5dp"
         android:text="平台钱包地址:"
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="@id/address"
-        app:layout_constraintEnd_toStartOf="@id/address"
-        app:layout_constraintTop_toTopOf="@id/address" />
+        app:layout_constraintBottom_toBottomOf="@id/addressdddd"
+        app:layout_constraintEnd_toStartOf="@id/addressdddd"
+        app:layout_constraintTop_toTopOf="@id/addressdddd" />
 
     <EditText
-        android:id="@+id/count"
-        android:layout_width="175dp"        android:textColor="#ffffff"
-
-        android:inputType="number"
-        android:maxLength="9"
+        android:id="@+id/ddddddd"
+        android:layout_width="175dp"
         android:layout_height="wrap_content"
+
         android:layout_margin="10dp"
         android:background="@mipmap/xuankuang"
+        android:inputType="number"
+        android:maxLength="9"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/address" />
+        app:layout_constraintTop_toBottomOf="@id/addressdddd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,19 +45,20 @@
         android:layout_marginEnd="5dp"
         android:text="购买金币数量:"
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="@id/count"
-        app:layout_constraintEnd_toStartOf="@id/count"
-        app:layout_constraintTop_toTopOf="@id/count" />
+        app:layout_constraintBottom_toBottomOf="@id/ddddddd"
+        app:layout_constraintEnd_toStartOf="@id/ddddddd"
+        app:layout_constraintTop_toTopOf="@id/ddddddd" />
 
     <EditText
         android:id="@+id/trade_number"
         android:layout_width="175dp"
-        android:layout_height="wrap_content"        android:textColor="#ffffff"
-
+        android:layout_height="27dp"
         android:layout_margin="10dp"
+
         android:background="@mipmap/xuankuang"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/count" />
+        app:layout_constraintTop_toBottomOf="@id/ddddddd" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -67,15 +70,40 @@
         app:layout_constraintEnd_toStartOf="@id/trade_number"
         app:layout_constraintTop_toTopOf="@id/trade_number" />
 
+
+    <EditText
+        android:id="@+id/yueheshuliang"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@mipmap/xuankuang"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trade_number" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="约合USDT数量:"
+        android:textColor="@color/colorWhite"
+
+        app:layout_constraintBottom_toBottomOf="@+id/yueheshuliang"
+        app:layout_constraintEnd_toStartOf="@+id/yueheshuliang"
+        app:layout_constraintTop_toTopOf="@+id/yueheshuliang" />
+
+
     <ImageView
         android:id="@+id/rigddasdqwht"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="8dp"
         android:src="@mipmap/right_small"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/trade_number"
-        app:layout_constraintTop_toBottomOf="@id/trade_number" />
+        app:layout_constraintEnd_toEndOf="@+id/yueheshuliang"
+        app:layout_constraintTop_toBottomOf="@+id/yueheshuliang" />
+
 
 </android.support.constraint.ConstraintLayout>

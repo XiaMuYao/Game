@@ -57,7 +57,6 @@ class VoteActivity : BaseAbstractActivity(), BaseQuickAdapter.OnItemClickListene
                 .compose(SchedulerUtils.ioToMain())
                 .subscribe(object : BaseObserver<List<youxitoutiaoBean.DataBean>>() {
                     override fun onSuccees(t: BaseResponse<List<youxitoutiaoBean.DataBean>>, data: List<youxitoutiaoBean.DataBean>) {
-                        toast(t.message)
                         list = data
                         voteAdapter!!.setNewData(data)
                     }

@@ -71,16 +71,17 @@
 
     <Button
         android:id="@+id/toupiao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="81dp"
+        android:layout_height="35dp"
         android:layout_marginTop="8dp"
-        android:background="@null"
-        android:text="投票"
+        android:layout_marginEnd="4dp"
+
+        android:background="@drawable/toupiao"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/iv_gold_apply_bg"
         app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
         app:layout_constraintTop_toBottomOf="@+id/iv_generalize_huakuang"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
     <TextView

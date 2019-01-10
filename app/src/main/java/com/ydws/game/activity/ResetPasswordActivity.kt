@@ -80,6 +80,7 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                         showMessage("修改成功")
+                        finish()
                     }
 
                     override fun onCodeError(code: Int, msg: String) {

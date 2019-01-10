@@ -216,4 +216,39 @@ interface ApiService {
                          @Query("city") city: String
     ): Observable<BaseResponse<Any?>>
 
+
+    /**
+     * 币商休息页查币商状态
+     */
+    @GET("agent/findBiStatus")
+    fun findBiStatus(@Query("userId") id: String
+    ): Observable<BaseResponse<Int>>
+
+
+
+
+    /**
+     * 暂停
+     */
+    @POST("agent/applyForRest")
+    fun applyForRest(@Query("userId") id: String
+    ): Observable<BaseResponse<Any>>
+
+
+    /**
+     * 恢复
+     */
+    @POST("agent/recoveryService")
+    fun recoveryService(@Query("userId") id: String
+    ): Observable<BaseResponse<Any>>
+
+
+    /**
+     * USDT比例
+     */
+    @GET("agent/getBili")
+    fun getBili(): Observable<BaseResponse<Int>>
+
+
+
 }

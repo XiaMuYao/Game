@@ -75,6 +75,7 @@ class SetTradePasswordActivity : BaseAbstractActivity() {
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                         showMessage("交易密碼設置成功")
+                        finish()
                     }
 
                     override fun onCodeError(code: Int, msg: String) {

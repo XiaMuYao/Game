@@ -71,7 +71,7 @@ class GameRecordActivity : BaseAbstractActivity() {
                 .compose(SchedulerUtils.ioToMain())
                 .subscribe(object : BaseObserver<List<GameListBean.DataBean>>() {
                     override fun onSuccees(t: BaseResponse<List<GameListBean.DataBean>>, data: List<GameListBean.DataBean>) {
-                        gameRecordAdapter!!.setNewData(data)
+                        gameRecordAdapter?.addData(data)
                     }
 
 

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.ydws.game.App
 import com.ydws.game.BR
 import com.ydws.game.R
 import com.ydws.game.activity.GoldSearchActivity

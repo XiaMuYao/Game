@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@mipmap/daili_bottom">
@@ -30,6 +31,7 @@
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_marginEnd="8dp"
         android:background="@mipmap/xuankuang"
         android:inputType="number"
         android:maxLength="9"
@@ -43,9 +45,9 @@
         android:layout_marginEnd="5dp"
         android:text="回收金币数量:"
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toBottomOf="@id/count"
-        app:layout_constraintEnd_toStartOf="@id/count"
-        app:layout_constraintTop_toTopOf="@id/count" />
+        app:layout_constraintBottom_toBottomOf="@+id/count"
+        app:layout_constraintEnd_toStartOf="@+id/count"
+        app:layout_constraintTop_toTopOf="@+id/count" />
 
     <EditText
         android:id="@+id/trade_number"

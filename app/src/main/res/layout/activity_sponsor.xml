@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/ddddddddddddddddddd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/mark"
@@ -25,9 +26,11 @@
         app:layout_constraintTop_toTopOf="@id/iv_sponsor_bg" />
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/title_head"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@id/iv_sponsor_bg"
         app:layout_constraintStart_toStartOf="@id/iv_sponsor_bg"
         app:layout_constraintTop_toTopOf="@id/iv_sponsor_bg" />
@@ -112,4 +115,20 @@
         app:layout_constraintEnd_toEndOf="@id/iv_sponsor_kuang"
         app:layout_constraintStart_toStartOf="@id/iv_sponsor_kuang"
         app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
+
+
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@mipmap/id"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/iv_sponsor_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_sponsor_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_sponsor_bg"
+        app:layout_constraintVertical_bias="0.411" />
 </android.support.constraint.ConstraintLayout>

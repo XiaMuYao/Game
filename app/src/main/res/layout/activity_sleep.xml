@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@mipmap/hall_page_background"
+    tools:context=".activity.SleepActivity">
+
+
+    <include
+        android:id="@+id/view_title"
+        layout="@layout/view_title_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_gold_apply_bg"
+        android:layout_width="299dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="128dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/gen_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_title"
+        app:layout_constraintVertical_bias="0.479" />
+
+
+    <TextView
+        android:id="@+id/ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@mipmap/id"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintVertical_bias="0.411" />
+
+    <TextView
+        android:id="@+id/wenzixiugai"
+        android:layout_width="224dp"
+        android:layout_height="118dp"
+        android:background="#BD9D76"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg"
+        tools:text="休息中..." />
+
+    <ImageView
+        android:id="@+id/huifu"
+        android:layout_width="113dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintVertical_bias="0.94" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -33,6 +33,9 @@ class ResetPwdActivity : BaseAbstractActivity() {
     override fun initData() {
         reset_btn.setOnClickListener {
 
+            if(xinmima.text.equals(zaicimima.text)){
+
+
             RetrofitManager.service
                     .changePassword(userid,
                             xinmima.text.toString().trim())
@@ -50,6 +53,9 @@ class ResetPwdActivity : BaseAbstractActivity() {
                     })
 
 
+            }else{
+                toast("两次输入密码不相同")
+            }
         }
     }
 }

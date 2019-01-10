@@ -31,7 +31,6 @@ public class BootPageActivity extends BaseAbstractActivity implements OnBannerLi
     private CountDownTimer mTimer;
     private int recLen = 3;
 
-
     @Override
     public int getContentLayoutID() {
         return R.layout.activity_boot_page;

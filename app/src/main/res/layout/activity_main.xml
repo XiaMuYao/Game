@@ -69,10 +69,17 @@
         <ImageView
             android:id="@+id/problem_ImageView"
             android:layout_width="wrap_content"
-            android:visibility="gone"
             android:layout_height="wrap_content"
             android:src="@mipmap/problem"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/wenhaodianji"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="wrap_content"
@@ -100,12 +107,23 @@
                 android:id="@+id/jinbi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
+                android:layout_marginStart="68dp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imageView"
                 app:layout_constraintVertical_bias="1.0"
-                tools:text="123123123" />
+                tools:text="12" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="#AE8F6E"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="@+id/imageView"
+                app:layout_constraintVertical_bias="1.0" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -116,6 +134,17 @@
                 android:src="@mipmap/silver"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <View
+                android:layout_width="21dp"
+                android:layout_height="20dp"
+                android:background="#AE8F6E"
+                android:visibility="visible"
+
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/yinbi"
@@ -137,8 +166,21 @@
                 android:layout_marginBottom="8dp"
                 android:src="@mipmap/prop"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <View
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:background="#AE8F6E"
+
+
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageView3"
+                app:layout_constraintVertical_bias="0.833" />
 
             <TextView
                 android:id="@+id/daoju"
@@ -149,7 +191,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/imageView3"
                 app:layout_constraintStart_toStartOf="@+id/imageView3"
                 app:layout_constraintTop_toTopOf="@+id/imageView3"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintVertical_bias="0.857"
                 tools:text="13123" />
 
         </android.support.constraint.ConstraintLayout>

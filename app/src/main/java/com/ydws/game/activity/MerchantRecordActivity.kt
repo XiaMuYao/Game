@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_record_merchant.*
 class MerchantRecordActivity : BaseAbstractActivity(), View.OnClickListener {
     private var radioGroup: RadioGroup? = null
     private var userid: String by SPreference("userid", "")
+    private var selecy: Int by SPreference("selecy", 1)
 
     override fun getContentLayoutID(): Int {
         return R.layout.activity_record_merchant
@@ -39,6 +40,13 @@ class MerchantRecordActivity : BaseAbstractActivity(), View.OnClickListener {
         val transaction = fragmentManager.beginTransaction()
         transaction.replace(R.id.frame_mer_chant, GoldRecordFragment())
         transaction.commit()
+
+        if (selecy == 1) {
+            radioGroup!!.setBackgroundResource(R.mipmap.title_record_one)
+            transaction.replace(R.id.frame_mer_chant, GoldRecordFragment())
+        } else if (selecy == 2) {
+            transaction.replace(R.id.frame_mer_chant, PropRecoveryFragment())
+        }
     }
 
     override fun onClick(view: View) {
@@ -48,10 +56,12 @@ class MerchantRecordActivity : BaseAbstractActivity(), View.OnClickListener {
             R.id.rb_gold_zanzhu -> {
                 radioGroup!!.setBackgroundResource(R.mipmap.title_record_one)
                 transaction.replace(R.id.frame_mer_chant, GoldRecordFragment())
+                selecy = 1
             }
             R.id.rb_record -> {
                 radioGroup!!.setBackgroundResource(R.mipmap.title_record_two)
                 transaction.replace(R.id.frame_mer_chant, PropRecoveryFragment())
+                selecy = 2
             }
         }
         transaction.commit()

@@ -1,7 +1,6 @@
 package com.ydws.game
 
 import android.app.Application
-import android.content.Context
 import com.blankj.utilcode.util.Utils
 
 import kotlin.properties.Delegates
@@ -25,10 +24,6 @@ class App : Application() {
         super.onCreate()
         instance = this
         Utils.init(this)
-
-
     }
-
-
 
 }
