@@ -32,7 +32,6 @@
         android:background="@mipmap/id"
         android:gravity="center"
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@id/iv_shop_bg"
         app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
         app:layout_constraintTop_toTopOf="@id/iv_shop_bg" />
 
@@ -84,9 +83,6 @@
         app:layout_constraintTop_toTopOf="@+id/iv_shop_bottom" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tv_jiaoyi_pwd"

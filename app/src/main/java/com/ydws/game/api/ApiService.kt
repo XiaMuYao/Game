@@ -221,7 +221,7 @@ interface ApiService {
      */
     @GET("agent/findBiStatus")
     fun findBiStatus(@Query("userId") id: String
-    ): Observable<BaseResponse<Int>>
+    ): Observable<BaseResponse<xiuxishijian.DataBean>>
 
 
     /**
@@ -273,5 +273,12 @@ interface ApiService {
                         @Query("tradingPasswordXin") tradingPasswordXin: String
     ): Observable<BaseResponse<Any?>>
 
+
+
+    /**
+     * 记录查询→赞助记录→记录详情按钮
+     */
+    @GET("prop/addSponderGet")
+    fun addSponderGet(@Query("id") id: String): Observable<BaseResponse<jiabidaojuBean.DataBean>>
 
 }

@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@mipmap/hall_page_background"
     android:orientation="vertical">
 
     <include
@@ -16,8 +18,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@mipmap/hall_page_background">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/iv_gold_apply_bg"

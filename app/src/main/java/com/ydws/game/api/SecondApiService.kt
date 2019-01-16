@@ -27,7 +27,7 @@ interface SecondApiService {
     @GET("agent/findBalance")
     fun findBalance(@Query("userId") userId: String): Observable<BaseResponse<String>>
 
-    @GET("agent/addGoldTrading")
+    @GET("agent/addGoldTradingNew")
     fun addGoldTrading(@Query("userId") userId: String, @Query("jinbi") jinbi: String, @Query("tradingPassword") tradingPassword: String): Observable<BaseResponse<GoldTradingBean>>
 
     @POST("prop/addBuyBack")
@@ -58,7 +58,7 @@ interface SecondApiService {
     @POST("fileupload/picture")
     fun uploadPicture(@Part inputStream: MultipartBody.Part): Observable<BaseResponse<String>>
 
-    @POST("agent/goldCommit")
+    @POST("agent/xiangQingTrue")
     fun goldCommit(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any>>
 
 

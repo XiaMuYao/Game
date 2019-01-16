@@ -26,6 +26,9 @@ class MerchantRecordActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initViews() {
+        textView10.visibility  =View.GONE
+        textView7.visibility  =View.GONE
+        textView8.visibility  =View.GONE
         radioGroup = findViewById(R.id.radio)
         findViewById<View>(R.id.rb_gold_zanzhu).setOnClickListener(this)
         findViewById<View>(R.id.rb_record).setOnClickListener(this)
@@ -34,6 +37,7 @@ class MerchantRecordActivity : BaseAbstractActivity(), View.OnClickListener {
         tv.text = "記錄查詢"
         findViewById<View>(R.id.back).setOnClickListener { finish() }
     }
+
 
     override fun initData() {
         val fragmentManager = supportFragmentManager

@@ -4,5 +4,5 @@ public class GoldTradingBody {
     public String userId;    //	用户ID
     public int payType;
     public String photo;
-    public String jiluId;
+    public String tradingId;
 }

@@ -73,13 +73,26 @@
         app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg"
         app:layout_constraintVertical_bias="0.649" />
 
+
+    <cc.ibooker.zcountdownviewlib.CountDownView
+        android:id="@+id/countdownView"
+        android:layout_width="100dp"
+        android:layout_height="23dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/wenzixiugai"
+        app:layout_constraintEnd_toEndOf="@+id/wenzixiugai"
+        app:layout_constraintStart_toStartOf="@+id/wenzixiugai" />
+
     <TextView
         android:layout_width="278dp"
         android:layout_height="66dp"
+        android:layout_marginTop="8dp"
         android:text="提示：開啟后匹配將會停止72小時，當72小時過後可申請恢復。恢復倒計時截止前如未申請恢復，則取消代理資格。"
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
-        tools:layout_editor_absoluteY="368dp" />
+        app:layout_constraintTop_toBottomOf="@+id/huifu" />
 
 </android.support.constraint.ConstraintLayout>

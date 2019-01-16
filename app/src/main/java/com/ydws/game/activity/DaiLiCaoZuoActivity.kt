@@ -8,12 +8,20 @@ import android.widget.TextView
 
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
+import com.ydws.game.bean.jiabidaojuBean
 import com.ydws.game.fragment.DaiLiCaoZuoGoldRecordFragment
 import com.ydws.game.fragment.DaiLiCaoZuoPropRecoveryFragment
 import com.ydws.game.fragment.GoldRecordFragment
 import com.ydws.game.fragment.PropRecoveryFragment
+import com.ydws.game.net.LL
+import com.ydws.game.net.RetrofitManager
+import com.ydws.game.net.base.BaseObserver
+import com.ydws.game.net.base.BaseResponse
+import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.utils.SPreference
 import kotlinx.android.synthetic.main.activity_record_merchant.*
+import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.toast
 
 /**
  * 代理操作
@@ -53,6 +61,24 @@ class DaiLiCaoZuoActivity : BaseAbstractActivity(), View.OnClickListener {
             transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoPropRecoveryFragment())
             transaction.commit()
         }
+
+
+        RetrofitManager.service
+                .addSponderGet(userid)
+                .compose(SchedulerUtils.ioToMain())
+                .subscribe(object : BaseObserver<jiabidaojuBean.DataBean>() {
+                    override fun onSuccees(t: BaseResponse<jiabidaojuBean.DataBean>, data: jiabidaojuBean.DataBean) {
+                        textView10.text="贊助服務獲得金幣總量:${data.daoBishangGet}"
+                        textView7.text="道具回收服務獲得金幣總量:${data.goldBishangGet}"
+                        textView8.text="合計:${data.num}"
+                    }
+
+
+                    override fun onCodeError(code: Int, msg: String) {
+                        toast(msg)
+                    }
+                })
+
     }
 
     override fun onClick(view: View) {

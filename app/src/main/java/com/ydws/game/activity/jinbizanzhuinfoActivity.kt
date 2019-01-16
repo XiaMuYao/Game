@@ -76,7 +76,7 @@ class jinbizanzhuinfoActivity : BaseAbstractActivity() {
             }
             body.payType = type
             body.photo = photoStr
-            body.jiluId = TradingId
+            body.tradingId = TradingId
 
 
             val map = Entry2MapUtil.toMap(body)
@@ -205,7 +205,7 @@ class jinbizanzhuinfoActivity : BaseAbstractActivity() {
                         phone.text = data.phone
                         jinbi.text = data.goldNumber.toString()
                         fabijiazhi.text = data.usdt.toString()
-
+                        tv_xinjiajiazhi.text = data.fiat.toString()
                         ll_pay_fangshi.isEnabled = false
                         ll_pay_fangshi.visibility = View.GONE
 

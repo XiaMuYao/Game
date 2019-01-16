@@ -50,7 +50,6 @@
             android:gravity="center"
             android:text="@{idStr}"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@id/iv_gold_apply_bg"
             app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
             app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
 

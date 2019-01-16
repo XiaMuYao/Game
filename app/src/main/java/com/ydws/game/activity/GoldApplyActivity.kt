@@ -17,6 +17,7 @@ import com.google.gson.reflect.TypeToken
 import com.ydws.game.*
 import com.ydws.game.bean.*
 import com.ydws.game.body.GoldTradingBody
+import com.ydws.game.body.GoldTradingBodyCopy
 import com.ydws.game.net.LL
 import com.ydws.game.net.RetrofitManager
 import com.ydws.game.net.SecondRetrofitManager
@@ -43,10 +44,10 @@ class GoldApplyActivity : BaseAbstractActivity() {
     val payTypes: ArrayList<PayTypeBean> = ArrayList()
     var currentCountry: Countries? = null
     var currentPayType: PayTypeBean? = null
-    var currentImage: String? = null
+//    var currentImage: String? = null
     var zhifufangsh = 0
     var photostr = ""
-    var jilyid = ""
+//    var jilyid = ""
     override fun getContentLayoutID(): Int {
         return R.layout.activity_gold_apply
     }
@@ -54,13 +55,14 @@ class GoldApplyActivity : BaseAbstractActivity() {
     override fun initViews() {
         hideAll()
         intentData = intent.getSerializableExtra("data") as GoldTradingBean?
-        jilyid = intent.getStringExtra("jiluId")
+//        jilyid = intent.getStringExtra("jiluId")
         findViewById<View>(R.id.back).onClick { finish() }
         findViewById<TextView>(R.id.tv_title_bar).text = "贊助"
         val selectType = ArrayList<String>()
         selectType.add("打开照相机")
         selectType.add("从手机相册获取")
         selectType.add("取消")
+        ll_status.visibility = View.GONE
         ll_status.onClick {
             SimpleChooserDialog.showStrings(supportFragmentManager, selectType, OnChooseListener { dialog, content ->
                 dialog.dismiss()
@@ -124,20 +126,31 @@ class GoldApplyActivity : BaseAbstractActivity() {
                 "請選擇國家".toast()
                 return@onClick
             }
-            if (currentImage.isNullOrBlank()) {
-                "請先上傳憑證".toast()
-                return@onClick
-            }
+//            if (currentImage.isNullOrBlank()) {
+//                "請先上傳憑證".toast()
+//                return@onClick
+//            }
             if (currentPayType == null) {
                 "請先選擇支付方式".toast()
                 return@onClick
             }
-            val body = GoldTradingBody()
+            val body = GoldTradingBodyCopy()
             body.userId = userid
 
-            body.payType = zhifufangsh
-            body.photo = currentImage
-            body.jiluId = jilyid
+            body.countries =guojiahediqu.text.toString()
+            body.goldNumber = jinbi.text.toString()
+            body.bishangId =intentData?.id.toString()
+            body.city = guojiahediqu.text.toString()
+            body.payee = fuwudaili.text.toString()
+
+            body.usdt = intentData?.usdt.toString()
+            body.fiat = xuanzefabijiazhi.text.toString()
+            body.phone = phone.text.toString()
+            body.bankName = intentData?.bankName
+
+            body.cardNumber = intentData?.cardNumber
+            body.zhifubao = intentData?.zhifubao
+            body.wechatCode = intentData?.wechatCode
 
 
             val map = Entry2MapUtil.toMap(body)
@@ -155,7 +168,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
 
                     })
         }
-        ID.text = intentData?.id.toString()
+        ID.text = "ID."+intentData?.id.toString()
         guojiahediqu.text = intentData?.city
         phone.text = intentData?.phone
         jinbi.text = intentData?.jinbi
@@ -291,7 +304,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
                                     showHud(false)
                                     photostr = t.data
                                     "上傳成功".toast()
-                                    currentImage = data
+//                                    currentImage = data
                                 }
 
                                 override fun onCodeError(code: Int, msg: String) {

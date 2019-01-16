@@ -88,7 +88,7 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
                             override fun onSuccees(t: BaseResponse<GoldTradingBean>, data: GoldTradingBean) {
                                 val intent = Intent(this@PipeiBishangActivity, GoldApplyActivity::class.java)
                                 intent.putExtra("data", data)
-                                intent.putExtra("jiluId", data.trandindId)
+//                                intent.putExtra("jiluId", data.trandindId)
                                 startActivity(intent)
                             }
 
