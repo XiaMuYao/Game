@@ -1,5 +1,6 @@
 package com.ydws.game.adapter
 
+import android.app.Dialog
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.ydws.game.R

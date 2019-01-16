@@ -71,10 +71,10 @@ class LoginActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initViews() {
-        ActivityCompat.requestPermissions(this@LoginActivity, arrayOf(Manifest.permission.READ_CALENDAR ,
-                Manifest.permission.WRITE_CALENDAR ,
+        ActivityCompat.requestPermissions(this@LoginActivity, arrayOf(Manifest.permission.READ_CALENDAR,
+                Manifest.permission.WRITE_CALENDAR,
                 Manifest.permission.CALL_PHONE,
-                Manifest.permission.READ_PHONE_STATE), 1);
+                Manifest.permission.READ_PHONE_STATE), 1)
         background_ImageView = findViewById(R.id.background_ImageView)
         set_TextView = findViewById(R.id.set_TextView)
         login_account_edit_text = findViewById(R.id.login_account_edit_text)

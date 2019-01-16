@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="148dp"
-        android:text="关键字:"
+        android:text="@string/guanjianzi"
         android:textColor="#ffffff"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,8 +29,10 @@
         android:layout_height="25dp"
         android:layout_marginStart="12dp"
         android:background="@null"
-        android:hint="请输入关键字"
+        android:hint="@string/qingshuruguanjianzi"
         android:textColor="#ffffff"
+
+        android:textSize="15dp"
         android:textColorHint="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/textView"
@@ -39,23 +41,25 @@
 
     <Button
         android:id="@+id/huoqumibao"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
+        android:textSize="15dp"
         android:background="@drawable/btn_bg_loginone"
-        android:text="提取密钥"
+        android:text="@string/tiqumiyao"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="@+id/guanjianzi"
         app:layout_constraintStart_toEndOf="@+id/guanjianzi"
         app:layout_constraintTop_toTopOf="@+id/guanjianzi"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="15dp"
         android:layout_marginTop="48dp"
-        android:text="密钥："
+        android:text="@string/miyao"
         android:textColor="#ffffff"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -73,7 +77,8 @@
 
     <Button
         android:id="@+id/fuzhi"
-        android:layout_width="79dp"
+        android:layout_width="80dp"
+        android:textSize="15dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:background="@drawable/btn_bg_loginone"
@@ -90,13 +95,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="148dp"
         android:background="@drawable/btn_bg_loginone"
-        android:text="下一步"
+        android:text="@string/nextstp"
         android:textColor="#ffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/miyao"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/qinghaojimimayudaanzhaohuimia"
+        android:textColor="#4397f4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next" />
 </android.support.constraint.ConstraintLayout>

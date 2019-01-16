@@ -12,8 +12,11 @@ import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.utils.SPreference
+import com.ydws.game.utils.TextChangedListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_reset.*
+import org.jetbrains.anko.toast
 
 class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
     private var titleTv: TextView? = null
@@ -35,10 +38,19 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
         activityResetBinding.submit.setOnClickListener {
             resetPassword()
         }
+        wangjijiaoyimima.setOnClickListener {
+            wangjijiaoyActivity.start(this@ResetPasswordActivity)
+        }
+
     }
 
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
+
+        TextChangedListener.StringWatcher(tv_gold_count_show)
+        TextChangedListener.StringWatcher(tv_jiaoyi_pwd_show)
+        TextChangedListener.StringWatcher(editText3)
+
     }
 
     override fun initData() {
@@ -61,6 +73,17 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
             showMessage("兩次交易碼不一致")
             return
         }
+        if (tv_gold_count_show.text.toString().length > 8 || tv_gold_count_show.text.toString().length < 5) {
+            toast("密码不符合规则")
+        }
+        if (tv_jiaoyi_pwd_show.text.toString().length > 8 || tv_jiaoyi_pwd_show.text.toString().length < 5) {
+            toast("密码不符合规则")
+        }
+        if (editText3.text.toString().length > 8 || editText3.text.toString().length < 5) {
+            toast("密码不符合规则")
+        }
+
+
 
 //        id	是	integer	用户id
 //                tradingPassword	是	string	交易密码

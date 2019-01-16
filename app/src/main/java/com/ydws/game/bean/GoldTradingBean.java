@@ -26,7 +26,16 @@ public class GoldTradingBean implements Serializable {
     private String wechatCode;
     private String jinbi;
     private String phone;
+    private String trandindId;
     private double usdt;
+
+    public String getTrandindId() {
+        return trandindId;
+    }
+
+    public void setTrandindId(String trandindId) {
+        this.trandindId = trandindId;
+    }
 
     public int getId() {
         return id;

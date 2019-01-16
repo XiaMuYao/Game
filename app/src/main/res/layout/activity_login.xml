@@ -11,7 +11,6 @@
         android:scaleType="fitXY" />
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/set_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +20,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:text="设置"
-        android:textColor="@color/colorWhite" />
+        android:textColor="@color/colorWhite"
+        android:visibility="gone" />
 
 
     <LinearLayout
@@ -43,7 +43,7 @@
             android:layout_marginTop="15dp"
             android:background="@null"
             android:digits="0123456789abcdefjghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-            android:hint="请输入账号"
+            android:hint="@string/qingshuruzhanghao"
             android:lines="1"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
@@ -64,7 +64,8 @@
             android:layout_alignStart="@+id/login_account_edit_text"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="请输入密码"
+            android:hint="@string/qingshurumima"
+            android:text="123456"
             android:inputType="textPassword"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
@@ -85,8 +86,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginTop="50dp"
             android:background="@drawable/btn_bg_login"
-            android:text="登录"
-
+            android:text="@string/denglu"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="忘记密码"
+                android:text="@string/wangjimima"
                 android:textColor="@color/colorWhite" />
 
             <View
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:text="现在注册"
+                android:text="@string/xianzaizhuce"
                 android:textColor="@color/colorWhite" />
 
 

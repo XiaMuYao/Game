@@ -16,6 +16,8 @@ import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_pipei_bishang.*
+import kotlinx.android.synthetic.main.view_title_bar.view.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 /**
  * 匹配币商
@@ -30,6 +32,7 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initViews() {
+        view_title.back.onClick { finish() }
         titleTv = findViewById(R.id.tv_title_bar)
         titleTv!!.text = "赞助"
         ID.text = "ID:$userid"
@@ -85,6 +88,7 @@ class PipeiBishangActivity : BaseAbstractActivity(), View.OnClickListener {
                             override fun onSuccees(t: BaseResponse<GoldTradingBean>, data: GoldTradingBean) {
                                 val intent = Intent(this@PipeiBishangActivity, GoldApplyActivity::class.java)
                                 intent.putExtra("data", data)
+                                intent.putExtra("jiluId", data.trandindId)
                                 startActivity(intent)
                             }
 

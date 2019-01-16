@@ -15,7 +15,7 @@
 
         <variable
             name="idStr"
-            type="String"/>
+            type="String" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -36,30 +36,27 @@
             android:src="@mipmap/bg_ban"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/title"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.496" />
 
         <TextView
             android:id="@+id/ID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="20dp"
             android:background="@mipmap/id"
             android:gravity="center"
             android:text="@{idStr}"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@+id/iv_gold_apply_bg"
             app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
             app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg" />
 
         <ImageView
             android:id="@+id/iv_shop_head"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/gold_apply_head"
+            android:layout_width="280dp"
+            android:layout_height="25dp"
+            android:src="@drawable/zhanghuxinxi"
             app:layout_constraintBottom_toTopOf="@id/iv_shop_bottom"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
             app:layout_constraintStart_toStartOf="@id/iv_shop_bottom" />
@@ -93,7 +90,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="国家和地区:"
+                android:text="@string/guojiahediqu"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -127,7 +124,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="手机号:"
+                android:text="@string/shoujihaoma"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -162,7 +159,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="收款人姓名:"
+                android:text="@string/shoukuanren"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -196,7 +193,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="开户行:"
+                android:text="@string/kaihuhang"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -230,7 +227,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="借记卡号:"
+                android:text="@string/jiaoyihao"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -264,7 +261,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="支付宝账号:"
+                android:text="@string/zhifubao"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -298,7 +295,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="微信号:"
+                android:text="@string/weixinzhanghao"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -332,7 +329,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="本次回收道具数量数量:"
+                android:text="@string/bencidaojuhuishoshuliang"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -367,7 +364,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="USDT价值:"
+                android:text="@string/usdtjiazhi"
 
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
@@ -403,7 +400,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="代为兑换所需法币价值:(含手续费)"
+                android:text="@string/daiweiduihuansuoxifabijiazhi"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -439,10 +436,11 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="買值："
+                android:text="@string/maizhi"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
-                app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
+                app:layout_constraintTop_toBottomOf="@id/ll_wechat"
+                tools:ignore="HardcodedText" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -473,7 +471,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="输入交易密码:"
+                android:text="@string/jiaoyimima"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -483,8 +481,8 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:inputType="textPassword"
                 android:gravity="center_vertical"
+                android:inputType="textPassword"
                 android:text="@={viewModel.traPassword}"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
@@ -495,22 +493,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="提示:用户好评率匹配服务代理,充值结果可至交易记录查询"
+            android:text="@string/happinglupipeifuwuzhangjiaoy"
             android:textColor="@color/colorWhite"
             android:textSize="8sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@id/ll_pay_fangshi"
             app:layout_constraintStart_toStartOf="@id/ll_pay_fangshi"
             app:layout_constraintTop_toBottomOf="@id/ll_pay_fangshi" />
 
         <TextView
             android:id="@+id/tv_tishi_second"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="提首次填写数据默认保留,下次操作可修改。"
+            android:layout_width="236dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/benzhoubushoubaohu"
             android:textColor="@color/colorWhite"
             android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="@id/ll_pay_fangshi"
+            app:layout_constraintHorizontal_bias="0.333"
             app:layout_constraintStart_toStartOf="@id/ll_pay_fangshi"
             app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
 
@@ -518,9 +518,10 @@
             android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:src="@mipmap/submit_sure"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
             app:layout_constraintTop_toBottomOf="@id/tv_tishi_second" />
     </android.support.constraint.ConstraintLayout>

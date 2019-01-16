@@ -20,7 +20,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="请输入新密码"
+            android:hint="@string/qingshruxinmima"
             android:inputType="textPassword"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
@@ -38,7 +38,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="请再次输入新密码"
+            android:hint="@string/qingzaifishuruxinmima"
             android:inputType="textPassword"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@drawable/btn_bg_login"
-            android:text="确定"
+            android:text="@string/queding"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
-            android:text="提示: 请妥善保管新密码"
+            android:text="@string/tishibaoguanmima"
             android:textColor="#58d8ff" />
     </LinearLayout>
 </RelativeLayout>

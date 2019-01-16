@@ -1,5 +1,7 @@
 package com.ydws.game.fragment
 
+import android.content.ClipboardManager
+import android.content.Context
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
@@ -13,6 +15,7 @@ import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.utils.SPreference
+import kotlinx.android.synthetic.main.activity_register_last.*
 import kotlinx.android.synthetic.main.fragment_gold_support.*
 import kotlinx.android.synthetic.main.fragment_gold_support.view.*
 import org.jetbrains.anko.support.v4.toast
@@ -76,6 +79,15 @@ class GoldSupportFragment : BaseFragment() {
             }
 
         })
+
+        mRootView.addressdddd.isCursorVisible = false;
+        mRootView.addressdddd.isFocusable = false;
+        mRootView.addressdddd.isFocusableInTouchMode = false;
+        mRootView.addressdddd.setOnClickListener {
+            toast("复制成功")
+            val clip = context!!.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            clip.text = addressdddd.text.toString()
+        }
     }
 
 

@@ -19,9 +19,7 @@ import com.luck.picture.lib.config.PictureMimeType
 import com.ydws.game.R
 import com.ydws.game.adapter.PersonalAdapter
 import com.ydws.game.base.BaseAbstractActivity
-import com.ydws.game.bean.PersonalBean
-import com.ydws.game.bean.SelectEntityById
-import com.ydws.game.bean.selectPortraitBean
+import com.ydws.game.bean.*
 import com.ydws.game.databinding.ActivityPersonalBinding
 import com.ydws.game.databinding.LayoutYanZhengMiBaoBinding
 import com.ydws.game.net.RetrofitManager
@@ -49,8 +47,12 @@ import java.util.*
  */
 class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuickAdapter.OnItemChildClickListener {
     val imgs = ArrayList<Int>()
+    private val countries = arrayListOf<Countries>()
     var stutas = -1
     private var dddd: Int by SPreference("intcode", -1)
+    var currentPayType: PayTypeBeanTwo? = PayTypeBeanTwo(0, "未知")
+    private var currentCountry: Countries? = null
+
 
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
 
@@ -200,6 +202,47 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 }
             })
         }
+
+        show_age.setOnClickListener {
+            SimpleChooserDialog.showParcelables(supportFragmentManager, countries, OnChooseListener { dialog, content ->
+                dialog.dismiss()
+                currentCountry = content as Countries
+                show_age.text = currentCountry.toString().substring(0, currentCountry.toString().indexOf("/"))
+            })
+        }
+
+        sex.setOnClickListener {
+            val payTypes: ArrayList<PayTypeBeanTwo> = ArrayList()
+
+            payTypes.add(PayTypeBeanTwo(1, "男"))
+            payTypes.add(PayTypeBeanTwo(2, "女"))
+
+            SimpleChooserDialog.showParcelables(supportFragmentManager, payTypes, OnChooseListener { dialog, content ->
+                dialog.dismiss()
+
+                currentPayType = content as PayTypeBeanTwo
+
+                show_sex.text = currentPayType?.payType
+            })
+        }
+
+        show_sex.setOnClickListener {
+
+            val payTypes: ArrayList<PayTypeBeanTwo> = ArrayList()
+
+            payTypes.add(PayTypeBeanTwo(1, "男"))
+            payTypes.add(PayTypeBeanTwo(2, "女"))
+
+            SimpleChooserDialog.showParcelables(supportFragmentManager, payTypes, OnChooseListener { dialog, content ->
+                dialog.dismiss()
+
+                currentPayType = content as PayTypeBeanTwo
+
+                show_sex.text = currentPayType?.payType
+            })
+
+        }
+
     }
 
     private fun fetchData() {
@@ -218,6 +261,15 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                         } else {
                             stutas = 0
                         }
+
+                        if (personalInfo?.sex == 1) {
+                            currentPayType!!.id = 1
+                            currentPayType!!.payType = "男"
+                        } else {
+                            currentPayType!!.id = 2
+                            currentPayType!!.payType = "女"
+                        }
+
                         Glide.with(this@PersonalActivity).load(data.photo).into(activityPersonalBinding.ivUserIcon)
                         //手机和姓名被修改
                         if (!personalInfo?.payee.isNullOrBlank()) {
@@ -232,31 +284,32 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                     }
 
                 })
-//        SecondRetrofitManager.service
-//                .selectPortrait()
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(object : BaseObserver<List<selectPortraitBean>>(){
-//
-//                    override fun onSuccees(t: BaseResponse<List<selectPortraitBean>>, data: List<selectPortraitBean>) {
-//                       val heads =  data.map {
-//                           val person= PersonalBean()
-//                            person.imgId = it.id
-//                            person.url = it.portraitUrl
-//                            person
-//                        }
-//                        personalAdapter?.addData(heads)
-//                    }
-//
-//
-//                    override fun onCodeError(code: Int, msg: String) {
-//                    }
-//
-//                })
     }
 
     override fun initViews() {
 
+        SecondRetrofitManager.service.findCountries()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : BaseObserver<List<FindCountriesBean.DataBean>>() {
+                    override fun onSuccees(t: BaseResponse<List<FindCountriesBean.DataBean>>, data: List<FindCountriesBean.DataBean>) {
+
+                        val result = data.map {
+                            Countries(
+                                    id = it.id,
+                                    countries = it.countries,
+                                    bili = it.bili
+                            )
+                        }
+
+                        countries.clear()
+                        countries.addAll(result)
+                    }
+
+                    override fun onCodeError(code: Int, msg: String) {
+                    }
+
+                })
     }
 
 
@@ -331,10 +384,12 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                        stutas = 1
                         changePayment()
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
+                        stutas = 0
                     }
 
                 })
@@ -369,10 +424,12 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<Any?>() {
                     override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                        toast("修改成功")
                         fetchData()
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
+                        toast(msg)
                     }
 
                 })
@@ -400,41 +457,29 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                     toast("有信息为空")
                     return
                 }
-                val sex = show_sex.text.toString()
-                var a = 0;
-                if (!"男".equals(sex) || !"女".equals(sex)) {
 
-                    if ("男".equals(sex)) {
-                        a = 1
-                    } else if ("女".equals(sex)) {
-                        a = 2
-                    }
+                RetrofitManager.service
+                        .updateUserEntity(userid,
+                                show_name.text.toString().trim(),
+                                personalInfo!!.photo,
+                                currentPayType!!.id,
+                                show_tel.text.toString().trim(),
+                                show_nicheng.text.toString().trim(),
+                                show_age.text.toString().trim()
+                        )
+                        .compose(SchedulerUtils.ioToMain())
+                        .subscribe(object : BaseObserver<Any?>() {
+                            override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                                toast(t.message)
 
-                    RetrofitManager.service
-                            .updateUserEntity(userid,
-                                    show_name.text.toString().trim(),
-                                    personalInfo!!.photo,
-                                    a,
-                                    show_tel.text.toString().trim(),
-                                    show_nicheng.text.toString().trim(),
-                                    show_age.text.toString().trim()
-                            )
-                            .compose(SchedulerUtils.ioToMain())
-                            .subscribe(object : BaseObserver<Any?>() {
-                                override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                                    toast(t.message)
+                            }
 
-                                }
+                            override fun onCodeError(code: Int, msg: String) {
+                                toast(msg)
+                            }
+                        })
 
-                                override fun onCodeError(code: Int, msg: String) {
-                                    toast(msg)
-                                }
-                            })
 
-                } else {
-                    toast("性别输入错误")
-                    show_sex.text.clear()
-                }
             }
 
 

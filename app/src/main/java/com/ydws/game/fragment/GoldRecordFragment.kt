@@ -22,20 +22,24 @@ import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import android.widget.Toast
+import com.ydws.game.activity.jinbizanzhuinfoActivity
+import java.sql.Array
+import java.util.*
+
 
 /**
  * 金币赞助
  */
-class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickListener {
+class GoldRecordFragment : BaseFragment() {
+    var dataaa: List<RecordByDaoOrGoldBean> = ArrayList()
     override fun initView(mRootView: View?) {
         goldRv = mRootView?.findViewById(R.id.rv_record)
-
     }
 
     private var goldRv: RecyclerView? = null
     private var recordAdapter: GoldRecordAdapter? = null
     private var userid: String by SPreference("userid", "")
-    private var adapter =QuickAdapter<RecordByDaoOrGoldBean>(BR.viewModel,R.layout.item_gold_record)
 
     private var number = 0
     override fun initLayoutId(): Int {
@@ -44,42 +48,48 @@ class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickList
 
 
     override fun initData() {
-        recordAdapter = GoldRecordAdapter(R.layout.item_gold_record)
+        recordAdapter = GoldRecordAdapter(R.layout.item_jinbizanzhu)
 //        val datas = ArrayList<RecordByDaoOrGoldBean>()
 //        datas.add(RecordByDaoOrGoldBean())
 //        datas.add(RecordByDaoOrGoldBean())
 //        datas.add(RecordByDaoOrGoldBean())
 //        recordAdapter!!.setNewData(datas)
-        goldRv!!.adapter = adapter
+        goldRv!!.adapter = recordAdapter
         goldRv!!.layoutManager = LinearLayoutManager(context)
 
 //        recordAdapter!!.onItemChildClickListener = this
         fetchData()
+
+        recordAdapter?.setOnItemClickListener { adapter, view, position ->
+            jinbizanzhuinfoActivity.start(context!!, dataaa[position].id.toString())
+        }
+        recordAdapter?.setOnItemChildClickListener { adapter, view, position ->
+            jinbizanzhuinfoActivity.start(context!!, dataaa[position].id.toString())
+        }
     }
 
-    private fun fetchData(){
-        SecondRetrofitManager.service.propRecordByDaoOrGold(userid,2).subscribeOn(Schedulers.io())
+    private fun fetchData() {
+        SecondRetrofitManager.service.propRecordByDaoOrGold(userid, 2).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<List<GameSelectGoldRecordBean.DataBean>>() {
                     override fun onSuccees(t: BaseResponse<List<GameSelectGoldRecordBean.DataBean>>, data: List<GameSelectGoldRecordBean.DataBean>) {
-                          val result =  data.map {
-                                RecordByDaoOrGoldBean(
-                                        type = 1,
-                                        context = context!!,
-                                        id = it.id,
-                                        idStr = it.id.toString(),
-                                        userId = it.userId,
-                                        lastChangeTime = it.lastChangeTime,
-                                        tradingStatus = it.tradingStatus,
-                                        propsNumber = it.propsNumber,
-                                        buyOrSell = it.buyOrSell,
-                                        goldNumber = it.goldNumber
-                                )
-                            }
+                        val result = data.map {
+                            RecordByDaoOrGoldBean(
+                                    type = 1,
+                                    context = context!!,
+                                    id = it.id,
+                                    idStr = it.id.toString(),
+                                    userId = it.userId,
+                                    lastChangeTime = it.lastChangeTime,
+                                    tradingStatus = it.tradingStatus,
+                                    propsNumber = it.propsNumber,
+                                    buyOrSell = it.buyOrSell,
+                                    goldNumber = it.goldNumber
+                            )
+                        }
+                        dataaa = result
 
-
-
-                        adapter.addAll(result)
+                        recordAdapter?.setNewData(result)
                     }
 
                     override fun onCodeError(code: Int, msg: String) {
@@ -89,8 +99,4 @@ class GoldRecordFragment : BaseFragment(), BaseQuickAdapter.OnItemChildClickList
     }
 
 
-    override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>, view: View, position: Int) {
-        when (view.id) {
-        }
-    }
 }

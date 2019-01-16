@@ -46,7 +46,7 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
         hideAll()
 //        intentData = intent.getSerializableExtra("data") as GoldTradingBean?
         findViewById<View>(R.id.back).onClick { finish() }
-        findViewById<TextView>(R.id.tv_title_bar).text = "服务代理"
+        findViewById<TextView>(R.id.tv_title_bar).text = getString(com.ydws.game.R.string.daojuhuishou)
         val selectType = ArrayList<String>()
         selectType.add("打开照相机")
         selectType.add("从手机相册获取")
@@ -248,7 +248,7 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
                 .subscribe(object : BaseObserver<DaiLiCaoZuoDaoSearchBean>() {
                     override fun onSuccees(t: BaseResponse<DaiLiCaoZuoDaoSearchBean>, data: DaiLiCaoZuoDaoSearchBean) {
 
-                        ID.text = data.id.toString()
+                        ID.text = "ID."+data.id.toString()
                         guojiahediqu.text = data.city
                         phone.text = data.phone
                         jinbi.text = data.propsNumber.toString()

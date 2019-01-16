@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:background="@mipmap/hall_page_background">
 
-    <include layout="@layout/view_title_bar" />
+    <include
+        android:id="@+id/titllle"
+        layout="@layout/view_title_bar" />
 
     <ImageView
         android:id="@+id/iv_sponsor_bg"
@@ -97,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="提示:用户按好评率匹配服务商,充值结果可至交易记录查询。"
+        android:text="@string/baifenzhiwugeifuwudaili"
         android:textColor="@color/colorWhite"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@id/iv_sponsor_kuang"
@@ -109,7 +111,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="首次填写信息默认保留,下次操作可修改。"
+        android:text="@string/kenenghuidongjie"
         android:textColor="@color/colorWhite"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@id/iv_sponsor_kuang"
@@ -122,13 +124,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@mipmap/id"
         android:gravity="center"
         android:text=""
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@+id/iv_sponsor_bg"
         app:layout_constraintStart_toStartOf="@+id/iv_sponsor_bg"
-        app:layout_constraintTop_toTopOf="@+id/iv_sponsor_bg"
-        app:layout_constraintVertical_bias="0.411" />
+        app:layout_constraintTop_toTopOf="@+id/iv_sponsor_bg" />
 </android.support.constraint.ConstraintLayout>

@@ -10,9 +10,12 @@
         android:id="@+id/address"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:layout_margin="10dp"
-        android:textColor="@color/colorWhite"
         android:background="@mipmap/xuankuang"
+
+        android:singleLine="true"
+        android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:text="钱包地址:"
+        android:text="@string/qianbaodizhi"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="@id/address"
         app:layout_constraintEnd_toStartOf="@id/address"
@@ -30,11 +33,13 @@
         android:id="@+id/count"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
+
         android:layout_margin="10dp"
         android:layout_marginEnd="8dp"
         android:background="@mipmap/xuankuang"
         android:inputType="number"
         android:maxLength="9"
+        android:singleLine="true"
         android:textColor="@color/colorWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/address" />
@@ -43,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:text="回收金币数量:"
+        android:text="@string/huoshoujinbishuliang"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="@+id/count"
         app:layout_constraintEnd_toStartOf="@+id/count"
@@ -55,7 +60,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@mipmap/xuankuang"
+        android:singleLine="true"
         android:textColor="@color/colorWhite"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/count" />
 
@@ -63,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
-        android:text="约合USDT数量:"
+        android:text="@string/shuliang"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="@id/trade_number"
         app:layout_constraintEnd_toStartOf="@id/trade_number"

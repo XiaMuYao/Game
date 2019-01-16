@@ -36,7 +36,7 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
         activityAgentBinding = DataBindingUtil.setContentView(this, R.layout.activity_agent)
         activityAgentBinding.viewModel = viewModel
         activityAgentBinding.idStr = "ID.$userid"
-        activityAgentBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = "服務代理申请"
+        activityAgentBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = getString(com.ydws.game.R.string.fuwudailishenqing)
         activityAgentBinding.ivSubmit.setOnClickListener {
             if (viewModel.becomeStatus == 3) {
                 showMessage("正在通過一級審核，請等待")
@@ -48,7 +48,7 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
                         viewModel.cardNumber.isNullOrBlank() ||
                         viewModel.zhifubao.isNullOrBlank() ||
                         viewModel.wechat.isNullOrBlank()){
-                    showMessage("请完善资料")
+                    showMessage("請完善資料")
                     return@setOnClickListener
                 }
                 gameAddWantSponsor()

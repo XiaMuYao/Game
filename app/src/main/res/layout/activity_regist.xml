@@ -19,7 +19,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="推荐人ID"
+            android:hint="@string/tuijianrenId"
             android:lines="1"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
@@ -37,7 +37,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="登录账号"
+            android:hint="@string/dengluzhanghao"
             android:lines="1"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
@@ -55,7 +55,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="账号密码(8-12位字母组合密码)"
+            android:hint="@string/zhanghaomiiabadaoshier"
             android:inputType="textPassword"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
@@ -73,7 +73,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:background="@null"
-            android:hint="确认密码"
+            android:hint="@string/querenmima"
             android:inputType="textPassword"
             android:padding="5dp"
             android:textColor="@color/colorWhite"
@@ -91,11 +91,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:background="@drawable/btn_bg_login"
-            android:text="下一步"
+            android:text="@string/nextstp"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -105,13 +106,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*注册代表您同意"
+                android:text="@string/zhucedainiapyonghuxieyi"
                 android:textColor="@color/black_de" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="《用户协议》"
+                android:text="@string/yonghuxieyi"
                 android:textColor="#58d8ff" />
 
         </LinearLayout>

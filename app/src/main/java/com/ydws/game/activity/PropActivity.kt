@@ -22,6 +22,7 @@ import com.ydws.game.widget.chooser.OnChooseListener
 import com.ydws.game.widget.chooser.SimpleChooserDialog
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import org.jetbrains.anko.toast
 
 /**
  * 道具回收
@@ -53,10 +54,17 @@ class PropActivity : BaseAbstractActivity(), View.OnClickListener {
     private fun setupView() {
         activityPropBinding.viewModel = propBody
         activityPropBinding.llReplace.setOnClickListener {
+
             if (propBody.propsNumber.get().isNullOrBlank()) {
                 showMessage("請輸入道具回收數量")
                 return@setOnClickListener
             }
+            if (propBody.propsNumber.get()!!.toInt() < 200) {
+                toast("不能道具回收数量不能少于200")
+                return@setOnClickListener
+            }
+
+
             if (countries.isNotEmpty()) {
                 SimpleChooserDialog.showParcelables(supportFragmentManager, countries, OnChooseListener { dialog, content ->
                     dialog.dismiss()

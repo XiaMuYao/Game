@@ -1,0 +1,40 @@
+package com.ydws.game.utils;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
+
+/**
+ * ================================================
+ * 作    者：夏沐尧  Github地址：https://github.com/XiaMuYaoDQX
+ * 版    本：1.0
+ * 创建日期： 2019/1/14
+ * 描    述：
+ * 修订历史：
+ * ================================================
+ */
+public class TextChangedListener {
+
+    // 限制输入框不能输入汉字
+    public static void StringWatcher(final EditText editText){
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0) {
+                    for (int i = 0; i < s.length(); i++) {
+                        char c = s.charAt(i);
+                        if (c >= 0x4e00 && c <= 0X9fff) {
+                            s.delete(i,i+1);
+                        }
+                    }
+                }
+            }
+        });
+    }
+}

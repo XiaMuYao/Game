@@ -106,7 +106,7 @@
         app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        android:text="请为您喜欢的游戏投票" />
+        android:text="@string/youxiaotoupiaojiezhishijinan" />
 
     <TextView
         android:id="@+id/jiezhishijian"

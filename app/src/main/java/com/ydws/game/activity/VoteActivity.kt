@@ -42,7 +42,7 @@ class VoteActivity : BaseAbstractActivity(), BaseQuickAdapter.OnItemClickListene
         ID.text = "ID."+userid
         findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
-        viewById.text = "投票"
+        viewById.text = getString(com.ydws.game.R.string.toupiao)
     }
 
     override fun initData() {

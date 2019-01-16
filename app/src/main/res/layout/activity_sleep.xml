@@ -16,8 +16,8 @@
 
     <ImageView
         android:id="@+id/iv_gold_apply_bg"
-        android:layout_width="299dp"
-        android:layout_height="260dp"
+        android:layout_width="311dp"
+        android:layout_height="308dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="128dp"
         android:scaleType="fitXY"
@@ -55,8 +55,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_gold_apply_bg"
         app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
         app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintVertical_bias="0.194"
         tools:text="休息中..." />
 
     <ImageView
@@ -67,10 +69,17 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/iv_gold_apply_bg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/iv_gold_apply_bg"
-        app:layout_constraintVertical_bias="0.94" />
+        app:layout_constraintVertical_bias="0.649" />
 
+    <TextView
+        android:layout_width="278dp"
+        android:layout_height="66dp"
+        android:text="提示：開啟后匹配將會停止72小時，當72小時過後可申請恢復。恢復倒計時截止前如未申請恢復，則取消代理資格。"
+        android:textColor="#fff"
+        app:layout_constraintEnd_toEndOf="@+id/iv_gold_apply_bg"
+        app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
+        tools:layout_editor_absoluteY="368dp" />
 
 </android.support.constraint.ConstraintLayout>

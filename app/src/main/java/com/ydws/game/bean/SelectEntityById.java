@@ -94,7 +94,7 @@ public class SelectEntityById {
         private String bankName;
         private String cardNumber;
         private String zhifubao;
-        private String niName;
+        private String niName="";
         private String city;
         private int tradingWord;
         private int usdtbalance;

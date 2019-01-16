@@ -49,9 +49,8 @@ class ShopActivity : BaseAbstractActivity() {
 
         })
         match.setOnClickListener {
-
             RetrofitManager.service
-                    .buyProps(userid, beishu.toString(), tv_daoju_count_show.text.toString().trim())
+                    .buyProps(userid, tv_daoju_count_show.text.toString().trim())
                     .compose(SchedulerUtils.ioToMain())
                     .subscribe(object : BaseObserver<Any>() {
                         override fun onSuccees(t: BaseResponse<Any>, data: Any) {

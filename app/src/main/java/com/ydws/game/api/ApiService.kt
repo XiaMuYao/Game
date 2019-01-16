@@ -79,7 +79,6 @@ interface ApiService {
      */
     @POST("prop/buyProps")
     fun buyProps(@Query("id") userId: String,
-                 @Query("money") money: String,
                  @Query("number") number: String
     ): Observable<BaseResponse<Any>>
 
@@ -225,14 +224,12 @@ interface ApiService {
     ): Observable<BaseResponse<Int>>
 
 
-
-
     /**
      * 暂停
      */
     @POST("agent/applyForRest")
     fun applyForRest(@Query("userId") id: String
-    ): Observable<BaseResponse<Any>>
+    ): Observable<BaseResponse<Any?>>
 
 
     /**
@@ -240,7 +237,7 @@ interface ApiService {
      */
     @POST("agent/recoveryService")
     fun recoveryService(@Query("userId") id: String
-    ): Observable<BaseResponse<Any>>
+    ): Observable<BaseResponse<Any?>>
 
 
     /**
@@ -249,6 +246,32 @@ interface ApiService {
     @GET("agent/getBili")
     fun getBili(): Observable<BaseResponse<Int>>
 
+
+    /**
+     * getPayType获得支付方式
+     */
+    @GET("agent/getPayType")
+    fun getPayType(): Observable<BaseResponse<zhifufangshi.DataBean>>
+
+
+    /**
+     * 记录查询→赞助记录→记录详情按钮
+     */
+    @GET("agent/findGold")
+    fun findGold(@Query("userId") id: String,
+                 @Query("tradingId") TradingId: String): Observable<BaseResponse<jinbizanshuxiangqingBean.DataBean>>
+
+
+    /**
+     * 记录查询→赞助记录→记录详情按钮
+     */
+    @POST("game/updateUserTraWJ")
+    fun updateUserTraWJ(@Query("userId") id: String,
+                        @Query("question") question: String,
+                        @Query("answer") answer: String,
+                        @Query("tradingPassword") tradingPassword: String,
+                        @Query("tradingPasswordXin") tradingPasswordXin: String
+    ): Observable<BaseResponse<Any?>>
 
 
 }

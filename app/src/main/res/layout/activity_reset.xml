@@ -42,9 +42,10 @@
             android:background="@mipmap/ban_pipei_gold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_title" />
+            app:layout_constraintTop_toBottomOf="@id/view_title"
+            app:layout_constraintVertical_bias="0.54" />
 
         <TextView
             android:id="@+id/ID"
@@ -122,55 +123,62 @@
         <TextView
             android:id="@+id/tv_gold_count_buy"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginEnd="10dp"
-            android:text="原交易碼："
+            android:layout_height="18dp"
+            android:text="@string/yuanjiaoyima"
             android:textColor="@color/colorWhite"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_gold_count_show"
-            app:layout_constraintEnd_toStartOf="@id/tv_gold_count_show"
-            app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
-            app:layout_constraintTop_toTopOf="@id/tv_gold_count_show" />
+            app:layout_constraintStart_toStartOf="@+id/tv_jiaoyi_pwd"
+            app:layout_constraintTop_toTopOf="@+id/tv_gold_count_show"
+            app:layout_constraintVertical_bias="1.0"
+
+            />
 
         <EditText
             android:id="@+id/tv_gold_count_show"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/shape_reset_password"
+            android:digits="@string/alphabet_and_number"
             android:inputType="textPassword"
-            android:textColor="@color/colorWhite"
+            android:maxLength="12"
             android:text="@={oldPassword}"
+            android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
-            app:layout_constraintStart_toEndOf="@id/tv_gold_count_buy"
-            app:layout_constraintTop_toBottomOf="@id/ll_gold_count" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_jiaoyi_pwd_show"
+            app:layout_constraintTop_toTopOf="@+id/iv_shop_bottom" />
 
         <TextView
             android:id="@+id/tv_jiaoyi_pwd"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="15dp"
             android:layout_margin="10dp"
             android:layout_marginEnd="10dp"
-            android:text="新交易碼："
+            android:text="@string/xinjiaoyima"
             android:textColor="@color/colorWhite"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_jiaoyi_pwd_show"
             app:layout_constraintEnd_toStartOf="@id/tv_jiaoyi_pwd_show"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
-            app:layout_constraintTop_toTopOf="@id/tv_jiaoyi_pwd_show" />
+            app:layout_constraintTop_toTopOf="@+id/tv_jiaoyi_pwd_show" />
 
         <EditText
             android:id="@+id/tv_jiaoyi_pwd_show"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="5dp"
+            android:background="@drawable/shape_reset_password"
+            android:digits="@string/alphabet_and_number"
+            android:inputType="textPassword"
+            android:maxLength="12"
             android:text="@={newPassword}"
             android:textColor="@color/colorWhite"
-            android:inputType="textPassword"
-            android:background="@drawable/shape_reset_password"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
             app:layout_constraintStart_toEndOf="@id/tv_jiaoyi_pwd"
             app:layout_constraintTop_toBottomOf="@id/tv_gold_count_show" />
@@ -180,27 +188,27 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
-            android:text="確認新密碼："
+            android:text="@string/querenxinmima"
             android:textColor="@color/colorWhite"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/editText3"
-            app:layout_constraintStart_toStartOf="@+id/iv_shop_bottom"
+            app:layout_constraintStart_toStartOf="@+id/tv_jiaoyi_pwd"
             app:layout_constraintTop_toTopOf="@+id/editText3" />
 
         <EditText
             android:id="@+id/editText3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="5dp"
-            android:text="@={newPasswordRepeat}"
-            android:inputType="textPassword"
-            android:textColor="@color/colorWhite"
             android:background="@drawable/shape_reset_password"
+            android:digits="@string/alphabet_and_number"
+            android:inputType="textPassword"
+            android:maxLength="12"
+            android:text="@={newPasswordRepeat}"
+            android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/tv_jiaoyi_pwd_show"
             app:layout_constraintTop_toBottomOf="@id/tv_jiaoyi_pwd_show" />
 
@@ -217,27 +225,40 @@
         <TextView
             android:id="@+id/tv_tishi"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="18dp"
             android:layout_marginTop="10dp"
-            android:text="提示: 密码为8-12位字母和数字组合,不能有特殊符号"
+            android:text="@string/mimabadaoshier"
             android:textColor="@color/colorWhite"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
             app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
             app:layout_constraintTop_toBottomOf="@id/iv_shop_bottom" />
 
+
         <TextView
             android:id="@+id/tips2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="请牢记并妥善保管新密码,祝您游戏愉快"
+            android:text="@string/qinglaopjimima"
             android:textColor="@color/colorWhite"
             android:textSize="10sp"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
             app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
             app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
 
+        <TextView
+            android:id="@+id/wangjijiaoyimima"
+            android:layout_width="105dp"
+            android:layout_height="26dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="@string/jiaoyimimachongzhi"
+            android:textColor="#faf1e7"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_shop_bg"
+            app:layout_constraintEnd_toEndOf="@+id/iv_shop_bg" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

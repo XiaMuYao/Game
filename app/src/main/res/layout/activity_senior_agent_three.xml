@@ -58,7 +58,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="任务剩余时间:"
+            android:text="@string/renwushengyushijian"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -90,7 +90,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="加权等级:"
+            android:text="@string/jiaquandengji"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -125,7 +125,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="当前加权任务状态:"
+            android:text="@string/dangqianjiaquanrenwuzhuangtai"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -160,7 +160,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="当前任务等级"
+            android:text="@string/dangqianrenwudnegji"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -195,7 +195,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="赏罚等级:"
+            android:text="@string/chengfadengji"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -214,49 +214,28 @@
 
     <TextView
         android:id="@+id/tv_beizhu_one"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="备注: 如推广的高级代理未在规定时间内完成加权任务,则"
+        android:layout_width="203dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/jiaohanyijie"
         android:textColor="#20c7ff"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="@id/ll_zhanghao"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="@id/ll_zhanghao"
         app:layout_constraintTop_toBottomOf="@id/ll_zhanghao" />
 
-    <TextView
-        android:id="@+id/tv_beizhu_two"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="自身不再享受平台加权奖励.(需时刻保证直推高级"
-        android:textColor="#20c7ff"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="@id/tv_beizhu_one"
-        app:layout_constraintStart_toStartOf="@id/tv_beizhu_one"
-        app:layout_constraintTop_toBottomOf="@id/tv_beizhu_one" />
-
-    <TextView
-        android:id="@+id/tv_beizhu_three"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="代理最少不低于1人完成加权任务)"
-        android:textColor="#20c7ff"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="@id/tv_beizhu_two"
-        app:layout_constraintStart_toStartOf="@id/tv_beizhu_two"
-        app:layout_constraintTop_toBottomOf="@id/tv_beizhu_two" />
 
     <ImageView
         android:id="@+id/add_task"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:src="@mipmap/weight_task"
-        app:layout_constraintEnd_toEndOf="@id/tv_beizhu_three"
-        app:layout_constraintStart_toStartOf="@id/tv_beizhu_three"
-        app:layout_constraintTop_toBottomOf="@id/tv_beizhu_three" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_beizhu_one"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/tv_beizhu_one"
+        app:layout_constraintTop_toBottomOf="@id/tv_beizhu_one" />
 
     <TextView
         android:id="@+id/ID"

@@ -16,42 +16,47 @@ import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.utils.SPreference
 import kotlinx.android.synthetic.main.activity_sleep.*
+import kotlinx.android.synthetic.main.view_title_bar.view.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.toast
 
 class SleepActivity : BaseAbstractActivity() {
 
     private var userid: String by SPreference("userid", "")
-var a = 0
+    var a = 0
 
     override fun getContentLayoutID(): Int {
         return R.layout.activity_sleep
     }
 
     override fun initViews() {
-
+        view_title.back.onClick { finish() }
+        view_title.tv_title_bar.text = "休息/恢復"
         ID.text = "ID." + userid
         huifu.setOnClickListener {
 
-            if (a==1) {
+            if (a == 1) {
                 RetrofitManager.service
                         .applyForRest(userid)
                         .compose(SchedulerUtils.ioToMain())
-                        .subscribe(object : BaseObserver<Any>() {
-                            override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                        .subscribe(object : BaseObserver<Any?>() {
+                            override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                                 toast(t.message)
+                                finish()
                             }
 
                             override fun onCodeError(code: Int, msg: String) {
                                 toast(msg)
                             }
                         })
-            } else if (a==2){
+            } else if (a == 2) {
                 RetrofitManager.service
                         .recoveryService(userid)
                         .compose(SchedulerUtils.ioToMain())
-                        .subscribe(object : BaseObserver<Any>() {
-                            override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                        .subscribe(object : BaseObserver<Any?>() {
+                            override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
                                 toast(t.message)
+                                finish()
                             }
 
                             override fun onCodeError(code: Int, msg: String) {
@@ -73,12 +78,12 @@ var a = 0
 
                         when (data) {
                             1 -> {
-                                text = "开放中..."
+                                text = "開放中..."
                                 huifu.visibility = View.VISIBLE
                                 huifu.setBackgroundResource(R.mipmap.zanting)
                             }
                             2 -> {
-                                text = "休息中..."
+                                text = "休息中/可恢復..."
                                 huifu.visibility = View.VISIBLE
                                 huifu.setBackgroundResource(R.mipmap.huifu)
 

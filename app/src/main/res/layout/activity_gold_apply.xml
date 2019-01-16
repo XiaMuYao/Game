@@ -39,7 +39,6 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toTopOf="@id/iv_gold_apply_bg"
                 app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
                 app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
 
@@ -51,8 +50,10 @@
                 android:src="@mipmap/gold_apply_head"
                 app:layout_constraintBottom_toTopOf="@id/iv_shop_bottom"
                 app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
-                app:layout_constraintTop_toBottomOf="@+id/ID" />
+                app:layout_constraintTop_toBottomOf="@+id/ID"
+                app:layout_constraintVertical_bias="0.909" />
 
             <ImageView
                 android:id="@+id/iv_shop_bottom"
@@ -82,7 +83,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="國家和地區:"
+                    android:text="@string/guojiahediqu"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -115,7 +116,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="服務代理:"
+                    android:text="@string/pipeixinxi"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -125,8 +126,8 @@
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
                     android:background="@null"
+                    android:gravity="center_vertical"
                     android:textColor="@color/colorWhite" />
             </LinearLayout>
 
@@ -148,7 +149,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="手機號碼："
+                    android:text="@string/shoujihaoma"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -158,8 +159,8 @@
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
                     android:background="@null"
+                    android:gravity="center_vertical"
                     android:textColor="@color/colorWhite" />
             </LinearLayout>
 
@@ -181,7 +182,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="开户行:"
+                    android:text="@string/kaihuhang"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -193,7 +194,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="#97c6f2" />
             </LinearLayout>
 
             <LinearLayout
@@ -214,7 +215,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="銀行卡號:"
+                    android:text="@string/yinhangkahao"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -223,10 +224,11 @@
                     android:id="@+id/kahao"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
+
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="#97c6f2" />
             </LinearLayout>
 
             <LinearLayout
@@ -247,7 +249,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="支付宝:"
+                    android:text="@string/zhifubao"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -259,7 +261,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="#97c6f2" />
             </LinearLayout>
 
             <LinearLayout
@@ -280,7 +282,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="微信賬號:"
+                    android:text="@string/weixinzhanghao"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -292,7 +294,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="center_vertical"
-                    android:textColor="@color/colorWhite" />
+                    android:textColor="#97c6f2" />
             </LinearLayout>
 
             <LinearLayout
@@ -313,7 +315,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="赞助金币数量:"
+                    android:text="@string/zanzhujinbishijian"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -346,7 +348,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="USDT價值:"
+                    android:text="@string/usdtjiazhi"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -380,7 +382,7 @@
                     android:drawableEnd="@drawable/ic_arrow_drop_down_white_24dp"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="代爲兌換所需法幣價值:(含服務費)"
+                    android:text="@string/daiweiduihuansuoxufabijiazhi"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -395,7 +397,7 @@
                 android:layout_marginTop="2dp"
                 android:background="@null"
                 android:text=""
-                android:textColor="@color/colorWhite"
+                android:textColor="#9bd561"
                 app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
                 app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
                 app:layout_constraintTop_toBottomOf="@id/ll_replace" />
@@ -419,7 +421,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="选择支付方式:"
+                    android:text="@string/qingxuanzezhifufangshi"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -429,9 +431,9 @@
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
                     android:background="@null"
                     android:drawableEnd="@drawable/ic_arrow_drop_down_white_24dp"
+                    android:gravity="center_vertical"
                     android:paddingEnd="10dp"
                     android:textColor="@color/colorWhite" />
             </LinearLayout>
@@ -444,6 +446,7 @@
                 android:layout_marginTop="2dp"
                 android:background="@mipmap/xuankuang"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
                 app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
                 app:layout_constraintTop_toBottomOf="@id/ll_pay_fangshi">
@@ -454,7 +457,7 @@
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
-                    android:text="上传憑證:"
+                    android:text="@string/shangchuanpingzheng"
                     android:textColor="@color/colorWhite"
                     app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                     app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -470,27 +473,16 @@
 
             <TextView
                 android:id="@+id/tv_tishi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="246dp"
+                android:layout_height="22dp"
                 android:layout_marginTop="10dp"
-                android:text="提示:用户好评率匹配服务代理,充值结果可至交易记录查询"
+                android:text="@string/bushoubaohu"
                 android:textColor="@color/colorWhite"
                 android:textSize="8sp"
                 app:layout_constraintEnd_toEndOf="@id/ll_status"
                 app:layout_constraintStart_toStartOf="@id/ll_status"
                 app:layout_constraintTop_toBottomOf="@id/ll_status" />
 
-            <TextView
-                android:id="@+id/tv_tishi_second"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="提首次填写数据默认保留,下次操作可修改。"
-                android:textColor="@color/colorWhite"
-                android:textSize="8sp"
-                app:layout_constraintEnd_toEndOf="@id/ll_status"
-                app:layout_constraintStart_toStartOf="@id/ll_status"
-                app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
 
             <ImageView
                 android:id="@+id/submit"
@@ -498,9 +490,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:src="@mipmap/submit_sure"
-                app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
-                app:layout_constraintStart_toStartOf="@id/iv_shop_bottom"
-                app:layout_constraintTop_toBottomOf="@id/tv_tishi_second" />
+                app:layout_constraintEnd_toEndOf="@id/tv_tishi"
+                app:layout_constraintStart_toStartOf="@id/tv_tishi"
+                app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 </LinearLayout>

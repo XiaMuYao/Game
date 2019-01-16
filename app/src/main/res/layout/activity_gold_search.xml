@@ -71,7 +71,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="赞助数量:"
+            android:text="@string/zanzhushuliang"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -104,7 +104,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="赞助时间:"
+            android:text="@string/zanshushijian"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -137,7 +137,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="赞助方式:"
+            android:text="@string/zanzhufangshi"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -170,7 +170,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="查看凭证:"
+            android:text="@string/chakanpingzheng"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -203,7 +203,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="手机号:"
+            android:text="@string/shoujihaoma"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -236,7 +236,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
-            android:text="状态:"
+            android:text="@string/zhuangtai"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
             app:layout_constraintTop_toBottomOf="@id/ll_wechat" />

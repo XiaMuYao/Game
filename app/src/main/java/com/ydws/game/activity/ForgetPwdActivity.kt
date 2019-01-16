@@ -35,7 +35,6 @@ class ForgetPwdActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when (view.id) {
 
-
             R.id.next_btn -> {
                 RetrofitManager.service
                         .foundPassword(zhanghaohhhh.text.toString().trim(),

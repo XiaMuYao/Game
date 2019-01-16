@@ -28,11 +28,6 @@ import org.jetbrains.anko.toast
 
 import java.util.ArrayList
 import android.view.Gravity
-import com.blankj.utilcode.util.SnackbarUtils.dismiss
-import android.graphics.drawable.BitmapDrawable
-import android.widget.PopupWindow
-import android.view.LayoutInflater
-import android.app.Activity
 import com.ydws.game.utils.TestPopupWindow
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -147,7 +142,7 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
                 if (agentType == 1) {
                     startActivity(Intent(this, EverydayTaskActivity::class.java))
                 } else {
-                    toast("您还不是高级代理 不能从查看")
+                    toast("您還不是高級代理 不能從查看")
                 }
             }
 
@@ -162,8 +157,8 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
             R.id.game_iapn_ImageView -> {
                 when (userTypp) {
                     1 -> startActivity(Intent(this, MerChantActivity::class.java))
-                    3 -> toast("您休息超过6天 已被注销代理资格")
-                    else -> "您还不是服务代理".toast()
+                    3 -> toast("您休息超過6天 已被註銷代理資格")
+                    else -> "您還不是服務代理".toast()
                 }
             }
             R.id.i_want_to_vote_ImageButton -> startActivity(Intent(this, VoteActivity::class.java))

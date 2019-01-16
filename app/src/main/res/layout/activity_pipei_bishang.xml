@@ -70,7 +70,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
-            android:text="持有金币数量"
+            android:text="@string/zhiyoujinbishulinag"
             android:textColor="@color/colorWhite"
             android:textSize="12sp" />
 
@@ -81,8 +81,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
-            android:gravity="center"
             android:drawableEnd="@mipmap/gold_single"
+            android:gravity="center"
             android:text="99999999"
             android:textColor="@color/colorWhite"
             app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
@@ -98,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginEnd="10dp"
-        android:text="购买金币数量"
+        android:text="@string/goumaijinbishuliang"
         android:textColor="@color/colorWhite"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_gold_count_show"
@@ -112,8 +112,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
-        android:inputType="number"
         android:background="@drawable/shape_shop"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
         app:layout_constraintStart_toEndOf="@id/tv_gold_count_buy"
         app:layout_constraintTop_toBottomOf="@id/ll_gold_count" />
@@ -124,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginEnd="10dp"
-        android:text="输入交易密码"
+        android:text="@string/shurujiaoyimima"
         android:textColor="@color/colorWhite"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_jiaoyi_pwd_show"
@@ -139,6 +139,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
         android:background="@drawable/shape_shop"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
         app:layout_constraintStart_toEndOf="@id/tv_jiaoyi_pwd"
         app:layout_constraintTop_toBottomOf="@id/tv_gold_count_show" />
@@ -147,9 +148,10 @@
         android:id="@+id/iv_pipei_daili"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:src="@mipmap/fuwu_daili"
         app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
         app:layout_constraintTop_toBottomOf="@id/iv_shop_bottom" />
 
@@ -157,23 +159,15 @@
         android:id="@+id/tv_tishi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="提示: 用户按好评率匹配服务商,充值结果可至交易记录查询"
+        android:layout_marginTop="28dp"
+        android:text="@string/zhiyaoyiqianhishandeshenqing"
         android:textColor="@color/colorWhite"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
         app:layout_constraintTop_toBottomOf="@id/iv_pipei_daili" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="首次填写信息默认保留,下次操作可修改"
-        android:textColor="@color/colorWhite"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@id/iv_shop_bg"
-        app:layout_constraintStart_toStartOf="@id/iv_shop_bg"
-        app:layout_constraintTop_toBottomOf="@id/tv_tishi" />
+
 
 </android.support.constraint.ConstraintLayout>

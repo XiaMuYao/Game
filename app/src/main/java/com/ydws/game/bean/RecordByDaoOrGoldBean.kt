@@ -36,23 +36,26 @@ class RecordByDaoOrGoldBean(var type: Int = 1, private val context: Context, var
     }
 
     fun report() {
-        AlertDialog.Builder(context)
-                .setMessage("確認舉報？")
-                .setPositiveButton("確認") { _, _ ->
-                    SecondRetrofitManager.service
-                            .report(userId.toString(), id.toString())
-                            .compose(SchedulerUtils.ioToMain())
-                            .subscribe(object : BaseObserver<Any?>() {
-                                override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                                    "举报成功".toast()
-                                }
+        //查看详情
 
-                                override fun onCodeError(code: Int, msg: String) {
-                                }
 
-                            })
-                }.setNegativeButton("取消") { _, _ -> }
-                .create().show()
+//        AlertDialog.Builder(context)
+//                .setMessage("確認舉報？")
+//                .setPositiveButton("確認") { _, _ ->
+//                    SecondRetrofitManager.service
+//                            .report(userId.toString(), id.toString())
+//                            .compose(SchedulerUtils.ioToMain())
+//                            .subscribe(object : BaseObserver<Any?>() {
+//                                override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+//                                    "举报成功".toast()
+//                                }
+//
+//                                override fun onCodeError(code: Int, msg: String) {
+//                                }
+//
+//                            })
+//                }.setNegativeButton("取消") { _, _ -> }
+//                .create().show()
 
     }
 }

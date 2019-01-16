@@ -32,7 +32,7 @@ class VoteDetailActivity : BaseAbstractActivity() {
         toupiaoid = intent.getStringExtra("toupiaoid")
         findViewById<View>(R.id.include).findViewById<View>(R.id.back).setOnClickListener { finish() }
         val viewById = findViewById<View>(R.id.include).findViewById<TextView>(R.id.tv_title_bar)
-        viewById.text = "游戏详情"
+        viewById.text = "遊戲詳情"
     }
 
     companion object {
@@ -74,7 +74,7 @@ class VoteDetailActivity : BaseAbstractActivity() {
                 .compose(SchedulerUtils.ioToMain())
                 .subscribe(object : BaseObserver<gameInfoBean.DataBean>() {
                     override fun onSuccees(t: BaseResponse<gameInfoBean.DataBean>, data: gameInfoBean.DataBean) {
-                        var list: List<String> = arrayListOf("游戏人数", data.gameCount, "道具使用说明", data.gameProps, "游戏介绍", data.gameIntroduce)
+                        var list: List<String> = arrayListOf("遊戲人數:", data.gameCount, "道具使用說明:", data.gameProps, "遊戲介紹:", data.gameIntroduce)
 
                         val layoutManager = LinearLayoutManager(this@VoteDetailActivity)
                         val voteAdapter = gameinfoAdapter(R.layout.item_game)
@@ -83,8 +83,8 @@ class VoteDetailActivity : BaseAbstractActivity() {
                         voteAdapter.setNewData(list)
 
                         textView3.text = data.gameName
-                        jiezhishijian.text = "有效投票截止时间:${data.endTime}"
-                        leijipiaoshu.text = "累计票数:${data.numNumberVote}"
+                        jiezhishijian.text = "有效投票截止時間:${data.endTime}"
+                        leijipiaoshu.text = "累計票數:${data.numNumberVote}"
 
                     }
 

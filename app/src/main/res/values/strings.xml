@@ -1,3 +1,267 @@
 <resources>
-    <string name="app_name">Game</string>
+        
+    <string name="app_name">HERMES</string>
+        
+    <string name="alphabet_and_number">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</string>
+        
+    <string name="pingtaiqianbaodizhi">平台錢包地址:</string>
+        
+    <string name="goumaijinbishuliang">所需金幣數量:</string>
+        
+    <string name="jiaoyihao">交易號:</string>
+        
+    <string name="usdt">約合USDT數量:</string>
+        
+    <string name="shoukuanren">收款人姓名:</string>
+        
+    <string name="zhifubao">支付寶賬號:</string>
+        
+    <string name="weixinhap">微信號:</string>
+        
+    <string name="usdtqianbaodizhi">USDT錢包地址:</string>
+        
+    <string name="guojiahediqu">國家和地區:</string>
+        
+    <string name="fuwudaili">服務代理:</string>
+        
+    <string name="shoujihaoma">手機號碼：</string>
+        
+    <string name="kaihuhang">開戶行:</string>
+        
+    <string name="yinhangkahao">銀行卡號:</string>
+        
+    <string name="weixinzhanghao">微信賬號:</string>
+        
+    <string name="zanzhujinbishijian">獲贈金幣數量:</string>
+        
+    <string name="zanzhushijian">贊助時間:</string>
+        
+    <string name="suoxuanguojia">所選國家:</string>
+        
+    <string name="fabijiazhi">法幣價值:</string>
+        
+    <string name="qingxuanzezhifufangshi">選擇支付方式:</string>
+        
+    <string name="zhuangtai">狀態:</string>
+        
+    <string name="shangchuanpingzheng">上傳憑證:</string>
+        
+    <string name="weekwanchengduiju">累計未完成局數:</string>
+        
+    <string name="daywanchengjinbi">本日任務局數:</string>
+        
+    <string name="benzhouhaikewanchengjjinabi">本日有效局數:</string>
+        
+    <string name="weileiji">未領取加權獎勵:</string>
+        
+    <string name="mingtianjiayou">提示: 已完成全部任務,請明天繼續加油</string>
+        
+    <string name="guanjianzi">關鍵字:</string>
+        
+    <string name="miyao">密輸:</string>
+        
+    <string name="jiaoyimima">請輸入交易新密碼:</string>
+        
+    <string name="ageinjiaoyimia">請再次輸入交易密碼:</string>
+        
+    <string name="qingshuruzhanghao">請輸入賬號</string>
+        
+    <string name="qingshurumimadaan">請輸入秘鑰</string>
+        
+    <string name="nextstp">下一步</string>
+        
+    <string name="qingshurumimawenti">請輸入關鍵字</string>
+        
+    <string name="xiayiye">下一頁</string>
+        
+    <string name="zhruiwanjiashu">直推玩家數</string>
+        
+    <string name="qudaowanjiashu">渠道玩家數</string>
+        
+    <string name="zhituiwanjiashuyeji">直推玩家業績</string>
+        
+    <string name="qudaowanjaiyeji">渠道玩家業績</string>
+        
+    <string name="benzhoujinbijiangli">本週金幣獎勵</string>
+        
+    <string name="leijijiesuanjinbijiangli">累計結算金幣獎勵</string>
+        
+    <string name="weilingqujinbijiangli">未領取金幣獎勵</string>
+        
+    <string name="usdtjiazhi">USDT價值:</string>
+        
+    <string name="daiweiduihuansuoxufabijiazhi">代爲兌換所需法幣價值</string>
+        
+    <string name="yonghuhaooingupipiefuwuqi">提示:用戶好評率匹配服務代理,充值結果可至交易記錄查詢</string>
+        
+    <string name="tishishoucitianxieshujubaocun">提首次填寫數據默認保留,下次操作可修改。 </string>
+        
+    <string name="zanzhushuliang">贊助數量:</string>
+        
+    <string name="zanshushijian">贊助時間:</string>
+        
+    <string name="zanzhufangshi">贊助方式:</string>
+        
+    <string name="chakanpingzheng">查看憑證:</string>
+        
+    <string name="hhuoquguanjianzi">獲取關鍵字</string>
+        
+    <string name="xuanzezanzhufangshi">選擇贊助方式:</string>
+        
+    <string name="qingshurumima">請輸入密碼</string>
+        
+    <string name="denglu">登錄</string>
+        
+    <string name="wangjimima">忘記密碼</string>
+        
+    <string name="xianzaizhuce">現在註冊</string>
+        
+    <string name="name">姓名:</string>
+        
+    <string name="sex">性別:</string>
+        
+    <string name="guojia">國家:</string>
+        
+    <string name="shouji">手機:</string>
+        
+    <string name="nicheng">暱稱:</string>
+    <string name="bendizhichishangchuanjgp">提示: 本地上傳支持JGP,JPEG,PNG等格式,圖片大小不超過2MB。 </string>
+        
+    <string name="touxiangxuanze">頭像選擇</string>
+        
+    <string name="zhiyoujinbishulinag">持有金幣數量</string>
+        
+    <string name="shurujiaoyimima">輸入交易密碼</string>
+        
+    <string name="yonghuanhaopinglv">提示: 用戶按好評率匹配服務商,充值結果可至交易記錄查詢</string>
+        
+    <string name="shoucitianxiexinxi">首次填寫信息默認保留,下次操作可修改</string>
+        
+    <string name="bencidaojuhuishoshuliang">回收道具數量:</string>
+        
+    <string name="daiweiduihuansuoxifabijiazhi">代為兌換法幣價值</string>
+        
+    <string name="maizhi">買值：</string>
+        
+    <string name="happinglupipeifuwuzhangjiaoy">提示:用戶好評率匹配服務代理,充值結果可至交易記錄查詢</string>
+        
+    <string name="tuijianrenId">推薦人ID</string>
+        
+    <string name="dengluzhanghao">登錄賬號</string>
+        
+    <string name="zhanghaomiiabadaoshier">賬號密碼(8-12位字母組合密碼)</string>
+        
+    <string name="querenmima">確認密碼</string>
+        
+    <string name="zhucedainiapyonghuxieyi">*註冊代表您同意</string>
+        
+    <string name="yonghuxieyi">《用戶協議》</string>
+        
+    <string name="qingshuruguanjianzi">請輸入關鍵字</string>
+        
+    <string name="tiqumiyao">提取密鑰</string>
+        
+    <string name="qinghaojimimayudaanzhaohuimia">提示：請牢記關鍵字并妥善保存秘鑰，這是您找回密碼的唯一憑證。</string>
+        
+    <string name="kehushoujihao">客戶手機號:</string>
+        
+    <string name="goumaishuliang">購買數量:</string>
+        
+    <string name="goumaoshijian">購買時間:</string>
+        
+    <string name="yuanjiaoyima">原交易碼：</string>
+        
+    <string name="xinjiaoyima">新交易碼：</string>
+        
+    <string name="querenxinmima">確認新密碼：</string>
+        
+    <string name="mimabadaoshier">提示: 密碼為8-12位字母和數字組合,不能有特殊符號</string>
+        
+    <string name="qinglaopjimima">請牢記並妥善保管新密碼,祝您遊戲愉快</string>
+        
+    <string name="jiaoyimimachongzhi">交易密碼重置?</string>
+        
+    <string name="qingshurujiaoyiyuanmima">請輸入交易原密碼:</string>
+        
+    <string name="qingshruxinmima">請輸入新密碼</string>
+        
+    <string name="qingzaifishuruxinmima">請再次輸入新密碼</string>
+        
+    <string name="queding">確定</string>
+        
+    <string name="tishibaoguanmima">提示: 請妥善保管新密碼</string>
+        
+    <string name="renwushengyushijian">任務剩餘時間:</string>
+        
+    <string name="jiaquandengji">加權等級:</string>
+        
+    <string name="dangqianjiaquanrenwuzhuangtai">當前加權任務狀態:</string>
+        
+    <string name="dangqianrenwudnegji">當前任務等級:</string>
+        
+    <string name="chengfadengji">懲罰等級:</string>
+        
+    <string name="tuiguangdegaodadasjkdhj">備註: 如推廣的高級代理未在規定時間內完成加權任務,則</string>
+        
+    <string name="akdjasldjkasd">自身不再享受平台加權獎勵.(需時刻保證直推高級</string>
+        
+    <string name="adkljalsjdlasjd">代理最少不低於1人完成加權任務)</string>
+        
+    <string name="yisunshijiaquandengji">已損失加權獎勵:</string>
+        
+    <string name="jiaquandengjhilingqushangxian">加權獎勵領取上限:</string>
+        
+    <string name="benzhoujiaquanjiangli">本週加權獎勵:</string>
+        
+    <string name="leijiylingqujiaquanjiangli">累計已領取加權獎勵:</string>
+        
+    <string name="yuanmima">原密碼：</string>
+        
+    <string name="xinmima">新密碼：</string>
+        
+    <string name="jiaoyimiima">交易密碼：</string>
+        
+    <string name="querenima">確認密碼：</string>
+        
+    <string name="goumaidaojushuliang">兌換比例:</string>
+        
+    <string name="daojushiyongdengfangfa">兌換比例：\n1道具=6金幣
+                        可在金幣結算的遊戲對戰中使用，
+每次對戰只可使用一次。
+可通過服務代理兌換同等贊助價值。</string>
+        
+    <string name="jieshaodaujuxiangqing">道具介紹:</string>
+        
+    <string name="qingweinixihuandeyouxitoupiao">請為你喜歡的遊戲投票</string>
+        
+    <string name="youxiaotoupiaojiezhishijinan">有效投票截止時間: 2019.01.18</string>
+        
+    <string name="qianbaodizhi">錢包地址:</string>
+        
+    <string name="huoshoujinbishuliang">回收金幣數量:</string>
+        
+    <string name="yueheusdtshuliang">約合USDT數量:</string>
+        
+    <string name="jiaoyixinmima">交易新密碼：</string>
+        
+    <string name="zaiciquerenjiaoyimima">再次確認交易密碼：</string>
+    <string name="toupiao">投票</string>
+    <string name="chongxinshuru">重新輸入:</string>
+    <string name="appxiazaidizhi">APP下載地址：http:\\sdfsedfsdf.com</string>
+    <string name="tuijianrenid">推薦人ID： 88888</string>
+    <string name="baifenzhiwugeifuwudaili">提示：贊助和道具回收將會扣除5%的服務成本用於獎勵服務代理</string>
+    <string name="kenenghuidongjie">該頁面內服務請謹慎操作，如出現惡意違規，賬戶可能會被凍結。</string>
+    <string name="zhiyaoyiqianhishandeshenqing">提示：最終獲得金幣數量將會扣除5%，只支持1000金幣以上的申請</string>
+    <string name="pipeixinxi">匹配信息:</string>
+    <string name="bushoubaohu">提示：提交申請后將會形成訂單，如該訂單未完成不可再次操作。請使用本人賬戶信息，如信息不符交易將不受保護。</string>
+    <string name="fuwudailishenqing">服務代理初審</string>
+    <string name="dingdanxiangqing">訂單詳情:</string>
+    <string name="chongxinxuanze">重新選擇贊助方式</string>
+    <string name="tisjiyongjiufengting">提示：投訴惡意違規操作一經確認，違規一方的賬號將永久封停。 為了避免造成不必要的損失，請慎重操作。</string>
+    <string name="jiaohanyijie">當直接推廣的高級代理未完成加權任務， 則系統將會為推廣者重新開啟任務。如 果任務失敗則懲罰等級增加一級，加權 等級減少一級。</string>
+    <string name="zhitongjiduizhan">提示：只統計以金幣為結算單位的遊戲對戰，不限遊戲。</string>
+    <string name="benzhoubushoubaohu">提示：提交申請后，可在記錄查詢中查看進度。請使用本人賬戶信息，如信息不符交易將不受保護。</string>
+    <string name="daojuhuishou">道具回收</string>
+    <string name="jinbishuliang">金幣數量</string>
+    <string name="shuliang">USDT數量</string>
 </resources>

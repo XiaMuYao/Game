@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        tools:text="@{viewModel.goldNumberStr}"
+        tools:text="@{viewModel.propsNumber.toString()}"
         android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="@id/tv_gold_record_id"
         app:layout_constraintStart_toEndOf="@id/tv_gold_record_id"

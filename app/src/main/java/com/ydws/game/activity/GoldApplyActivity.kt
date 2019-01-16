@@ -7,8 +7,6 @@ import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.config.PictureMimeType
 import com.ydws.game.base.BaseAbstractActivity
-import com.ydws.game.bean.Countries
-import com.ydws.game.bean.GoldTradingBean
 import com.ydws.game.widget.chooser.OnChooseListener
 import com.ydws.game.widget.chooser.SimpleChooserDialog
 import kotlinx.android.synthetic.main.activity_gold_apply.*
@@ -17,13 +15,14 @@ import android.app.Activity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.ydws.game.*
-import com.ydws.game.bean.FindCountriesBean
-import com.ydws.game.bean.PayTypeBean
-import com.ydws.game.bean.PropAboutMoney
+import com.ydws.game.bean.*
 import com.ydws.game.body.GoldTradingBody
+import com.ydws.game.net.LL
+import com.ydws.game.net.RetrofitManager
 import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
+import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.utils.Entry2MapUtil
 import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -31,6 +30,8 @@ import io.reactivex.schedulers.Schedulers
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import org.jetbrains.anko.support.v4.toast
+import org.jetbrains.anko.toast
 import java.io.File
 import java.util.*
 
@@ -43,6 +44,9 @@ class GoldApplyActivity : BaseAbstractActivity() {
     var currentCountry: Countries? = null
     var currentPayType: PayTypeBean? = null
     var currentImage: String? = null
+    var zhifufangsh = 0
+    var photostr = ""
+    var jilyid = ""
     override fun getContentLayoutID(): Int {
         return R.layout.activity_gold_apply
     }
@@ -50,8 +54,9 @@ class GoldApplyActivity : BaseAbstractActivity() {
     override fun initViews() {
         hideAll()
         intentData = intent.getSerializableExtra("data") as GoldTradingBean?
+        jilyid = intent.getStringExtra("jiluId")
         findViewById<View>(R.id.back).onClick { finish() }
-        findViewById<TextView>(R.id.tv_title_bar).text = "金幣贊助"
+        findViewById<TextView>(R.id.tv_title_bar).text = "贊助"
         val selectType = ArrayList<String>()
         selectType.add("打开照相机")
         selectType.add("从手机相册获取")
@@ -67,7 +72,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
                                 .compress(true)// 是否压缩 true or false
                                 .forResult(PictureConfig.CHOOSE_REQUEST)
                     }
-                    "从手机相册获取" ->{
+                    "从手机相册获取" -> {
                         PictureSelector.create(this@GoldApplyActivity)
                                 .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
                                 .maxSelectNum(1)// 最大图片选择数量 int
@@ -115,30 +120,26 @@ class GoldApplyActivity : BaseAbstractActivity() {
             }
         }
         submit.onClick {
-            if(currentCountry == null){
+            if (currentCountry == null) {
                 "請選擇國家".toast()
                 return@onClick
             }
-            if(currentImage.isNullOrBlank()){
+            if (currentImage.isNullOrBlank()) {
                 "請先上傳憑證".toast()
                 return@onClick
             }
-            if(currentPayType == null){
+            if (currentPayType == null) {
                 "請先選擇支付方式".toast()
                 return@onClick
             }
             val body = GoldTradingBody()
-            body.bankname = intentData?.bankName
             body.userId = userid
-            body.city = intentData?.city
-            body.payee = intentData?.payee
-            body.payType = currentPayType?.id
-            body.cardNumber = intentData?.cardNumber
-            body.zhifubaoId = intentData?.zhifubao
-            body.wechat = intentData?.wechatCode
-            body.goldNumber = intentData?.jinbi
-            body.zhuanzhangPhoto = currentImage
-            body.bishangId = intentData?.id.toString()
+
+            body.payType = zhifufangsh
+            body.photo = currentImage
+            body.jiluId = jilyid
+
+
             val map = Entry2MapUtil.toMap(body)
 
             SecondRetrofitManager.service.goldCommit(map).subscribeOn(Schedulers.io())
@@ -167,25 +168,33 @@ class GoldApplyActivity : BaseAbstractActivity() {
 
     }
 
-    private fun freshPayType(){
+    private fun freshPayType() {
+        /**
+         * 1 支付宝
+         * 2 微信
+         * 3 银行卡
+         */
         hideAll()
         when (currentPayType?.id) {
             "1" -> {
                 ll_zhifubao.visible()
+                zhifufangsh = 1
             }
             "2" -> {
                 ll_wechat.visible()
+                zhifufangsh = 2
             }
             "3" -> {
                 ll_bank.visible()
                 ll_zhanghao.visible()
+                zhifufangsh = 3
             }
             else -> {
             }
         }
     }
 
-    private fun hideAll(){
+    private fun hideAll() {
         ll_bank.gone()
         ll_zhanghao.gone()
         ll_zhifubao.gone()
@@ -195,7 +204,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
     private fun aboutMoney() {
         showHud(true)
         SecondRetrofitManager.service.propAboutMoney(currentCountry?.countries
-                ?: "", intentData?.jinbi?:"1").subscribeOn(Schedulers.io())
+                ?: "", intentData?.jinbi ?: "1").subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<PropAboutMoney.DataBean>() {
                     override fun onSuccees(t: BaseResponse<PropAboutMoney.DataBean>, data: PropAboutMoney.DataBean) {
@@ -255,6 +264,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
                     }
 
                 })
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -269,7 +279,8 @@ class GoldApplyActivity : BaseAbstractActivity() {
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath?:selectList[0].path))
+                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath
+                            ?: selectList[0].path))
                     val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
                     showHud(true)
                     SecondRetrofitManager.service.uploadPicture(part)
@@ -278,6 +289,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
                             .subscribe(object : BaseObserver<String>() {
                                 override fun onSuccees(t: BaseResponse<String>, data: String) {
                                     showHud(false)
+                                    photostr = t.data
                                     "上傳成功".toast()
                                     currentImage = data
                                 }
@@ -286,7 +298,6 @@ class GoldApplyActivity : BaseAbstractActivity() {
                                 }
 
                             })
-
                 }
             }
         }

@@ -19,6 +19,10 @@ import kotlinx.android.synthetic.main.activity_record_merchant.*
  * 代理操作
  */
 class DaiLiCaoZuoActivity : BaseAbstractActivity(), View.OnClickListener {
+    companion object {
+        var index: Int = 1
+    }
+
     private var radioGroup: RadioGroup? = null
     private var userid: String by SPreference("userid", "")
 
@@ -27,12 +31,13 @@ class DaiLiCaoZuoActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     override fun initViews() {
+        index = 1
         radioGroup = findViewById(R.id.radio)
         findViewById<View>(R.id.rb_gold_zanzhu).setOnClickListener(this)
         findViewById<View>(R.id.rb_record).setOnClickListener(this)
         ID.text = "ID:${userid}"
         val tv = findViewById<TextView>(R.id.tv_title_bar)
-        tv.text = "服务代理"
+        tv.text = "道具回收"
         findViewById<View>(R.id.back).setOnClickListener { finish() }
     }
 
@@ -40,8 +45,14 @@ class DaiLiCaoZuoActivity : BaseAbstractActivity(), View.OnClickListener {
 
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoGoldRecordFragment())
-        transaction.commit()
+
+        if (index == 1) {
+            transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoGoldRecordFragment())
+            transaction.commit()
+        } else if (index == 2) {
+            transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoPropRecoveryFragment())
+            transaction.commit()
+        }
     }
 
     override fun onClick(view: View) {
@@ -51,10 +62,13 @@ class DaiLiCaoZuoActivity : BaseAbstractActivity(), View.OnClickListener {
             R.id.rb_gold_zanzhu -> {
                 radioGroup!!.setBackgroundResource(R.mipmap.title_record_one)
                 transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoGoldRecordFragment())
+                DaiLiCaoZuoActivity.index = 1
             }
             R.id.rb_record -> {
                 radioGroup!!.setBackgroundResource(R.mipmap.title_record_two)
                 transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoPropRecoveryFragment())
+                DaiLiCaoZuoActivity.index = 2
+
             }
         }
         transaction.commit()

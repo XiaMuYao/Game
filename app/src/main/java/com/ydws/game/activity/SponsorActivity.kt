@@ -18,6 +18,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_sponsor.*
+import kotlinx.android.synthetic.main.view_title_bar.view.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 /**
  * 赞助首页
@@ -33,18 +35,24 @@ class SponsorActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
+        titllle.back.onClick { finish() }
 
         findViewById<View>(R.id.iv_gold_zanzhu).setOnClickListener(this)
         findViewById<View>(R.id.iv_daoju_huishou).setOnClickListener(this)
         findViewById<View>(R.id.iv_dali_shenqing).setOnClickListener(this)
         findViewById<View>(R.id.record).setOnClickListener(this)
         findViewById<View>(R.id.ddddddddddddddddddd).setOnClickListener(this)
-        ID.text = userid
+        ID.text = "ID."+userid
         selecy = 1
     }
 
+    override fun onResume() {
+        selecy = 1
+        super.onResume()
+    }
+
     override fun initData() {
-        titleTv!!.text = "赞助"
+        titleTv!!.text = "綜合服務"
     }
 
     override fun onClick(view: View) {

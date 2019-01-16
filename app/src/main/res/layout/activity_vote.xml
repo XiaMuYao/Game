@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="请为你喜欢的游戏投票"
+        android:text="@string/qingweinixihuandeyouxitoupiao"
         android:textColor="#f2edd8"
         app:layout_constraintEnd_toEndOf="@id/vote_bg"
         app:layout_constraintStart_toStartOf="@id/vote_bg"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="有效投票截止时间: 2019.01.18"
+        android:text="@string/youxiaotoupiaojiezhishijinan"
         android:textColor="#f2edd8"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="@id/vote_bg"
@@ -61,13 +61,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@mipmap/id"
         android:gravity="center"
         android:text=""
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@+id/vote_bg"
         app:layout_constraintStart_toStartOf="@+id/vote_bg"
-        app:layout_constraintTop_toTopOf="@+id/vote_bg"
-        app:layout_constraintVertical_bias="0.411" />
+        app:layout_constraintTop_toTopOf="@+id/vote_bg" />
 </android.support.constraint.ConstraintLayout>

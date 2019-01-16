@@ -55,6 +55,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/title"
             app:layout_constraintVertical_bias="0.3" />
+
         <TextView
             android:id="@+id/ID"
             android:layout_width="wrap_content"
@@ -64,7 +65,6 @@
             android:gravity="center"
             android:text="@{idStr}"
             android:textColor="@color/colorWhite"
-            app:layout_constraintBottom_toTopOf="@id/iv_gold_apply_bg"
             app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
             app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
 
@@ -106,7 +106,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="本周已完成金币对战局数:"
+                android:text="@string/weekwanchengduiju"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -142,7 +142,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="本日还可完成金币对战局数:"
+                android:text="@string/daywanchengjinbi"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -177,7 +177,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="本周还可完成金币对战局数:"
+                android:text="@string/benzhouhaikewanchengjjinabi"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -213,7 +213,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="未领取累计加权奖励:"
+                android:text="@string/weileiji"
                 android:textColor="@color/colorWhite"
                 app:layout_constraintStart_toStartOf="@id/iv_personal_huakuang"
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
@@ -245,7 +245,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="提示: 已完成全部任务,请明天继续加油"
+            android:text="@string/zhitongjiduizhan"
             android:textColor="#20c7ff"
             android:textSize="8sp"
             android:visibility="@{tipsVisibility}"
