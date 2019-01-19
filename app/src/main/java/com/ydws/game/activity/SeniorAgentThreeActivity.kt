@@ -34,7 +34,7 @@ class SeniorAgentThreeActivity : BaseAbstractActivity() {
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
         viewById.text = "加权任务"
 
-        ID.text = "ID."+userid
+        ID.text = "ID." + userid
         val yanse = "#FFFFFF"
         val beijing = "#005D3C2D"
         val textsize = 15F
@@ -96,9 +96,10 @@ class SeniorAgentThreeActivity : BaseAbstractActivity() {
                         if (data.yesNo == 0) {
                             text = "未完成"
                         } else if (data.yesNo == 1) {
-                            text = "正在进行"
+                            text = "正在進行"
                         } else if (data.yesNo == 2) {
-                            text = "已经完成"
+                            text = "已經完成"
+                            countdownView.setCountTime(0)
                         }
                         dangqianjiaquzhuangtai.text = text
                         dangqianrenwudengji.text = data.taskLevel.toString()

@@ -45,7 +45,7 @@ class DaiLiCaoZuoActivity : BaseAbstractActivity(), View.OnClickListener {
         findViewById<View>(R.id.rb_record).setOnClickListener(this)
         ID.text = "ID:${userid}"
         val tv = findViewById<TextView>(R.id.tv_title_bar)
-        tv.text = "道具回收"
+        tv.text = "服務代理"
         findViewById<View>(R.id.back).setOnClickListener { finish() }
     }
 
@@ -55,6 +55,7 @@ class DaiLiCaoZuoActivity : BaseAbstractActivity(), View.OnClickListener {
         val transaction = fragmentManager.beginTransaction()
 
         if (index == 1) {
+            radioGroup!!.setBackgroundResource(R.mipmap.zanzhuxinxitou)
             transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoGoldRecordFragment())
             transaction.commit()
         } else if (index == 2) {
@@ -86,12 +87,12 @@ class DaiLiCaoZuoActivity : BaseAbstractActivity(), View.OnClickListener {
         val transaction = fragmentManager.beginTransaction()
         when (view.id) {
             R.id.rb_gold_zanzhu -> {
-                radioGroup!!.setBackgroundResource(R.mipmap.title_record_one)
+                radioGroup!!.setBackgroundResource(R.mipmap.zanzhuxinxitou)
                 transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoGoldRecordFragment())
                 DaiLiCaoZuoActivity.index = 1
             }
             R.id.rb_record -> {
-                radioGroup!!.setBackgroundResource(R.mipmap.title_record_two)
+                radioGroup!!.setBackgroundResource(R.mipmap.zanzhuxinxitoutwo)
                 transaction.replace(R.id.frame_mer_chant, DaiLiCaoZuoPropRecoveryFragment())
                 DaiLiCaoZuoActivity.index = 2
 

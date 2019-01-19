@@ -28,7 +28,7 @@ class SeniorAgentActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun initViews() {
         findViewById<View>(R.id.iv_agent_senior).setOnClickListener(this)
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
-        viewById.text = "高级代理"
+        viewById.text = "高級代理"
     }
 
     override fun initData() {
@@ -44,7 +44,7 @@ class SeniorAgentActivity : BaseAbstractActivity(), View.OnClickListener {
                         .compose(SchedulerUtils.ioToMain())
                         .subscribe(object : BaseObserver<Any?>() {
                             override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                                toast("成功成为高级代理")
+                                toast("成功成为高級代理")
                                 SeniorAgentTwoActivity.start(this@SeniorAgentActivity)
                             }
 

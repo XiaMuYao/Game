@@ -1,7 +1,9 @@
 package com.ydws.game.activity
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.view.View
+import android.widget.EditText
 import android.widget.TextView
 import com.ydws.game.R
 import com.ydws.game.base.BaseAbstractActivity
@@ -24,38 +26,48 @@ class GoldSearchActivity : BaseAbstractActivity() {
     override fun getContentLayoutID(): Int {
         return R.layout.activity_gold_search
     }
+
     private var pageData: DetailsOfPropRepurchaseBean? = null
 
     override fun initViews() {
         findViewById<View>(R.id.back).onClick { finish() }
-        findViewById<TextView>(R.id.tv_title_bar).text = "服务代理"
+        findViewById<TextView>(R.id.tv_title_bar).text = "服務代理"
         iv_submit.onClick { finish() }
         report.onClick {
-            SecondRetrofitManager.service
-                    .report(userid,intent.getIntExtra("id",1).toString())
-                    .compose(SchedulerUtils.ioToMain())
-                    .subscribe(object : BaseObserver<Any?>(){
-                        override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                            "举报成功".toast()
-                            finish()
-                        }
 
-                        override fun onCodeError(code: Int, msg: String) {
-                        }
+            val et = EditText(this@GoldSearchActivity)
+            AlertDialog.Builder(this@GoldSearchActivity).setTitle("请输入消息")
+                    .setView(et)
+                    .setPositiveButton("确定") { dialogInterface, i ->
 
-                    })
+                        SecondRetrofitManager.service
+                                .report(userid, intent.getIntExtra("id", 1).toString(), et.toString().trim())
+                                .compose(SchedulerUtils.ioToMain())
+                                .subscribe(object : BaseObserver<Any?>() {
+                                    override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                                        "举报成功".toast()
+                                        finish()
+                                    }
+
+                                    override fun onCodeError(code: Int, msg: String) {
+                                    }
+
+                                })
+                    }.setNegativeButton("取消", null).show()
+
+
         }
         SecondRetrofitManager.service
-                .detailsOfPropRepurchase(userid,intent.getIntExtra("id",1).toString())
+                .detailsOfPropRepurchase(userid, intent.getIntExtra("id", 1).toString())
                 .compose(SchedulerUtils.ioToMain())
-                .subscribe(object : BaseObserver<DetailsOfPropRepurchaseBean>(){
+                .subscribe(object : BaseObserver<DetailsOfPropRepurchaseBean>() {
                     override fun onSuccees(t: BaseResponse<DetailsOfPropRepurchaseBean>, data: DetailsOfPropRepurchaseBean) {
                         pageData = data
                         ID.text = "ID:${userid}"
                         phone.text = data.phone
                         zanzhufangshi.text = data.payTypeName
-                        goumaishijian.text = data.createTime
-                        zhuangtai.text = if(data.tradingStatus==1)"进行中" else "已完成"
+                        goumaishijian.text = data.lastChangeTime
+                        zhuangtai.text = if (data.tradingStatus == 1) "进行中" else "已完成"
                         zanzhushuliang.text = data.propsNumber.toString()
 
                     }
@@ -67,7 +79,7 @@ class GoldSearchActivity : BaseAbstractActivity() {
                 })
         chakanpingzheng.onClick {
             pageData?.let {
-                val intent = Intent(this@GoldSearchActivity,ShowImageDetailActivity::class.java)
+                val intent = Intent(this@GoldSearchActivity, ShowImageDetailActivity::class.java)
                 intent.putExtra("url", it.zhuanzhangPhoto)
                 startActivity(intent)
             }

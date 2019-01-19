@@ -65,7 +65,7 @@ class GeneralizeTwoActivity : BaseAbstractActivity(), View.OnClickListener {
                         tv_zhitui_yeji.text = "直推玩家業績：${data.zongZhituiPlayerYeji}"
                         tv_qudao_yeji.text = "渠道玩家業績：${data.zongQudaoPlayerYeji}"
                         tv_gold_yeji.text = "本週金幣獎勵：${data.weekGold}"
-                        tv_gold_leiji.text = "累計結算金幣獎勵：${data.leijiGold}"
+                        tv_gold_leiji.text = "累計領取獎勵：${data.leijiGold}"
                         tv_gold_unable.text = "未領取金幣獎勵：${data.weiLingGold}"
                     }
 

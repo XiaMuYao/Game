@@ -12,10 +12,10 @@ class JiaoYiRecordAdapter(layoutResId: Int) : BaseQuickAdapter<jiaoyijiluBean.Da
         helper.let {
 
             if (item.type == 1) {
-                it.setText(R.id.tv_gold_record_id, "购买")
+                it.setText(R.id.tv_gold_record_id, "兌換")
             }
             if (item.type == 2) {
-                it.setText(R.id.tv_gold_record_id, "回购")
+                it.setText(R.id.tv_gold_record_id, "註銷")
 
             }
 

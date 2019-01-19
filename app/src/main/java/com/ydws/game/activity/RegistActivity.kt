@@ -30,13 +30,15 @@ class RegistActivity : BaseAbstractActivity() {
                     || ed_password.text.isNullOrBlank()
 
             ) {
-                toast("有字段未填写")
+                toast("有字段未填寫！")
+                return@setOnClickListener
             } else {
                 if (
-                        ed_password.text.toString().length > 8 || ed_password.text.toString().length < 5 ||
-                        ed_tpassword.text.toString().length > 8 || ed_tpassword.text.toString().length < 5
+                        ed_password.text.toString().length > 12 || ed_password.text.toString().length < 8 ||
+                        ed_tpassword.text.toString().length > 12 || ed_tpassword.text.toString().length < 8||
+                        ed_account.text.toString().length > 20 || ed_account.text.toString().length <8
                 ) {
-                    toast("密码长度有误")
+                    toast("賬號或者密碼長度有誤！")
                     return@setOnClickListener
                 }
                 if (!ed_password.text.equals(ed_tpassword.text)) {
@@ -45,7 +47,7 @@ class RegistActivity : BaseAbstractActivity() {
                             ed_account.text.toString().trim(),
                             ed_password.text.toString().trim())
                 } else {
-                    toast("两次密码不相同")
+                    toast("兩次密碼不相同！")
                 }
             }
 

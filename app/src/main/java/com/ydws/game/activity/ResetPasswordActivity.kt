@@ -73,16 +73,18 @@ class ResetPasswordActivity : BaseAbstractActivity(), View.OnClickListener {
             showMessage("兩次交易碼不一致")
             return
         }
-        if (tv_gold_count_show.text.toString().length > 8 || tv_gold_count_show.text.toString().length < 5) {
-            toast("密码不符合规则")
+        if (activityResetBinding.oldPassword.toString().length > 12 || activityResetBinding.oldPassword.toString().length < 8) {
+            toast("交易密碼格式不正確")
+            return
         }
-        if (tv_jiaoyi_pwd_show.text.toString().length > 8 || tv_jiaoyi_pwd_show.text.toString().length < 5) {
-            toast("密码不符合规则")
+        if (activityResetBinding.newPassword.toString().length > 12 || activityResetBinding.newPassword.toString().length < 8) {
+            toast("交易密碼格式不正確")
+            return
         }
-        if (editText3.text.toString().length > 8 || editText3.text.toString().length < 5) {
-            toast("密码不符合规则")
+        if (activityResetBinding.newPasswordRepeat.toString().length > 12 || activityResetBinding.newPasswordRepeat.toString().length < 8) {
+            toast("交易密碼格式不正確")
+            return
         }
-
 
 
 //        id	是	integer	用户id

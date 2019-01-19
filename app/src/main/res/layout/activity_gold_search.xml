@@ -25,7 +25,7 @@
         android:id="@+id/iv_shop_head"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/agent_head"
+        android:src="@mipmap/daojuhuishou"
         app:layout_constraintBottom_toTopOf="@id/iv_shop_bottom"
         app:layout_constraintEnd_toEndOf="@id/iv_shop_bottom"
         app:layout_constraintStart_toStartOf="@id/iv_shop_bottom" />

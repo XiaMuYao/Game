@@ -7,10 +7,11 @@ package com.ydws.game.bean;
  **/
 public class GameSelectEverydayTaskBean {
 
+
     /**
      * code : 200
      * message : 成功
-     * data : {"completeGame":1,"unfinishedGame":2,"weekGames":20,"weilingquJiangli":2000}
+     * data : {"completeGame":0,"unfinishedGame":3,"additionalGame":null,"validGame":9,"leaveGame":47,"weilingquJiangli":0}
      * pageCount : 0
      * pageNum : 0
      */
@@ -63,16 +64,20 @@ public class GameSelectEverydayTaskBean {
 
     public static class DataBean {
         /**
-         * completeGame : 1
-         * unfinishedGame : 2
-         * weekGames : 20
-         * weilingquJiangli : 2000
+         * completeGame : 0
+         * unfinishedGame : 3
+         * additionalGame : null
+         * validGame : 9
+         * leaveGame : 47
+         * weilingquJiangli : 0
          */
 
         private int completeGame;
         private int unfinishedGame;
-        private int weekGames;
-        private int weilingquJiangli;
+        private Object additionalGame;
+        private int validGame;
+        private int leaveGame;
+        private String weilingquJiangli;
 
         public int getCompleteGame() {
             return completeGame;
@@ -90,19 +95,35 @@ public class GameSelectEverydayTaskBean {
             this.unfinishedGame = unfinishedGame;
         }
 
-        public int getWeekGames() {
-            return weekGames;
+        public Object getAdditionalGame() {
+            return additionalGame;
         }
 
-        public void setWeekGames(int weekGames) {
-            this.weekGames = weekGames;
+        public void setAdditionalGame(Object additionalGame) {
+            this.additionalGame = additionalGame;
         }
 
-        public int getWeilingquJiangli() {
+        public int getValidGame() {
+            return validGame;
+        }
+
+        public void setValidGame(int validGame) {
+            this.validGame = validGame;
+        }
+
+        public int getLeaveGame() {
+            return leaveGame;
+        }
+
+        public void setLeaveGame(int leaveGame) {
+            this.leaveGame = leaveGame;
+        }
+
+        public String getWeilingquJiangli() {
             return weilingquJiangli;
         }
 
-        public void setWeilingquJiangli(int weilingquJiangli) {
+        public void setWeilingquJiangli(String weilingquJiangli) {
             this.weilingquJiangli = weilingquJiangli;
         }
     }

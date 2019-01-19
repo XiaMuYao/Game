@@ -31,7 +31,7 @@ class ShopActivity : BaseAbstractActivity() {
     override fun initViews() {
         tv_daoju_count_show.isEnabled = false
         titleTv = findViewById(R.id.tv_title_bar)
-        ID.text = "ID."+userid
+        ID.text = "ID." + userid
         findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
 
         tv_daoju_count_show.addTextChangedListener(object : TextWatcher {
@@ -43,8 +43,12 @@ class ShopActivity : BaseAbstractActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 LL.d(s.toString())
-                if (!s.toString().isEmpty())
+                if (!s.toString().isEmpty()) {
+
                     tv_gold_count_show.text = (beishu * Integer.parseInt(s.toString())).toString()
+                } else {
+                    tv_gold_count_show.text = ""
+                }
             }
 
         })

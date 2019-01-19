@@ -55,8 +55,8 @@ class SeniorAgentTwoActivity : BaseAbstractActivity(), View.OnClickListener {
                         jiaquandengji.text = SpannableStringBuilder(data.level.toString())
                         yisunshijiaquan.text = SpannableStringBuilder(data.loseJinbi.toString())
                         jiaquanshangxian.text = SpannableStringBuilder(data.jiaquanMax.toString())
-                        benzhoujiaquan.text = SpannableStringBuilder(data.leijiJiangli.toString())
-                        leijilingqu.text = SpannableStringBuilder(data.weekLeijiJiangli.toString())
+                        benzhoujiaquan.text = SpannableStringBuilder(data.weekLeijiJiangli.toString())
+                        leijilingqu.text = SpannableStringBuilder(data.leijiJiangli.toString())
                     }
 
                     override fun onCodeError(code: Int, msg: String) {

@@ -1,12 +1,16 @@
 package com.ydws.game.activity
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.databinding.DataBindingUtil.setContentView
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
@@ -81,10 +85,11 @@ class jinbizanzhuinfoActivity : BaseAbstractActivity() {
 
             val map = Entry2MapUtil.toMap(body)
 
-            SecondRetrofitManager.service.goldCommit(map).subscribeOn(Schedulers.io())
+            SecondRetrofitManager.service.xiangQingTrue(map)
+                    .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(object : BaseObserver<Any>() {
-                        override fun onSuccees(t: BaseResponse<Any>, data: Any) {
+                    .subscribe(object : BaseObserver<String?>() {
+                        override fun onSuccees(t: BaseResponse<String?>, data: String?) {
                             "購買成功".toast()
                             finish()
                         }
@@ -98,20 +103,28 @@ class jinbizanzhuinfoActivity : BaseAbstractActivity() {
         report.onClick {
             if (!photoStr.isNullOrBlank()) {
 
-                SecondRetrofitManager.service
-                        .report(userid, TradingId)
-                        .compose(SchedulerUtils.ioToMain())
-                        .subscribe(object : BaseObserver<Any?>() {
-                            override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                                finish()
-                                "举报成功".toast()
-                            }
+                val et = EditText(this@jinbizanzhuinfoActivity)
+                AlertDialog.Builder(this@jinbizanzhuinfoActivity).setTitle("请输入消息")
+                        .setView(et)
+                        .setPositiveButton("确定") { dialogInterface, i ->
 
-                            override fun onCodeError(code: Int, msg: String) {
-                                toast(msg)
-                            }
+                            SecondRetrofitManager.service
+                                    .report(userid, TradingId, et.toString().trim())
+                                    .compose(SchedulerUtils.ioToMain())
+                                    .subscribe(object : BaseObserver<Any?>() {
+                                        override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                                            finish()
+                                            "举报成功".toast()
+                                        }
 
-                        })
+                                        override fun onCodeError(code: Int, msg: String) {
+                                            toast(msg)
+                                        }
+
+                                    })
+                        }.setNegativeButton("取消", null).show()
+
+
             } else {
                 toast("请上传凭证")
             }

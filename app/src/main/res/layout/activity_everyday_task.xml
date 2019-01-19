@@ -27,9 +27,10 @@
         <variable
             name="tipsVisibility"
             type="int" />
+
         <variable
             name="idStr"
-            type="String"/>
+            type="String" />
 
     </data>
 
@@ -42,7 +43,6 @@
             android:id="@+id/title"
             layout="@layout/view_title_bar"
             app:layout_constraintTop_toTopOf="parent" />
-
 
 
         <ImageView
@@ -112,15 +112,15 @@
                 app:layout_constraintTop_toBottomOf="@id/ll_wechat" />
 
             <TextView
-                tools:text="123"
-                android:gravity="start|center_vertical"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:background="@null"
+                android:gravity="start|center_vertical"
                 android:text="@{completeGame}"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                tools:text="123" />
         </LinearLayout>
 
         <LinearLayout
@@ -151,11 +151,12 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"         tools:text="123"
-                android:gravity="start|center_vertical"
+                android:layout_weight="1"
                 android:background="@null"
+                android:gravity="start|center_vertical"
                 android:text="@{unfinishedGame}"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                tools:text="123" />
         </LinearLayout>
 
         <LinearLayout
@@ -187,11 +188,12 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
 
-                android:background="@null"         tools:text="123"
+                android:background="@null"
                 android:gravity="start|center_vertical"
-
                 android:text="@{weekGames}"
-                android:textColor="@color/colorWhite" />
+
+                android:textColor="@color/colorWhite"
+                tools:text="123" />
         </LinearLayout>
 
         <LinearLayout
@@ -222,12 +224,13 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"         tools:text="123"
+                android:layout_weight="1"
+                android:background="@null"
                 android:gravity="start|center_vertical"
 
-                android:background="@null"
                 android:text="@{weilingquJiangli}"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                tools:text="123" />
 
             <ImageView
                 android:id="@+id/add_task"
@@ -242,14 +245,14 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="206dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="52dp"
             android:text="@string/zhitongjiduizhan"
             android:textColor="#20c7ff"
             android:textSize="8sp"
-            android:visibility="@{tipsVisibility}"
             app:layout_constraintEnd_toEndOf="@id/ll_bank"
+            app:layout_constraintHorizontal_bias="0.445"
             app:layout_constraintStart_toStartOf="@id/ll_bank"
             app:layout_constraintTop_toBottomOf="@id/ll_bank" />
 

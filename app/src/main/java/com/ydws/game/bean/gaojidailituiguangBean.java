@@ -77,8 +77,8 @@ public class gaojidailituiguangBean {
         private int level;
         private int loseJinbi;
         private int jiaquanMax;
-        private int leijiJiangli;
-        private int weekLeijiJiangli;
+        private String leijiJiangli;
+        private String weekLeijiJiangli;
 
         public int getLevel() {
             return level;
@@ -104,19 +104,19 @@ public class gaojidailituiguangBean {
             this.jiaquanMax = jiaquanMax;
         }
 
-        public int getLeijiJiangli() {
+        public String getLeijiJiangli() {
             return leijiJiangli;
         }
 
-        public void setLeijiJiangli(int leijiJiangli) {
+        public void setLeijiJiangli(String leijiJiangli) {
             this.leijiJiangli = leijiJiangli;
         }
 
-        public int getWeekLeijiJiangli() {
+        public String getWeekLeijiJiangli() {
             return weekLeijiJiangli;
         }
 
-        public void setWeekLeijiJiangli(int weekLeijiJiangli) {
+        public void setWeekLeijiJiangli(String weekLeijiJiangli) {
             this.weekLeijiJiangli = weekLeijiJiangli;
         }
     }

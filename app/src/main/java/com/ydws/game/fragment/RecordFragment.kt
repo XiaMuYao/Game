@@ -16,12 +16,8 @@ import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.net.scheduler.SchedulerUtils
 import com.ydws.game.utils.SPreference
-import kotlinx.android.synthetic.main.banner.*
-import kotlinx.android.synthetic.main.fragment_gold_shutt.*
-import kotlinx.android.synthetic.main.fragment_record.*
 import kotlinx.android.synthetic.main.fragment_record.view.*
 import org.jetbrains.anko.support.v4.toast
-import java.util.ArrayList
 
 /**
  * 记录查询
@@ -49,8 +45,6 @@ class RecordFragment : BaseFragment() {
     override fun initData() {
 
 
-
-
         RetrofitManager.service
                 .selectGoldTradingRecord(userid)
                 .compose(SchedulerUtils.ioToMain())
@@ -63,9 +57,6 @@ class RecordFragment : BaseFragment() {
                         toast(msg)
                     }
                 })
-
-
-
 
 
     }

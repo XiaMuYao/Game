@@ -35,7 +35,7 @@
             android:id="@+id/ID_TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:text="10049"
             app:layout_constraintStart_toStartOf="@id/line_main"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,6 @@
             android:id="@+id/card_head_portrait"
             android:layout_width="85dp"
             android:layout_height="100dp"
-            android:background="@mipmap/head_portrait_frame"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -67,16 +66,22 @@
             app:layout_constraintVertical_bias="0.685" />
 
         <ImageView
-            android:id="@+id/problem_ImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/problem"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:layout_width="87dp"
+            android:layout_height="102dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/head_portrait_frame"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.145"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.685" />
 
         <View
             android:id="@+id/wenhaodianji"
             android:layout_width="30dp"
+            android:src="@mipmap/problem"
+
             android:layout_height="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -96,7 +101,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="20dp"
                 android:layout_marginStart="8dp"
                 android:src="@mipmap/gold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,16 +119,6 @@
                 app:layout_constraintVertical_bias="1.0"
                 tools:text="12" />
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="#AE8F6E"
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintEnd_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="@+id/imageView"
-                app:layout_constraintVertical_bias="1.0" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -135,16 +130,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-            <View
-                android:layout_width="21dp"
-                android:layout_height="20dp"
-                android:background="#AE8F6E"
-                android:visibility="visible"
-
-                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintTop_toTopOf="@+id/imageView2"
-                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/yinbi"
@@ -170,17 +155,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-            <View
-                android:layout_width="22dp"
-                android:layout_height="20dp"
-                android:background="#AE8F6E"
-
-
-                android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView3"
-                app:layout_constraintVertical_bias="0.833" />
 
             <TextView
                 android:id="@+id/daoju"
@@ -268,7 +242,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@mipmap/premier_reseller"
+            android:background="@mipmap/gaojidaili"
             android:padding="5dp" />
 
         <ImageView

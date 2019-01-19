@@ -35,12 +35,12 @@ class ResetPwdActivity : BaseAbstractActivity() {
     override fun initData() {
         reset_btn.setOnClickListener {
 
-            if (xinmima.text.toString().length > 8 || xinmima.text.toString().length < 5) {
-                toast("密码为5-8位")
+            if (xinmima.text.toString().length > 12 || xinmima.text.toString().length < 8) {
+                toast("密码为8-12位")
                 return@setOnClickListener
             }
-            if (zaicimima.text.toString().length > 8 || zaicimima.text.toString().length < 5) {
-                toast("密码为5-8位")
+            if (zaicimima.text.toString().length > 12 || zaicimima.text.toString().length < 8) {
+                toast("密码为8-12位")
                 return@setOnClickListener
             }
             if (xinmima.text.toString().equals(zaicimima.text.toString())) {

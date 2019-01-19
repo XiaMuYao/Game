@@ -80,7 +80,7 @@ class GoldRecordFragment : BaseFragment() {
                                     id = it.id,
                                     idStr = it.id.toString(),
                                     userId = it.userId,
-                                    lastChangeTime = it.lastChangeTime,
+                                    lastChangeTime = it.createTime,
                                     tradingStatus = it.tradingStatus,
                                     propsNumber = it.propsNumber,
                                     buyOrSell = it.buyOrSell,

@@ -8,6 +8,7 @@ public class GoldTradingBodyCopy {
     public String bishangId;
     public String city;
     public String payee;
+    public int payType;
     public String usdt;
     public String fiat;
     public String phone;

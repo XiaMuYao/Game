@@ -77,7 +77,7 @@ public class GameSelectGoldRecordBean {
 
         private int id;
         private int userId;
-        private String lastChangeTime;
+        private String createTime;
         private int tradingStatus;
         private Object propsNumber;
         private int buyOrSell;
@@ -99,12 +99,12 @@ public class GameSelectGoldRecordBean {
             this.userId = userId;
         }
 
-        public String getLastChangeTime() {
-            return lastChangeTime;
+        public String getCreateTime() {
+            return createTime;
         }
 
-        public void setLastChangeTime(String lastChangeTime) {
-            this.lastChangeTime = lastChangeTime;
+        public void setCreateTime(String createTime) {
+            this.createTime = createTime;
         }
 
         public int getTradingStatus() {

@@ -85,8 +85,8 @@ public class LoginBean {
 
         private int id;
         private String photo;
-        private int jinbi;
-        private int yinbi;
+        private String jinbi;
+        private String yinbi;
         private int propsNumber;
         private String wechat;
         private int refereesId;
@@ -117,19 +117,20 @@ public class LoginBean {
             this.photo = photo;
         }
 
-        public int getJinbi() {
+
+        public String getJinbi() {
             return jinbi;
         }
 
-        public void setJinbi(int jinbi) {
+        public void setJinbi(String jinbi) {
             this.jinbi = jinbi;
         }
 
-        public int getYinbi() {
+        public String getYinbi() {
             return yinbi;
         }
 
-        public void setYinbi(int yinbi) {
+        public void setYinbi(String yinbi) {
             this.yinbi = yinbi;
         }
 

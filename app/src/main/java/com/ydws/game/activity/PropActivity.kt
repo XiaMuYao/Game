@@ -185,6 +185,16 @@ class PropActivity : BaseAbstractActivity(), View.OnClickListener {
             "请输入交易密码".toast()
             return
         }
+        if (propBody.propsNumber.get().isNullOrBlank()) {
+            showMessage("請輸入道具回收數量")
+            return
+        }
+        if (propBody.propsNumber.get()!!.toInt() < 200) {
+            toast("不能道具回收数量不能少于200")
+            return
+
+        }
+
         val params = mapOf(
                 "userId" to userid,
                 "city" to propBody.city.get()!!,
@@ -196,7 +206,7 @@ class PropActivity : BaseAbstractActivity(), View.OnClickListener {
                 "propsNumber" to propBody.propsNumber.get()!!,
                 "traPassword" to propBody.traPassword.get()!!,
                 "phone" to propBody.phone.get()!!,
-                "fiat" to propBody.fiatStr.get()!!,
+                "fiat" to propBody.buyValue.get()!!,
                 "countries" to if (currentCountry == null) "" else currentCountry?.countries!!
 
         )

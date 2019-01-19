@@ -1,6 +1,7 @@
 package com.ydws.game.activity
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -52,7 +53,7 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
     private var dddd: Int by SPreference("intcode", -1)
     var currentPayType: PayTypeBeanTwo? = PayTypeBeanTwo(0, "未知")
     private var currentCountry: Countries? = null
-
+    private var context: Context = this@PersonalActivity
 
     override fun onItemChildClick(adapter: BaseQuickAdapter<*, *>?, view: View?, position: Int) {
 
@@ -270,11 +271,12 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                             currentPayType!!.payType = "女"
                         }
 
-                        Glide.with(this@PersonalActivity).load(data.photo).into(activityPersonalBinding.ivUserIcon)
+                        if (context != null) {
+                            Glide.with(context).load(data.photo).into(activityPersonalBinding.ivUserIcon)
+                        }
                         //手机和姓名被修改
                         if (!personalInfo?.payee.isNullOrBlank()) {
                             show_name.isEnabled = false
-                            show_tel.isEnabled = false
                         }
 
                     }
@@ -451,8 +453,9 @@ class PersonalActivity : BaseAbstractActivity(), View.OnClickListener, BaseQuick
                 if (show_name.text.isNullOrBlank() ||
                         show_sex.text.isNullOrBlank() ||
                         show_age.text.isNullOrBlank() ||
-                        show_tel.text.isNullOrBlank() ||
-                        show_nicheng.text.isNullOrBlank()
+                        show_tel.text.isNullOrBlank()
+//                        ||
+//                        show_nicheng.text.isNullOrBlank()
                 ) {
                     toast("有信息为空")
                     return

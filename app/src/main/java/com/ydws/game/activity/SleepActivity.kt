@@ -91,7 +91,18 @@ class SleepActivity : BaseAbstractActivity() {
                                 huifu.setBackgroundResource(R.mipmap.huifu)
                                 a = 2
                             }
-                            3 -> text = "黑名单..."
+                            3 -> {
+                                text = "休息中/可恢復..."
+                                huifu.visibility = View.VISIBLE
+                                huifu.setBackgroundResource(R.mipmap.huifu)
+                                a = 2
+                            }
+                            4 -> {
+                                text = "已经被拉黑..."
+                                countdownView.visibility = View.GONE
+                                huifu.visibility = View.GONE
+                                data.haoTimes = 0
+                            }
                         }
                         wenzixiugai.text = text
                         val yanse = "#FFFFFF"

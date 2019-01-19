@@ -11,8 +11,11 @@ import com.ydws.game.net.SecondRetrofitManager
 import com.ydws.game.net.base.BaseObserver
 import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.utils.SPreference
+import com.ydws.game.utils.TextChangedListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_reset_pwd.*
+import kotlinx.android.synthetic.main.activity_set_trade_password.*
 
 class SetTradePasswordActivity : BaseAbstractActivity() {
     private var titleTv: TextView? = null
@@ -38,10 +41,15 @@ class SetTradePasswordActivity : BaseAbstractActivity() {
 
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
+
     }
 
     override fun initData() {
         titleTv!!.text = "設置交易密码"
+
+        TextChangedListener.StringWatcher(tv_jiaoyi_pwd_show)
+
+        TextChangedListener.StringWatcher(editText3)
 
     }
 
@@ -54,6 +62,14 @@ class SetTradePasswordActivity : BaseAbstractActivity() {
 
         if (activityResetBinding.newPassword != activityResetBinding.newPasswordRepeat) {
             showMessage("兩次交易密碼不一致")
+            return
+        }
+        if (activityResetBinding.newPassword.toString().length > 12 || activityResetBinding.newPassword.toString().length < 8) {
+            showMessage("交易密碼不符合規則")
+            return
+        }
+        if (activityResetBinding.newPasswordRepeat.toString().length > 12 || activityResetBinding.newPasswordRepeat.toString().length < 8) {
+            showMessage("交易密碼不符合規則")
             return
         }
 

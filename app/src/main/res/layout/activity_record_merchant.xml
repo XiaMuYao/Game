@@ -31,7 +31,6 @@
         android:gravity="center"
         android:text=""
         android:textColor="@color/colorWhite"
-        app:layout_constraintBottom_toTopOf="@id/iv_gold_apply_bg"
         app:layout_constraintStart_toStartOf="@id/iv_gold_apply_bg"
         app:layout_constraintTop_toTopOf="@id/iv_gold_apply_bg" />
 
@@ -41,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:text="贊助服務獲得金幣總量:"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/iv_gold_apply_bg"
@@ -52,7 +51,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="道具回收服務獲得金幣總量"
+        android:text="道具回收服務獲得金幣總量:"
         android:textColor="#FFFFFF"
 
         app:layout_constraintStart_toStartOf="@+id/textView10"

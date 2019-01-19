@@ -17,6 +17,7 @@ import com.ydws.game.net.base.BaseResponse
 import com.ydws.game.utils.SPreference
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.view_title_bar.view.*
 
 /**
  * 代理申请
@@ -34,6 +35,7 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityAgentBinding = DataBindingUtil.setContentView(this, R.layout.activity_agent)
+        activityAgentBinding.title.back.setOnClickListener { finish() }
         activityAgentBinding.viewModel = viewModel
         activityAgentBinding.idStr = "ID.$userid"
         activityAgentBinding.title.findViewById<TextView>(R.id.tv_title_bar).text = getString(com.ydws.game.R.string.fuwudailishenqing)
@@ -57,7 +59,7 @@ class AgentActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     //    city	是	string	国家/详细地址
-//    shoukuanName	是	string	收款人姓名
+//    shoukuanName	是	string	收款人姓名DaiLiCaoZuoActivity
 //    bankName	是	string	开户行
 //    cardNumber	是	string	借记卡号
 //    zhifubaoNumber	是	string	支付宝号

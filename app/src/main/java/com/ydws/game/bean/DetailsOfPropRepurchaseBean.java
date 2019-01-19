@@ -20,7 +20,7 @@ public class DetailsOfPropRepurchaseBean {
     private int id;
     private String city;
     private String payee;
-    private String createTime;
+    private String lastChangeTime;
     private int tradingStatus;
     private String zhuanzhangPhoto;
     private int propsNumber;
@@ -60,12 +60,12 @@ public class DetailsOfPropRepurchaseBean {
         this.payee = payee;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getLastChangeTime() {
+        return lastChangeTime;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime;
+    public void setLastChangeTime(String lastChangeTime) {
+        this.lastChangeTime = lastChangeTime;
     }
 
     public int getTradingStatus() {

@@ -48,7 +48,7 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
     private var photo: String? = null
     private var head_portrait_ImageView: ImageView? = null
 
-    private var problem_ImageView: ImageView? = null
+//    private var problem_ImageView: ImageView? = null
     private var userIcon: ImageView? = null
     private var context: Context? = null
     override fun getContentLayoutID(): Int {
@@ -68,11 +68,11 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
         userIcon = findViewById(R.id.card_head_portrait)
 
         head_portrait_ImageView = findViewById(R.id.head_portrait_ImageView)
-        problem_ImageView = findViewById(R.id.problem_ImageView)
+//        problem_ImageView = findViewById(R.id.problem_ImageView)
         Glide.with(applicationContext).load(R.mipmap.hall_page_background).into(main_background!!)
 
 
-        problem_ImageView!!.setOnClickListener(this)
+//        problem_ImageView!!.setOnClickListener(this)
         userIcon!!.setOnClickListener(this)
         findViewById<View>(R.id.store_ImageView).setOnClickListener(this)
         findViewById<View>(R.id.generalize_ImageView).setOnClickListener(this)
@@ -87,6 +87,8 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
         photo = SharedPreferencesUtils.getParam(applicationContext, Common.PHOTO, "") as String
         Glide.with(applicationContext).load(photo).into(head_portrait_ImageView!!)
         ID_TextView!!.text = use_Id
+
+
     }
 
 
@@ -99,7 +101,7 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
                 .build()
                 .execute(object : StringCallback() {
                     override fun onError(request: Request, e: Exception) {
-                        Log.d(TAG, e.message)
+//                        Log.d(TAG, e.message)
                         ToastUtils.showShort("无法连接服务器...")
                     }
 
@@ -128,8 +130,8 @@ class MainActivity : BaseAbstractActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.problem_ImageView -> {
-            }
+//            R.id.problem_ImageView -> {
+//            }
 
             R.id.store_ImageView -> startActivity(Intent(this, ShopActivity::class.java))
             R.id.card_head_portrait -> startActivity(Intent(this, PersonalActivity::class.java))

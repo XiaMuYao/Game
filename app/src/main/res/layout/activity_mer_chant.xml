@@ -19,9 +19,11 @@
         android:layout_weight="1">
 
         <ImageView
+
             android:id="@+id/iv_personal_bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="314dp"
+            android:layout_height="457dp"
+            android:scaleType="fitXY"
             android:src="@mipmap/personal_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,17 +36,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:src="@mipmap/bord_info"
+            android:visibility="gone"
+
             app:layout_constraintEnd_toEndOf="@id/iv_personal_bg"
             app:layout_constraintStart_toStartOf="@id/iv_personal_bg"
             app:layout_constraintTop_toTopOf="@id/iv_personal_bg" />
 
         <ImageView
             android:id="@+id/iv_user_icon"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:src="@mipmap/user_icon"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/iv_personal_message"
             app:layout_constraintStart_toStartOf="@id/iv_personal_message"
             app:layout_constraintTop_toTopOf="@id/iv_personal_message" />
@@ -53,11 +59,12 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="12dp"
+
             android:text="@string/shoukuanren"
             android:textColor="#e44216"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/iv_user_icon"
             app:layout_constraintTop_toTopOf="@+id/iv_user_icon" />
 
@@ -71,6 +78,7 @@
             android:text="赫都莫"
             android:textColor="#20c7ff"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/name"
             app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
             app:layout_constraintStart_toEndOf="@id/name"
@@ -85,6 +93,7 @@
             android:text="@string/shoujihaoma"
             android:textColor="#e44216"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/age"
             app:layout_constraintStart_toEndOf="@id/iv_user_icon"
             app:layout_constraintTop_toBottomOf="@id/name" />
@@ -99,6 +108,7 @@
             android:text="男"
             android:textColor="#20c7ff"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/sex"
             app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
             app:layout_constraintStart_toEndOf="@id/sex"
@@ -116,6 +126,7 @@
             android:text="@string/kaihuhang"
             android:textColor="#e44216"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/tel"
             app:layout_constraintStart_toEndOf="@id/iv_user_icon"
             app:layout_constraintTop_toBottomOf="@id/sex" />
@@ -130,6 +141,7 @@
             android:text="108"
             android:textColor="#20c7ff"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/age"
             app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
             app:layout_constraintStart_toEndOf="@id/age"
@@ -146,6 +158,7 @@
             android:text="@string/yinhangkahao"
             android:textColor="#e44216"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/nicheng"
             app:layout_constraintStart_toEndOf="@id/iv_user_icon"
             app:layout_constraintTop_toBottomOf="@id/age" />
@@ -160,6 +173,7 @@
             android:text="18698711169"
             android:textColor="#20c7ff"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/tel"
             app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
             app:layout_constraintStart_toEndOf="@id/tel"
@@ -176,6 +190,7 @@
             android:text="@string/zhifubao"
             android:textColor="#e44216"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/tel"
             app:layout_constraintStart_toEndOf="@id/iv_user_icon"
             app:layout_constraintTop_toBottomOf="@id/tel" />
@@ -190,6 +205,7 @@
             android:text="麦兜点点"
             android:textColor="#20c7ff"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/nicheng"
             app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
             app:layout_constraintStart_toEndOf="@id/nicheng"
@@ -206,6 +222,7 @@
             android:text="@string/weixinzhanghao"
             android:textColor="#e44216"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/et_wechat"
             app:layout_constraintStart_toEndOf="@id/iv_user_icon"
             app:layout_constraintTop_toBottomOf="@id/nicheng" />
@@ -220,12 +237,14 @@
             android:text="zouguohua707696"
             android:textColor="#20c7ff"
             android:textSize="12sp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/tv_wechat"
             app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
             app:layout_constraintStart_toEndOf="@id/tv_wechat"
             app:layout_constraintTop_toTopOf="@id/tv_wechat" />
 
         <ImageView
+            android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -236,14 +255,15 @@
 
         <RadioGroup
             android:id="@+id/radio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_width="278dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="48dp"
+
             android:background="@mipmap/title_one"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/iv_personal_message"
-            app:layout_constraintStart_toStartOf="@id/iv_personal_message"
-            app:layout_constraintTop_toBottomOf="@id/iv_personal_message">
+            app:layout_constraintEnd_toEndOf="@+id/iv_personal_bg"
+            app:layout_constraintStart_toStartOf="@+id/iv_personal_bg"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
             <RadioButton
                 android:id="@+id/rb_gold_zanzhu"
@@ -270,8 +290,9 @@
         <FrameLayout
             android:id="@+id/frame_mer_chant"
             android:layout_width="0dp"
-            android:layout_height="180dp"
+            android:layout_height="333dp"
             app:layout_constraintEnd_toEndOf="@id/radio"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/radio"
             app:layout_constraintTop_toBottomOf="@id/radio" />
 
@@ -279,11 +300,14 @@
             android:id="@+id/iv_agent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:src="@mipmap/daili_caozuo"
             app:layout_constraintBottom_toBottomOf="@id/iv_personal_bg"
             app:layout_constraintEnd_toEndOf="@id/iv_personal_bg"
-            app:layout_constraintStart_toStartOf="@id/iv_personal_bg" />
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="@id/iv_personal_bg"
+            app:layout_constraintTop_toBottomOf="@+id/frame_mer_chant" />
 
         <TextView
             android:id="@+id/ID"

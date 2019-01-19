@@ -46,7 +46,7 @@ class MerchantRecordActivity : BaseAbstractActivity(), View.OnClickListener {
         transaction.commit()
 
         if (selecy == 1) {
-            radioGroup!!.setBackgroundResource(R.mipmap.title_record_one)
+            radioGroup!!.setBackgroundResource(R.mipmap.zanzhuxinxitou)
             transaction.replace(R.id.frame_mer_chant, GoldRecordFragment())
         } else if (selecy == 2) {
             transaction.replace(R.id.frame_mer_chant, PropRecoveryFragment())
@@ -58,12 +58,12 @@ class MerchantRecordActivity : BaseAbstractActivity(), View.OnClickListener {
         val transaction = fragmentManager.beginTransaction()
         when (view.id) {
             R.id.rb_gold_zanzhu -> {
-                radioGroup!!.setBackgroundResource(R.mipmap.title_record_one)
+                radioGroup!!.setBackgroundResource(R.mipmap.zanzhuxinxitou)
                 transaction.replace(R.id.frame_mer_chant, GoldRecordFragment())
                 selecy = 1
             }
             R.id.rb_record -> {
-                radioGroup!!.setBackgroundResource(R.mipmap.title_record_two)
+                radioGroup!!.setBackgroundResource(R.mipmap.zanzhuxinxitoutwo)
                 transaction.replace(R.id.frame_mer_chant, PropRecoveryFragment())
                 selecy = 2
             }

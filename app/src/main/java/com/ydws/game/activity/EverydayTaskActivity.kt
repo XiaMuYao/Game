@@ -50,9 +50,9 @@ class EverydayTaskActivity : BaseAbstractActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<GameSelectEverydayTaskBean.DataBean>() {
                     override fun onSuccees(t: BaseResponse<GameSelectEverydayTaskBean.DataBean>, data: GameSelectEverydayTaskBean.DataBean) {
-                        activityEverydayTaskBinding.completeGame = data.completeGame.toString()
+                        activityEverydayTaskBinding.completeGame = data.leaveGame.toString()
                         activityEverydayTaskBinding.unfinishedGame = data.unfinishedGame.toString()
-                        activityEverydayTaskBinding.weekGames = data.weekGames.toString()
+                        activityEverydayTaskBinding.weekGames = data.validGame.toString()
                         activityEverydayTaskBinding.weilingquJiangli = data.weilingquJiangli.toString()
                         activityEverydayTaskBinding.tipsVisibility = if (data.unfinishedGame == 0) View.VISIBLE else View.GONE
                     }

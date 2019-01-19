@@ -44,10 +44,10 @@ class GoldApplyActivity : BaseAbstractActivity() {
     val payTypes: ArrayList<PayTypeBean> = ArrayList()
     var currentCountry: Countries? = null
     var currentPayType: PayTypeBean? = null
-//    var currentImage: String? = null
+    //    var currentImage: String? = null
     var zhifufangsh = 0
     var photostr = ""
-//    var jilyid = ""
+    //    var jilyid = ""
     override fun getContentLayoutID(): Int {
         return R.layout.activity_gold_apply
     }
@@ -55,6 +55,14 @@ class GoldApplyActivity : BaseAbstractActivity() {
     override fun initViews() {
         hideAll()
         intentData = intent.getSerializableExtra("data") as GoldTradingBean?
+        xuanzezhifufangshi.text = "選擇贊助方式"
+
+        if (intent.getStringExtra("title") != null) {
+            var title = intent.getStringExtra("title")
+            when(title){
+                "匹配信息" -> iv_shop_head.setImageResource(R.mipmap.pipeixinxi)
+            }
+        }
 //        jilyid = intent.getStringExtra("jiluId")
         findViewById<View>(R.id.back).onClick { finish() }
         findViewById<TextView>(R.id.tv_title_bar).text = "贊助"
@@ -137,9 +145,9 @@ class GoldApplyActivity : BaseAbstractActivity() {
             val body = GoldTradingBodyCopy()
             body.userId = userid
 
-            body.countries =guojiahediqu.text.toString()
+            body.countries = guojiahediqu.text.toString()
             body.goldNumber = jinbi.text.toString()
-            body.bishangId =intentData?.id.toString()
+            body.bishangId = intentData?.id.toString()
             body.city = guojiahediqu.text.toString()
             body.payee = fuwudaili.text.toString()
 
@@ -151,6 +159,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
             body.cardNumber = intentData?.cardNumber
             body.zhifubao = intentData?.zhifubao
             body.wechatCode = intentData?.wechatCode
+            body.payType = currentPayType?.id!!.toInt()
 
 
             val map = Entry2MapUtil.toMap(body)
@@ -160,6 +169,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
                     .subscribe(object : BaseObserver<Any>() {
                         override fun onSuccees(t: BaseResponse<Any>, data: Any) {
                             "購買成功".toast()
+                            SponsorActivity.start(this@GoldApplyActivity)
                             finish()
                         }
 
@@ -168,7 +178,7 @@ class GoldApplyActivity : BaseAbstractActivity() {
 
                     })
         }
-        ID.text = "ID."+intentData?.id.toString()
+        ID.text = "ID." + userid
         guojiahediqu.text = intentData?.city
         phone.text = intentData?.phone
         jinbi.text = intentData?.jinbi

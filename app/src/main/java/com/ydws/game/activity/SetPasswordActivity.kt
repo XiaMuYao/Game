@@ -30,7 +30,7 @@ class SetPasswordActivity : BaseAbstractActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activityResetBinding = DataBindingUtil.setContentView(this, R.layout.activity_set_password)
-        activityResetBinding.idStr =  "ID.$userid"
+        activityResetBinding.idStr = "ID.$userid"
 
         activityResetBinding.viewTitle.findViewById<TextView>(R.id.tv_title_bar).text = "修改密碼"
         activityResetBinding.viewTitle.findViewById<View>(R.id.back).setOnClickListener { finish() }
@@ -63,6 +63,20 @@ class SetPasswordActivity : BaseAbstractActivity() {
             showMessage("兩次交易碼不一致")
             return
         }
+
+        if (activityResetBinding.newPassword.toString().length > 12 || activityResetBinding.newPassword.toString().length < 8) {
+            showMessage("交易密碼不符合規則")
+            return
+        }
+        if (activityResetBinding.oldPassword.toString().length > 12 || activityResetBinding.oldPassword.toString().length < 8) {
+            showMessage("交易密碼不符合規則")
+            return
+        }
+        if (activityResetBinding.newPasswordRepeat.toString().length > 12 || activityResetBinding.newPasswordRepeat.toString().length < 8) {
+            showMessage("交易密碼不符合規則")
+            return
+        }
+
 
 //        id	是	integer	用户id
 //                tradingPassword	是	string	交易密码

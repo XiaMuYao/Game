@@ -84,7 +84,7 @@
         
     <string name="benzhoujinbijiangli">本週金幣獎勵</string>
         
-    <string name="leijijiesuanjinbijiangli">累計結算金幣獎勵</string>
+    <string name="leijijiesuanjinbijiangli">累計領取獎勵</string>
         
     <string name="weilingqujinbijiangli">未領取金幣獎勵</string>
         
@@ -223,7 +223,7 @@
         
     <string name="querenima">確認密碼：</string>
         
-    <string name="goumaidaojushuliang">兌換比例:</string>
+    <string name="goumaidaojushuliang">購買道具數量:</string>
         
     <string name="daojushiyongdengfangfa">兌換比例：\n1道具=6金幣
                         可在金幣結算的遊戲對戰中使用，
@@ -262,6 +262,9 @@
     <string name="zhitongjiduizhan">提示：只統計以金幣為結算單位的遊戲對戰，不限遊戲。</string>
     <string name="benzhoubushoubaohu">提示：提交申請后，可在記錄查詢中查看進度。請使用本人賬戶信息，如信息不符交易將不受保護。</string>
     <string name="daojuhuishou">道具回收</string>
-    <string name="jinbishuliang">金幣數量</string>
-    <string name="shuliang">USDT數量</string>
+    <string name="jinbishuliang">金幣數量:</string>
+    <string name="shuliang">USDT數量:</string>
+    <string name="jiejikahao">借記卡號</string>
+    <string name="shurujiaoyimimadd">請輸入交易密碼:</string>
+    <string name="qingtianxiehuishoushuliang">請填寫回收數量:</string>
 </resources>

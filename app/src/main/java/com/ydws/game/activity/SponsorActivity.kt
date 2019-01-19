@@ -1,5 +1,6 @@
 package com.ydws.game.activity
 
+import android.content.Context
 import android.content.Intent
 import android.view.Gravity
 import android.view.View
@@ -32,6 +33,7 @@ class SponsorActivity : BaseAbstractActivity(), View.OnClickListener {
     override fun getContentLayoutID(): Int {
         return R.layout.activity_sponsor
     }
+
 
     override fun initViews() {
         titleTv = findViewById(R.id.tv_title_bar)
@@ -97,10 +99,10 @@ class SponsorActivity : BaseAbstractActivity(), View.OnClickListener {
     }
 
     companion object {
-
-
-        fun start() {
-
+        fun start(context: Context){
+            val starter = Intent(context,SponsorActivity::class.java)
+//            starter.putExtra()
+            context.startActivity(starter)
         }
     }
 }

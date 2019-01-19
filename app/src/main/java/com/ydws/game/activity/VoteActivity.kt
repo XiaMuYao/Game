@@ -1,6 +1,5 @@
 package com.ydws.game.activity
 
-import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -10,7 +9,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.ydws.game.R
 import com.ydws.game.adapter.VoteAdapter
 import com.ydws.game.base.BaseAbstractActivity
-import com.ydws.game.bean.VoteBean
 import com.ydws.game.bean.youxitoutiaoBean
 import com.ydws.game.net.RetrofitManager
 import com.ydws.game.net.base.BaseObserver

@@ -56,7 +56,7 @@ class MerChantActivity : BaseAbstractActivity(), View.OnClickListener {
         findViewById<View>(R.id.iv_agent).setOnClickListener(this)
         findViewById<View>(R.id.title).findViewById<View>(R.id.back).setOnClickListener { finish() }
         val viewById = findViewById<View>(R.id.title).findViewById<TextView>(R.id.tv_title_bar)
-        viewById.text = "服务代理"
+        viewById.text = "服務代理"
         findViewById<View>(R.id.title).findViewById<View>(R.id.sunbtitle).visibility = View.VISIBLE
         findViewById<View>(R.id.title).findViewById<View>(R.id.sunbtitle).setOnClickListener {
 

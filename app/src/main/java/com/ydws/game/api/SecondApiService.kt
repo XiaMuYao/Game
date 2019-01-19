@@ -58,8 +58,12 @@ interface SecondApiService {
     @POST("fileupload/picture")
     fun uploadPicture(@Part inputStream: MultipartBody.Part): Observable<BaseResponse<String>>
 
-    @POST("agent/xiangQingTrue")
+    @POST("agent/goldCommit")
     fun goldCommit(@QueryMap map: Map<String, String>): Observable<BaseResponse<Any>>
+
+    @POST("agent/xiangQingTrue")
+    fun xiangQingTrue(@QueryMap map: Map<String, String>): Observable<BaseResponse<String?>>
+
 
 
     @GET("game/selectWantSponsor")
@@ -81,7 +85,7 @@ interface SecondApiService {
     fun detailsOfPropRepurchase(@Query("userId") userId: String, @Query("dingdanId") dingdanId: String): Observable<BaseResponse<DetailsOfPropRepurchaseBean>>
 
     @POST("prop/report")
-    fun report(@Query("userId") userId: String, @Query("id") id: String): Observable<BaseResponse<Any?>>
+    fun report(@Query("userId") userId: String, @Query("id") id: String, @Query("beizhu") beizhu: String): Observable<BaseResponse<Any?>>
 
     @GET("agent/getRecord")
     fun getRecord(@Query("userId") userId: String): Observable<BaseResponse<List<DaiLiCaoZuoJinBiBean>>>
@@ -90,7 +94,7 @@ interface SecondApiService {
     fun getDetails(@Query("userId") userId: String, @Query("id") id: String): Observable<BaseResponse<DaiLiCaoZuoGoldDetailBean>>
 
     @POST("prop/biJuBaoUser")
-    fun biJuBaoUser(@Query("userId") userId: String, @Query("id") id: String): Observable<BaseResponse<Any?>>
+    fun biJuBaoUser(@Query("userId") userId: String, @Query("id") id: String,@Query("beizhu") beizhu: String): Observable<BaseResponse<Any?>>
 
     @POST("agent/DeterminingTransactions")
     fun DeterminingTransactions(@Query("userId") userId: String, @Query("jiluId") jiluId: String, @Query("bishangId") bishangId: String, @Query("jinbishu") jinbishu: String): Observable<BaseResponse<Any?>>

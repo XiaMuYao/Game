@@ -33,24 +33,27 @@ class wangjijiaoyActivity : BaseAbstractActivity() {
 
     override fun initViews() {
         ID.text = "ID." + userid
-        view_title.tv_title_bar.text = "交易密码重置"
+        view_title.tv_title_bar.text = "交易密碼重置"
         view_title.back.onClick { finish() }
         submit.setOnClickListener {
             if (!editText3.text.toString().equals(editText4.text.toString())) {
                 toast("两次输入密码不相同")
                 return@setOnClickListener
             }
-            if (editText3.text.toString().length > 8 || editText3.text.length < 5) {
-                toast("交易密码长度不正确 5-8")
+            if (editText3.text.toString().length > 12 || editText3.text.length < 8) {
+                toast("交易密码长度不正确 12-8")
+                return@setOnClickListener
             }
-            if (editText4.text.toString().length > 8 || editText4.text.length < 5) {
-                toast("交易密码长度不正确 5-8")
+            if (editText4.text.toString().length > 12 || editText4.text.length < 8) {
+                toast("交易密码长度不正确 12-8")
+                return@setOnClickListener
             }
             if (tv_gold_count_show.text.isNullOrBlank() ||
                     tv_jiaoyi_pwd_show.text.isNullOrBlank() ||
                     editText3.text.isNullOrBlank() ||
                     editText4.text.isNullOrBlank()) {
                 toast("请补全参数")
+
             } else {
                 submit.onClick {
                     RetrofitManager.service

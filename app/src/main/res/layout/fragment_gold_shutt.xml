@@ -10,7 +10,6 @@
         android:id="@+id/address"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
-        android:enabled="false"
         android:layout_margin="10dp"
         android:background="@mipmap/xuankuang"
 

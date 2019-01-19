@@ -11,6 +11,10 @@ import com.ydws.game.widget.chooser.OnChooseListener
 import com.ydws.game.widget.chooser.SimpleChooserDialog
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
+import android.widget.EditText
+import android.widget.Toast
 import com.ydws.game.*
 import com.ydws.game.bean.*
 import com.ydws.game.body.GoldTradingBody
@@ -45,6 +49,14 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
     override fun initViews() {
         hideAll()
 //        intentData = intent.getSerializableExtra("data") as GoldTradingBean?
+        if (intent.getStringExtra("title") != null) {
+            var title = intent.getStringExtra("title")
+            when(title){
+                "道具回收"-> iv_shop_head.setImageResource(R.mipmap.daojuhuishou)
+            }
+            findViewById<TextView>(R.id.tv_title_bar).text = title
+
+        }
         findViewById<View>(R.id.back).onClick { finish() }
         findViewById<TextView>(R.id.tv_title_bar).text = getString(com.ydws.game.R.string.daojuhuishou)
         val selectType = ArrayList<String>()
@@ -62,7 +74,7 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
                                 .compress(true)// 是否压缩 true or false
                                 .forResult(PictureConfig.CHOOSE_REQUEST)
                     }
-                    "从手机相册获取" ->{
+                    "从手机相册获取" -> {
                         PictureSelector.create(this@DaiLiCaoZuoDaoSearchActivity)
                                 .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
                                 .maxSelectNum(1)// 最大图片选择数量 int
@@ -109,17 +121,17 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
             }
         }
         iv_submit.onClick {
-            if(currentImage.isNullOrBlank()){
+            if (currentImage.isNullOrBlank()) {
                 "請先上傳憑證".toast()
                 return@onClick
             }
-            if(currentPayType == null){
+            if (currentPayType == null) {
                 "請先選擇支付方式".toast()
                 return@onClick
             }
 
             SecondRetrofitManager.service
-                    .sponsorConfirm(userid,currentImage!!,currentPayType!!.id,intent.getStringExtra("id"))
+                    .sponsorConfirm(userid, currentImage!!, currentPayType!!.id, intent.getStringExtra("id"))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(object : BaseObserver<Any?>() {
@@ -135,23 +147,32 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
         }
 
         report.onClick {
-            SecondRetrofitManager.service
-                    .biJuBaoUser(userid,intent.getStringExtra("id"))
-                    .compose(SchedulerUtils.ioToMain())
-                    .subscribe(object : BaseObserver<Any?>(){
-                        override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
-                            "举报成功".toast()
-                        }
 
-                        override fun onCodeError(code: Int, msg: String) {
-                        }
+            val et = EditText(this@DaiLiCaoZuoDaoSearchActivity)
+            AlertDialog.Builder(this@DaiLiCaoZuoDaoSearchActivity).setTitle("请输入消息")
+                    .setView(et)
+                    .setPositiveButton("确定") { dialogInterface, i ->
+                        SecondRetrofitManager.service
+                                .biJuBaoUser(userid, intent.getStringExtra("id"), et.text.toString().trim())
+                                .compose(SchedulerUtils.ioToMain())
+                                .subscribe(object : BaseObserver<Any?>() {
+                                    override fun onSuccees(t: BaseResponse<Any?>, data: Any?) {
+                                        "举报成功".toast()
+                                    }
 
-                    })
+                                    override fun onCodeError(code: Int, msg: String) {
+                                    }
+
+                                })
+
+                    }.setNegativeButton("取消", null).show()
+
+
         }
 
     }
 
-    private fun freshPayType(){
+    private fun freshPayType() {
         hideAll()
         when (currentPayType?.id) {
             "1" -> {
@@ -169,7 +190,7 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
         }
     }
 
-    private fun hideAll(){
+    private fun hideAll() {
         ll_bank.gone()
         ll_zhanghao.gone()
         ll_zhifubao.gone()
@@ -242,13 +263,13 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
                 })
 
 
-        SecondRetrofitManager.service.userBuyBack(userid,intent.getStringExtra("id"))
+        SecondRetrofitManager.service.userBuyBack(userid, intent.getStringExtra("id"))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : BaseObserver<DaiLiCaoZuoDaoSearchBean>() {
                     override fun onSuccees(t: BaseResponse<DaiLiCaoZuoDaoSearchBean>, data: DaiLiCaoZuoDaoSearchBean) {
 
-                        ID.text = "ID."+data.id.toString()
+                        ID.text = "ID." + data.id.toString()
                         guojiahediqu.text = data.city
                         phone.text = data.phone
                         jinbi.text = data.propsNumber.toString()
@@ -259,7 +280,7 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
                         zhifubao.text = data.zhifubaoId
                         fuwudaili.text = data.payee
                         zanzhushijian.text = data.createTime
-                        zhuangtaitv.text = if(data.tradingStatus==1) "进行中" else "已完成"
+                        zhuangtaitv.text = if (data.tradingStatus == 1) "进行中" else "已完成"
                         zanzhushijian.text = data.createTime
                         guojia.text = data.countries
                     }
@@ -282,7 +303,8 @@ class DaiLiCaoZuoDaoSearchActivity : BaseAbstractActivity() {
                     // 2.media.getCutPath();为裁剪后path，需判断media.isCut();是否为true  注意：音视频除外
                     // 3.media.getCompressPath();为压缩后path，需判断media.isCompressed();是否为true  注意：音视频除外
                     // 如果裁剪并压缩了，以取压缩路径为准，因为是先裁剪后压缩的
-                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath?:selectList[0].path))
+                    val requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), File(selectList[0].compressPath
+                            ?: selectList[0].path))
                     val part = MultipartBody.Part.createFormData("file", UUID.randomUUID().toString(), requestFile)
                     showHud(true)
                     SecondRetrofitManager.service.uploadPicture(part)
